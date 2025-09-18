@@ -16160,7 +16160,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           while (1) switch (_context.n) {
             case 0:
               formData = new FormData();
-              console.log(_this.value);
               formData.append(_this.field.attribute, _this.value);
               formData.append('_method', 'PUT');
               return _context.a(2, Nova.request().post("/nova-api/".concat(_this.resourceName, "/").concat(_this.resourceId), formData).then(function () {
