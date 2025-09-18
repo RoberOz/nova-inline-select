@@ -1,24 +1,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/@babel/runtime/regenerator/index.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
-
-
-/***/ }),
-
 /***/ "./node_modules/@inertiajs/inertia/dist/index.js":
 /*!*******************************************************!*\
   !*** ./node_modules/@inertiajs/inertia/dist/index.js ***!
   \*******************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-function e(e){return e&&"object"==typeof e&&"default"in e?e.default:e}var t=e(__webpack_require__(/*! axios */ "./node_modules/axios/index.js")),n=__webpack_require__(/*! qs */ "./node_modules/qs/lib/index.js"),i=e(__webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js"));function r(){return(r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(e[i]=n[i])}return e}).apply(this,arguments)}var o,s={modal:null,listener:null,show:function(e){var t=this;"object"==typeof e&&(e="All Inertia requests must receive a valid Inertia response, however a plain JSON response was received.<hr>"+JSON.stringify(e));var n=document.createElement("html");n.innerHTML=e,n.querySelectorAll("a").forEach(function(e){return e.setAttribute("target","_top")}),this.modal=document.createElement("div"),this.modal.style.position="fixed",this.modal.style.width="100vw",this.modal.style.height="100vh",this.modal.style.padding="50px",this.modal.style.boxSizing="border-box",this.modal.style.backgroundColor="rgba(0, 0, 0, .6)",this.modal.style.zIndex=2e5,this.modal.addEventListener("click",function(){return t.hide()});var i=document.createElement("iframe");if(i.style.backgroundColor="white",i.style.borderRadius="5px",i.style.width="100%",i.style.height="100%",this.modal.appendChild(i),document.body.prepend(this.modal),document.body.style.overflow="hidden",!i.contentWindow)throw new Error("iframe not yet ready.");i.contentWindow.document.open(),i.contentWindow.document.write(n.outerHTML),i.contentWindow.document.close(),this.listener=this.hideOnEscape.bind(this),document.addEventListener("keydown",this.listener)},hide:function(){this.modal.outerHTML="",this.modal=null,document.body.style.overflow="visible",document.removeEventListener("keydown",this.listener)},hideOnEscape:function(e){27===e.keyCode&&this.hide()}};function a(e,t){var n;return function(){var i=arguments,r=this;clearTimeout(n),n=setTimeout(function(){return e.apply(r,[].slice.call(i))},t)}}function c(e,t,n){for(var i in void 0===t&&(t=new FormData),void 0===n&&(n=null),e=e||{})Object.prototype.hasOwnProperty.call(e,i)&&d(t,l(n,i),e[i]);return t}function l(e,t){return e?e+"["+t+"]":t}function d(e,t,n){return Array.isArray(n)?Array.from(n.keys()).forEach(function(i){return d(e,l(t,i.toString()),n[i])}):n instanceof Date?e.append(t,n.toISOString()):n instanceof File?e.append(t,n,n.name):n instanceof Blob?e.append(t,n):"boolean"==typeof n?e.append(t,n?"1":"0"):"string"==typeof n?e.append(t,n):"number"==typeof n?e.append(t,""+n):null==n?e.append(t,""):void c(n,e,t)}function u(e){return new URL(e.toString(),window.location.toString())}function h(e,t,r,o){void 0===o&&(o="brackets");var s=/^https?:\/\//.test(t.toString()),a=s||t.toString().startsWith("/"),c=!a&&!t.toString().startsWith("#")&&!t.toString().startsWith("?"),l=t.toString().includes("?")||e===exports.Method.GET&&Object.keys(r).length,d=t.toString().includes("#"),u=new URL(t.toString(),"http://localhost");return e===exports.Method.GET&&Object.keys(r).length&&(u.search=n.stringify(i(n.parse(u.search,{ignoreQueryPrefix:!0}),r),{encodeValuesOnly:!0,arrayFormat:o}),r={}),[[s?u.protocol+"//"+u.host:"",a?u.pathname:"",c?u.pathname.substring(1):"",l?u.search:"",d?u.hash:""].join(""),r]}function p(e){return(e=new URL(e.href)).hash="",e}function f(e,t){return document.dispatchEvent(new CustomEvent("inertia:"+e,t))}(o=exports.Method||(exports.Method={})).GET="get",o.POST="post",o.PUT="put",o.PATCH="patch",o.DELETE="delete";var v=function(e){return f("finish",{detail:{visit:e}})},m=function(e){return f("navigate",{detail:{page:e}})},g="undefined"==typeof window,w=function(){function e(){this.visitId=null}var n=e.prototype;return n.init=function(e){var t=e.resolveComponent,n=e.swapComponent;this.page=e.initialPage,this.resolveComponent=t,this.swapComponent=n,this.isBackForwardVisit()?this.handleBackForwardVisit(this.page):this.isLocationVisit()?this.handleLocationVisit(this.page):this.handleInitialPageVisit(this.page),this.setupEventListeners()},n.handleInitialPageVisit=function(e){this.page.url+=window.location.hash,this.setPage(e,{preserveState:!0}).then(function(){return m(e)})},n.setupEventListeners=function(){window.addEventListener("popstate",this.handlePopstateEvent.bind(this)),document.addEventListener("scroll",a(this.handleScrollEvent.bind(this),100),!0)},n.scrollRegions=function(){return document.querySelectorAll("[scroll-region]")},n.handleScrollEvent=function(e){"function"==typeof e.target.hasAttribute&&e.target.hasAttribute("scroll-region")&&this.saveScrollPositions()},n.saveScrollPositions=function(){this.replaceState(r({},this.page,{scrollRegions:Array.from(this.scrollRegions()).map(function(e){return{top:e.scrollTop,left:e.scrollLeft}})}))},n.resetScrollPositions=function(){var e;document.documentElement.scrollTop=0,document.documentElement.scrollLeft=0,this.scrollRegions().forEach(function(e){e.scrollTop=0,e.scrollLeft=0}),this.saveScrollPositions(),window.location.hash&&(null==(e=document.getElementById(window.location.hash.slice(1)))||e.scrollIntoView())},n.restoreScrollPositions=function(){var e=this;this.page.scrollRegions&&this.scrollRegions().forEach(function(t,n){var i=e.page.scrollRegions[n];i&&(t.scrollTop=i.top,t.scrollLeft=i.left)})},n.isBackForwardVisit=function(){return window.history.state&&window.performance&&window.performance.getEntriesByType("navigation").length>0&&"back_forward"===window.performance.getEntriesByType("navigation")[0].type},n.handleBackForwardVisit=function(e){var t=this;window.history.state.version=e.version,this.setPage(window.history.state,{preserveScroll:!0,preserveState:!0}).then(function(){t.restoreScrollPositions(),m(e)})},n.locationVisit=function(e,t){try{window.sessionStorage.setItem("inertiaLocationVisit",JSON.stringify({preserveScroll:t})),window.location.href=e.href,p(window.location).href===p(e).href&&window.location.reload()}catch(e){return!1}},n.isLocationVisit=function(){try{return null!==window.sessionStorage.getItem("inertiaLocationVisit")}catch(e){return!1}},n.handleLocationVisit=function(e){var t,n,i,r,o=this,s=JSON.parse(window.sessionStorage.getItem("inertiaLocationVisit")||"");window.sessionStorage.removeItem("inertiaLocationVisit"),e.url+=window.location.hash,e.rememberedState=null!=(t=null==(n=window.history.state)?void 0:n.rememberedState)?t:{},e.scrollRegions=null!=(i=null==(r=window.history.state)?void 0:r.scrollRegions)?i:[],this.setPage(e,{preserveScroll:s.preserveScroll,preserveState:!0}).then(function(){s.preserveScroll&&o.restoreScrollPositions(),m(e)})},n.isLocationVisitResponse=function(e){return e&&409===e.status&&e.headers["x-inertia-location"]},n.isInertiaResponse=function(e){return null==e?void 0:e.headers["x-inertia"]},n.createVisitId=function(){return this.visitId={},this.visitId},n.cancelVisit=function(e,t){var n=t.cancelled,i=void 0!==n&&n,r=t.interrupted,o=void 0!==r&&r;!e||e.completed||e.cancelled||e.interrupted||(e.cancelToken.cancel(),e.onCancel(),e.completed=!1,e.cancelled=i,e.interrupted=o,v(e),e.onFinish(e))},n.finishVisit=function(e){e.cancelled||e.interrupted||(e.completed=!0,e.cancelled=!1,e.interrupted=!1,v(e),e.onFinish(e))},n.resolvePreserveOption=function(e,t){return"function"==typeof e?e(t):"errors"===e?Object.keys(t.props.errors||{}).length>0:e},n.visit=function(e,n){var i=this,o=void 0===n?{}:n,a=o.method,l=void 0===a?exports.Method.GET:a,d=o.data,v=void 0===d?{}:d,m=o.replace,g=void 0!==m&&m,w=o.preserveScroll,y=void 0!==w&&w,S=o.preserveState,b=void 0!==S&&S,E=o.only,P=void 0===E?[]:E,I=o.headers,x=void 0===I?{}:I,V=o.errorBag,T=void 0===V?"":V,L=o.forceFormData,O=void 0!==L&&L,k=o.onCancelToken,C=void 0===k?function(){}:k,M=o.onBefore,A=void 0===M?function(){}:M,F=o.onStart,R=void 0===F?function(){}:F,j=o.onProgress,D=void 0===j?function(){}:j,B=o.onFinish,q=void 0===B?function(){}:B,N=o.onCancel,H=void 0===N?function(){}:N,W=o.onSuccess,G=void 0===W?function(){}:W,U=o.onError,X=void 0===U?function(){}:U,J=o.queryStringArrayFormat,K=void 0===J?"brackets":J,_="string"==typeof e?u(e):e;if(!function e(t){return t instanceof File||t instanceof Blob||t instanceof FileList&&t.length>0||t instanceof FormData&&Array.from(t.values()).some(function(t){return e(t)})||"object"==typeof t&&null!==t&&Object.values(t).some(function(t){return e(t)})}(v)&&!O||v instanceof FormData||(v=c(v)),!(v instanceof FormData)){var z=h(l,_,v,K),Q=z[1];_=u(z[0]),v=Q}var Y={url:_,method:l,data:v,replace:g,preserveScroll:y,preserveState:b,only:P,headers:x,errorBag:T,forceFormData:O,queryStringArrayFormat:K,cancelled:!1,completed:!1,interrupted:!1};if(!1!==A(Y)&&function(e){return f("before",{cancelable:!0,detail:{visit:e}})}(Y)){this.activeVisit&&this.cancelVisit(this.activeVisit,{interrupted:!0}),this.saveScrollPositions();var Z=this.createVisitId();this.activeVisit=r({},Y,{onCancelToken:C,onBefore:A,onStart:R,onProgress:D,onFinish:q,onCancel:H,onSuccess:G,onError:X,queryStringArrayFormat:K,cancelToken:t.CancelToken.source()}),C({cancel:function(){i.activeVisit&&i.cancelVisit(i.activeVisit,{cancelled:!0})}}),function(e){f("start",{detail:{visit:e}})}(Y),R(Y),t({method:l,url:p(_).href,data:l===exports.Method.GET?{}:v,params:l===exports.Method.GET?v:{},cancelToken:this.activeVisit.cancelToken.token,headers:r({},x,{Accept:"text/html, application/xhtml+xml","X-Requested-With":"XMLHttpRequest","X-Inertia":!0},P.length?{"X-Inertia-Partial-Component":this.page.component,"X-Inertia-Partial-Data":P.join(",")}:{},T&&T.length?{"X-Inertia-Error-Bag":T}:{},this.page.version?{"X-Inertia-Version":this.page.version}:{}),onUploadProgress:function(e){v instanceof FormData&&(e.percentage=Math.round(e.loaded/e.total*100),function(e){f("progress",{detail:{progress:e}})}(e),D(e))}}).then(function(e){var t;if(!i.isInertiaResponse(e))return Promise.reject({response:e});var n=e.data;P.length&&n.component===i.page.component&&(n.props=r({},i.page.props,n.props)),y=i.resolvePreserveOption(y,n),(b=i.resolvePreserveOption(b,n))&&null!=(t=window.history.state)&&t.rememberedState&&n.component===i.page.component&&(n.rememberedState=window.history.state.rememberedState);var o=_,s=u(n.url);return o.hash&&!s.hash&&p(o).href===s.href&&(s.hash=o.hash,n.url=s.href),i.setPage(n,{visitId:Z,replace:g,preserveScroll:y,preserveState:b})}).then(function(){var e=i.page.props.errors||{};if(Object.keys(e).length>0){var t=T?e[T]?e[T]:{}:e;return function(e){f("error",{detail:{errors:e}})}(t),X(t)}return f("success",{detail:{page:i.page}}),G(i.page)}).catch(function(e){if(i.isInertiaResponse(e.response))return i.setPage(e.response.data,{visitId:Z});if(i.isLocationVisitResponse(e.response)){var t=u(e.response.headers["x-inertia-location"]),n=_;n.hash&&!t.hash&&p(n).href===t.href&&(t.hash=n.hash),i.locationVisit(t,!0===y)}else{if(!e.response)return Promise.reject(e);f("invalid",{cancelable:!0,detail:{response:e.response}})&&s.show(e.response.data)}}).then(function(){i.activeVisit&&i.finishVisit(i.activeVisit)}).catch(function(e){if(!t.isCancel(e)){var n=f("exception",{cancelable:!0,detail:{exception:e}});if(i.activeVisit&&i.finishVisit(i.activeVisit),n)return Promise.reject(e)}})}},n.setPage=function(e,t){var n=this,i=void 0===t?{}:t,r=i.visitId,o=void 0===r?this.createVisitId():r,s=i.replace,a=void 0!==s&&s,c=i.preserveScroll,l=void 0!==c&&c,d=i.preserveState,h=void 0!==d&&d;return Promise.resolve(this.resolveComponent(e.component)).then(function(t){o===n.visitId&&(e.scrollRegions=e.scrollRegions||[],e.rememberedState=e.rememberedState||{},(a=a||u(e.url).href===window.location.href)?n.replaceState(e):n.pushState(e),n.swapComponent({component:t,page:e,preserveState:h}).then(function(){l||n.resetScrollPositions(),a||m(e)}))})},n.pushState=function(e){this.page=e,window.history.pushState(e,"",e.url)},n.replaceState=function(e){this.page=e,window.history.replaceState(e,"",e.url)},n.handlePopstateEvent=function(e){var t=this;if(null!==e.state){var n=e.state,i=this.createVisitId();Promise.resolve(this.resolveComponent(n.component)).then(function(e){i===t.visitId&&(t.page=n,t.swapComponent({component:e,page:n,preserveState:!1}).then(function(){t.restoreScrollPositions(),m(n)}))})}else{var o=u(this.page.url);o.hash=window.location.hash,this.replaceState(r({},this.page,{url:o.href})),this.resetScrollPositions()}},n.get=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({},n,{method:exports.Method.GET,data:t}))},n.reload=function(e){return void 0===e&&(e={}),this.visit(window.location.href,r({},e,{preserveScroll:!0,preserveState:!0}))},n.replace=function(e,t){var n;return void 0===t&&(t={}),console.warn("Inertia.replace() has been deprecated and will be removed in a future release. Please use Inertia."+(null!=(n=t.method)?n:"get")+"() instead."),this.visit(e,r({preserveState:!0},t,{replace:!0}))},n.post=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.POST,data:t}))},n.put=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.PUT,data:t}))},n.patch=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.PATCH,data:t}))},n.delete=function(e,t){return void 0===t&&(t={}),this.visit(e,r({preserveState:!0},t,{method:exports.Method.DELETE}))},n.remember=function(e,t){var n,i;void 0===t&&(t="default"),g||this.replaceState(r({},this.page,{rememberedState:r({},null==(n=this.page)?void 0:n.rememberedState,(i={},i[t]=e,i))}))},n.restore=function(e){var t,n;if(void 0===e&&(e="default"),!g)return null==(t=window.history.state)||null==(n=t.rememberedState)?void 0:n[e]},n.on=function(e,t){var n=function(e){var n=t(e);e.cancelable&&!e.defaultPrevented&&!1===n&&e.preventDefault()};return document.addEventListener("inertia:"+e,n),function(){return document.removeEventListener("inertia:"+e,n)}},e}(),y={buildDOMElement:function(e){var t=document.createElement("template");t.innerHTML=e;var n=t.content.firstChild;if(!e.startsWith("<script "))return n;var i=document.createElement("script");return i.innerHTML=n.innerHTML,n.getAttributeNames().forEach(function(e){i.setAttribute(e,n.getAttribute(e)||"")}),i},isInertiaManagedElement:function(e){return e.nodeType===Node.ELEMENT_NODE&&null!==e.getAttribute("inertia")},findMatchingElementIndex:function(e,t){var n=e.getAttribute("inertia");return null!==n?t.findIndex(function(e){return e.getAttribute("inertia")===n}):-1},update:a(function(e){var t=this,n=e.map(function(e){return t.buildDOMElement(e)});Array.from(document.head.childNodes).filter(function(e){return t.isInertiaManagedElement(e)}).forEach(function(e){var i=t.findMatchingElementIndex(e,n);if(-1!==i){var r,o=n.splice(i,1)[0];o&&!e.isEqualNode(o)&&(null==e||null==(r=e.parentNode)||r.replaceChild(o,e))}else{var s;null==e||null==(s=e.parentNode)||s.removeChild(e)}}),n.forEach(function(e){return document.head.appendChild(e)})},1)},S=new w;exports.Inertia=S,exports.createHeadManager=function(e,t,n){var i={},r=0;function o(){var e=Object.values(i).reduce(function(e,t){return e.concat(t)},[]).reduce(function(e,n){if(-1===n.indexOf("<"))return e;if(0===n.indexOf("<title ")){var i=n.match(/(<title [^>]+>)(.*?)(<\/title>)/);return e.title=i?""+i[1]+t(i[2])+i[3]:n,e}var r=n.match(/ inertia="[^"]+"/);return r?e[r[0]]=n:e[Object.keys(e).length]=n,e},{});return Object.values(e)}function s(){e?n(o()):y.update(o())}return{createProvider:function(){var e=function(){var e=r+=1;return i[e]=[],e.toString()}();return{update:function(t){return function(e,t){void 0===t&&(t=[]),null!==e&&Object.keys(i).indexOf(e)>-1&&(i[e]=t),s()}(e,t)},disconnect:function(){return function(e){null!==e&&-1!==Object.keys(i).indexOf(e)&&(delete i[e],s())}(e)}}}}},exports.hrefToUrl=u,exports.mergeDataIntoQueryString=h,exports.shouldIntercept=function(e){var t="a"===e.currentTarget.tagName.toLowerCase();return!(e.target&&null!=e&&e.target.isContentEditable||e.defaultPrevented||t&&e.which>1||t&&e.altKey||t&&e.ctrlKey||t&&e.metaKey||t&&e.shiftKey)},exports.urlWithoutHash=p;
+function e(e){return e&&"object"==typeof e&&"default"in e?e.default:e}var t=e(__webpack_require__(/*! axios */ "./node_modules/axios/index.js")),n=__webpack_require__(/*! qs */ "./node_modules/qs/lib/index.js"),i=e(__webpack_require__(/*! deepmerge */ "./node_modules/deepmerge/dist/cjs.js"));function r(){return(r=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var i in n)Object.prototype.hasOwnProperty.call(n,i)&&(e[i]=n[i])}return e}).apply(this,arguments)}var o,s={modal:null,listener:null,show:function(e){var t=this;"object"==typeof e&&(e="All Inertia requests must receive a valid Inertia response, however a plain JSON response was received.<hr>"+JSON.stringify(e));var n=document.createElement("html");n.innerHTML=e,n.querySelectorAll("a").forEach(function(e){return e.setAttribute("target","_top")}),this.modal=document.createElement("div"),this.modal.style.position="fixed",this.modal.style.width="100vw",this.modal.style.height="100vh",this.modal.style.padding="50px",this.modal.style.boxSizing="border-box",this.modal.style.backgroundColor="rgba(0, 0, 0, .6)",this.modal.style.zIndex=2e5,this.modal.addEventListener("click",function(){return t.hide()});var i=document.createElement("iframe");if(i.style.backgroundColor="white",i.style.borderRadius="5px",i.style.width="100%",i.style.height="100%",this.modal.appendChild(i),document.body.prepend(this.modal),document.body.style.overflow="hidden",!i.contentWindow)throw new Error("iframe not yet ready.");i.contentWindow.document.open(),i.contentWindow.document.write(n.outerHTML),i.contentWindow.document.close(),this.listener=this.hideOnEscape.bind(this),document.addEventListener("keydown",this.listener)},hide:function(){this.modal.outerHTML="",this.modal=null,document.body.style.overflow="visible",document.removeEventListener("keydown",this.listener)},hideOnEscape:function(e){27===e.keyCode&&this.hide()}};function a(e,t){var n;return function(){var i=arguments,r=this;clearTimeout(n),n=setTimeout(function(){return e.apply(r,[].slice.call(i))},t)}}function c(e,t,n){for(var i in void 0===t&&(t=new FormData),void 0===n&&(n=null),e=e||{})Object.prototype.hasOwnProperty.call(e,i)&&d(t,l(n,i),e[i]);return t}function l(e,t){return e?e+"["+t+"]":t}function d(e,t,n){return Array.isArray(n)?Array.from(n.keys()).forEach(function(i){return d(e,l(t,i.toString()),n[i])}):n instanceof Date?e.append(t,n.toISOString()):n instanceof File?e.append(t,n,n.name):n instanceof Blob?e.append(t,n):"boolean"==typeof n?e.append(t,n?"1":"0"):"string"==typeof n?e.append(t,n):"number"==typeof n?e.append(t,""+n):null==n?e.append(t,""):void c(n,e,t)}function u(e){return new URL(e.toString(),window.location.toString())}function h(e,t,r,o){void 0===o&&(o="brackets");var s=/^https?:\/\//.test(t.toString()),a=s||t.toString().startsWith("/"),c=!a&&!t.toString().startsWith("#")&&!t.toString().startsWith("?"),l=t.toString().includes("?")||e===exports.Method.GET&&Object.keys(r).length,d=t.toString().includes("#"),u=new URL(t.toString(),"http://localhost");return e===exports.Method.GET&&Object.keys(r).length&&(u.search=n.stringify(i(n.parse(u.search,{ignoreQueryPrefix:!0}),r),{encodeValuesOnly:!0,arrayFormat:o}),r={}),[[s?u.protocol+"//"+u.host:"",a?u.pathname:"",c?u.pathname.substring(1):"",l?u.search:"",d?u.hash:""].join(""),r]}function p(e){return(e=new URL(e.href)).hash="",e}function f(e,t){return document.dispatchEvent(new CustomEvent("inertia:"+e,t))}(o=exports.Method||(exports.Method={})).GET="get",o.POST="post",o.PUT="put",o.PATCH="patch",o.DELETE="delete";var v=function(e){return f("finish",{detail:{visit:e}})},m=function(e){return f("navigate",{detail:{page:e}})},g="undefined"==typeof window,w=function(){function e(){this.visitId=null}var n=e.prototype;return n.init=function(e){var t=e.resolveComponent,n=e.swapComponent;this.page=e.initialPage,this.resolveComponent=t,this.swapComponent=n,this.isBackForwardVisit()?this.handleBackForwardVisit(this.page):this.isLocationVisit()?this.handleLocationVisit(this.page):this.handleInitialPageVisit(this.page),this.setupEventListeners()},n.handleInitialPageVisit=function(e){this.page.url+=window.location.hash,this.setPage(e,{preserveState:!0}).then(function(){return m(e)})},n.setupEventListeners=function(){window.addEventListener("popstate",this.handlePopstateEvent.bind(this)),document.addEventListener("scroll",a(this.handleScrollEvent.bind(this),100),!0)},n.scrollRegions=function(){return document.querySelectorAll("[scroll-region]")},n.handleScrollEvent=function(e){"function"==typeof e.target.hasAttribute&&e.target.hasAttribute("scroll-region")&&this.saveScrollPositions()},n.saveScrollPositions=function(){this.replaceState(r({},this.page,{scrollRegions:Array.from(this.scrollRegions()).map(function(e){return{top:e.scrollTop,left:e.scrollLeft}})}))},n.resetScrollPositions=function(){var e;window.scrollTo(0,0),this.scrollRegions().forEach(function(e){"function"==typeof e.scrollTo?e.scrollTo(0,0):(e.scrollTop=0,e.scrollLeft=0)}),this.saveScrollPositions(),window.location.hash&&(null==(e=document.getElementById(window.location.hash.slice(1)))||e.scrollIntoView())},n.restoreScrollPositions=function(){var e=this;this.page.scrollRegions&&this.scrollRegions().forEach(function(t,n){var i=e.page.scrollRegions[n];i&&("function"==typeof t.scrollTo?t.scrollTo(i.left,i.top):(t.scrollTop=i.top,t.scrollLeft=i.left))})},n.isBackForwardVisit=function(){return window.history.state&&window.performance&&window.performance.getEntriesByType("navigation").length>0&&"back_forward"===window.performance.getEntriesByType("navigation")[0].type},n.handleBackForwardVisit=function(e){var t=this;window.history.state.version=e.version,this.setPage(window.history.state,{preserveScroll:!0,preserveState:!0}).then(function(){t.restoreScrollPositions(),m(e)})},n.locationVisit=function(e,t){try{window.sessionStorage.setItem("inertiaLocationVisit",JSON.stringify({preserveScroll:t})),window.location.href=e.href,p(window.location).href===p(e).href&&window.location.reload()}catch(e){return!1}},n.isLocationVisit=function(){try{return null!==window.sessionStorage.getItem("inertiaLocationVisit")}catch(e){return!1}},n.handleLocationVisit=function(e){var t,n,i,r,o=this,s=JSON.parse(window.sessionStorage.getItem("inertiaLocationVisit")||"");window.sessionStorage.removeItem("inertiaLocationVisit"),e.url+=window.location.hash,e.rememberedState=null!=(t=null==(n=window.history.state)?void 0:n.rememberedState)?t:{},e.scrollRegions=null!=(i=null==(r=window.history.state)?void 0:r.scrollRegions)?i:[],this.setPage(e,{preserveScroll:s.preserveScroll,preserveState:!0}).then(function(){s.preserveScroll&&o.restoreScrollPositions(),m(e)})},n.isLocationVisitResponse=function(e){return e&&409===e.status&&e.headers["x-inertia-location"]},n.isInertiaResponse=function(e){return null==e?void 0:e.headers["x-inertia"]},n.createVisitId=function(){return this.visitId={},this.visitId},n.cancelVisit=function(e,t){var n=t.cancelled,i=void 0!==n&&n,r=t.interrupted,o=void 0!==r&&r;!e||e.completed||e.cancelled||e.interrupted||(e.cancelToken.cancel(),e.onCancel(),e.completed=!1,e.cancelled=i,e.interrupted=o,v(e),e.onFinish(e))},n.finishVisit=function(e){e.cancelled||e.interrupted||(e.completed=!0,e.cancelled=!1,e.interrupted=!1,v(e),e.onFinish(e))},n.resolvePreserveOption=function(e,t){return"function"==typeof e?e(t):"errors"===e?Object.keys(t.props.errors||{}).length>0:e},n.visit=function(e,n){var i=this,o=void 0===n?{}:n,a=o.method,l=void 0===a?exports.Method.GET:a,d=o.data,v=void 0===d?{}:d,m=o.replace,g=void 0!==m&&m,w=o.preserveScroll,y=void 0!==w&&w,S=o.preserveState,b=void 0!==S&&S,E=o.only,P=void 0===E?[]:E,T=o.headers,I=void 0===T?{}:T,x=o.errorBag,V=void 0===x?"":x,L=o.forceFormData,O=void 0!==L&&L,k=o.onCancelToken,C=void 0===k?function(){}:k,M=o.onBefore,A=void 0===M?function(){}:M,j=o.onStart,F=void 0===j?function(){}:j,R=o.onProgress,D=void 0===R?function(){}:R,B=o.onFinish,q=void 0===B?function(){}:B,N=o.onCancel,H=void 0===N?function(){}:N,W=o.onSuccess,G=void 0===W?function(){}:W,U=o.onError,X=void 0===U?function(){}:U,J=o.queryStringArrayFormat,K=void 0===J?"brackets":J,_="string"==typeof e?u(e):e;if(!function e(t){return t instanceof File||t instanceof Blob||t instanceof FileList&&t.length>0||t instanceof FormData&&Array.from(t.values()).some(function(t){return e(t)})||"object"==typeof t&&null!==t&&Object.values(t).some(function(t){return e(t)})}(v)&&!O||v instanceof FormData||(v=c(v)),!(v instanceof FormData)){var z=h(l,_,v,K),Q=z[1];_=u(z[0]),v=Q}var Y={url:_,method:l,data:v,replace:g,preserveScroll:y,preserveState:b,only:P,headers:I,errorBag:V,forceFormData:O,queryStringArrayFormat:K,cancelled:!1,completed:!1,interrupted:!1};if(!1!==A(Y)&&function(e){return f("before",{cancelable:!0,detail:{visit:e}})}(Y)){this.activeVisit&&this.cancelVisit(this.activeVisit,{interrupted:!0}),this.saveScrollPositions();var Z=this.createVisitId();this.activeVisit=r({},Y,{onCancelToken:C,onBefore:A,onStart:F,onProgress:D,onFinish:q,onCancel:H,onSuccess:G,onError:X,queryStringArrayFormat:K,cancelToken:t.CancelToken.source()}),C({cancel:function(){i.activeVisit&&i.cancelVisit(i.activeVisit,{cancelled:!0})}}),function(e){f("start",{detail:{visit:e}})}(Y),F(Y),t({method:l,url:p(_).href,data:l===exports.Method.GET?{}:v,params:l===exports.Method.GET?v:{},cancelToken:this.activeVisit.cancelToken.token,headers:r({},I,{Accept:"text/html, application/xhtml+xml","X-Requested-With":"XMLHttpRequest","X-Inertia":!0},P.length?{"X-Inertia-Partial-Component":this.page.component,"X-Inertia-Partial-Data":P.join(",")}:{},V&&V.length?{"X-Inertia-Error-Bag":V}:{},this.page.version?{"X-Inertia-Version":this.page.version}:{}),onUploadProgress:function(e){v instanceof FormData&&(e.percentage=Math.round(e.loaded/e.total*100),function(e){f("progress",{detail:{progress:e}})}(e),D(e))}}).then(function(e){var t;if(!i.isInertiaResponse(e))return Promise.reject({response:e});var n=e.data;P.length&&n.component===i.page.component&&(n.props=r({},i.page.props,n.props)),y=i.resolvePreserveOption(y,n),(b=i.resolvePreserveOption(b,n))&&null!=(t=window.history.state)&&t.rememberedState&&n.component===i.page.component&&(n.rememberedState=window.history.state.rememberedState);var o=_,s=u(n.url);return o.hash&&!s.hash&&p(o).href===s.href&&(s.hash=o.hash,n.url=s.href),i.setPage(n,{visitId:Z,replace:g,preserveScroll:y,preserveState:b})}).then(function(){var e=i.page.props.errors||{};if(Object.keys(e).length>0){var t=V?e[V]?e[V]:{}:e;return function(e){f("error",{detail:{errors:e}})}(t),X(t)}return f("success",{detail:{page:i.page}}),G(i.page)}).catch(function(e){if(i.isInertiaResponse(e.response))return i.setPage(e.response.data,{visitId:Z});if(i.isLocationVisitResponse(e.response)){var t=u(e.response.headers["x-inertia-location"]),n=_;n.hash&&!t.hash&&p(n).href===t.href&&(t.hash=n.hash),i.locationVisit(t,!0===y)}else{if(!e.response)return Promise.reject(e);f("invalid",{cancelable:!0,detail:{response:e.response}})&&s.show(e.response.data)}}).then(function(){i.activeVisit&&i.finishVisit(i.activeVisit)}).catch(function(e){if(!t.isCancel(e)){var n=f("exception",{cancelable:!0,detail:{exception:e}});if(i.activeVisit&&i.finishVisit(i.activeVisit),n)return Promise.reject(e)}})}},n.setPage=function(e,t){var n=this,i=void 0===t?{}:t,r=i.visitId,o=void 0===r?this.createVisitId():r,s=i.replace,a=void 0!==s&&s,c=i.preserveScroll,l=void 0!==c&&c,d=i.preserveState,h=void 0!==d&&d;return Promise.resolve(this.resolveComponent(e.component)).then(function(t){o===n.visitId&&(e.scrollRegions=e.scrollRegions||[],e.rememberedState=e.rememberedState||{},(a=a||u(e.url).href===window.location.href)?n.replaceState(e):n.pushState(e),n.swapComponent({component:t,page:e,preserveState:h}).then(function(){l||n.resetScrollPositions(),a||m(e)}))})},n.pushState=function(e){this.page=e,window.history.pushState(e,"",e.url)},n.replaceState=function(e){this.page=e,window.history.replaceState(e,"",e.url)},n.handlePopstateEvent=function(e){var t=this;if(null!==e.state){var n=e.state,i=this.createVisitId();Promise.resolve(this.resolveComponent(n.component)).then(function(e){i===t.visitId&&(t.page=n,t.swapComponent({component:e,page:n,preserveState:!1}).then(function(){t.restoreScrollPositions(),m(n)}))})}else{var o=u(this.page.url);o.hash=window.location.hash,this.replaceState(r({},this.page,{url:o.href})),this.resetScrollPositions()}},n.get=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({},n,{method:exports.Method.GET,data:t}))},n.reload=function(e){return void 0===e&&(e={}),this.visit(window.location.href,r({},e,{preserveScroll:!0,preserveState:!0}))},n.replace=function(e,t){var n;return void 0===t&&(t={}),console.warn("Inertia.replace() has been deprecated and will be removed in a future release. Please use Inertia."+(null!=(n=t.method)?n:"get")+"() instead."),this.visit(e,r({preserveState:!0},t,{replace:!0}))},n.post=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.POST,data:t}))},n.put=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.PUT,data:t}))},n.patch=function(e,t,n){return void 0===t&&(t={}),void 0===n&&(n={}),this.visit(e,r({preserveState:!0},n,{method:exports.Method.PATCH,data:t}))},n.delete=function(e,t){return void 0===t&&(t={}),this.visit(e,r({preserveState:!0},t,{method:exports.Method.DELETE}))},n.remember=function(e,t){var n,i;void 0===t&&(t="default"),g||this.replaceState(r({},this.page,{rememberedState:r({},null==(n=this.page)?void 0:n.rememberedState,(i={},i[t]=e,i))}))},n.restore=function(e){var t,n;if(void 0===e&&(e="default"),!g)return null==(t=window.history.state)||null==(n=t.rememberedState)?void 0:n[e]},n.on=function(e,t){var n=function(e){var n=t(e);e.cancelable&&!e.defaultPrevented&&!1===n&&e.preventDefault()};return document.addEventListener("inertia:"+e,n),function(){return document.removeEventListener("inertia:"+e,n)}},e}(),y={buildDOMElement:function(e){var t=document.createElement("template");t.innerHTML=e;var n=t.content.firstChild;if(!e.startsWith("<script "))return n;var i=document.createElement("script");return i.innerHTML=n.innerHTML,n.getAttributeNames().forEach(function(e){i.setAttribute(e,n.getAttribute(e)||"")}),i},isInertiaManagedElement:function(e){return e.nodeType===Node.ELEMENT_NODE&&null!==e.getAttribute("inertia")},findMatchingElementIndex:function(e,t){var n=e.getAttribute("inertia");return null!==n?t.findIndex(function(e){return e.getAttribute("inertia")===n}):-1},update:a(function(e){var t=this,n=e.map(function(e){return t.buildDOMElement(e)});Array.from(document.head.childNodes).filter(function(e){return t.isInertiaManagedElement(e)}).forEach(function(e){var i=t.findMatchingElementIndex(e,n);if(-1!==i){var r,o=n.splice(i,1)[0];o&&!e.isEqualNode(o)&&(null==e||null==(r=e.parentNode)||r.replaceChild(o,e))}else{var s;null==e||null==(s=e.parentNode)||s.removeChild(e)}}),n.forEach(function(e){return document.head.appendChild(e)})},1)},S=new w;exports.Inertia=S,exports.createHeadManager=function(e,t,n){var i={},r=0;function o(){var e=Object.values(i).reduce(function(e,t){return e.concat(t)},[]).reduce(function(e,n){if(-1===n.indexOf("<"))return e;if(0===n.indexOf("<title ")){var i=n.match(/(<title [^>]+>)(.*?)(<\/title>)/);return e.title=i?""+i[1]+t(i[2])+i[3]:n,e}var r=n.match(/ inertia="[^"]+"/);return r?e[r[0]]=n:e[Object.keys(e).length]=n,e},{});return Object.values(e)}function s(){e?n(o()):y.update(o())}return{createProvider:function(){var e=function(){var e=r+=1;return i[e]=[],e.toString()}();return{update:function(t){return function(e,t){void 0===t&&(t=[]),null!==e&&Object.keys(i).indexOf(e)>-1&&(i[e]=t),s()}(e,t)},disconnect:function(){return function(e){null!==e&&-1!==Object.keys(i).indexOf(e)&&(delete i[e],s())}(e)}}}}},exports.hrefToUrl=u,exports.mergeDataIntoQueryString=h,exports.shouldIntercept=function(e){var t="a"===e.currentTarget.tagName.toLowerCase();return!(e.target&&null!=e&&e.target.isContentEditable||e.defaultPrevented||t&&e.which>1||t&&e.altKey||t&&e.ctrlKey||t&&e.metaKey||t&&e.shiftKey)},exports.urlWithoutHash=p;
 //# sourceMappingURL=index.js.map
 
 
@@ -33,8 +22,8 @@ function e(e){return e&&"object"==typeof e&&"default"in e?e.default:e}var t=e(__
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "HOOK_PLUGIN_SETTINGS_SET": () => (/* binding */ HOOK_PLUGIN_SETTINGS_SET),
-/* harmony export */   "HOOK_SETUP": () => (/* binding */ HOOK_SETUP)
+/* harmony export */   HOOK_PLUGIN_SETTINGS_SET: () => (/* binding */ HOOK_PLUGIN_SETTINGS_SET),
+/* harmony export */   HOOK_SETUP: () => (/* binding */ HOOK_SETUP)
 /* harmony export */ });
 const HOOK_SETUP = 'devtools-plugin:setup';
 const HOOK_PLUGIN_SETTINGS_SET = 'plugin:settings:set';
@@ -51,19 +40,19 @@ const HOOK_PLUGIN_SETTINGS_SET = 'plugin:settings:set';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getDevtoolsGlobalHook": () => (/* binding */ getDevtoolsGlobalHook),
-/* harmony export */   "getTarget": () => (/* binding */ getTarget),
-/* harmony export */   "isProxyAvailable": () => (/* binding */ isProxyAvailable)
+/* harmony export */   getDevtoolsGlobalHook: () => (/* binding */ getDevtoolsGlobalHook),
+/* harmony export */   getTarget: () => (/* binding */ getTarget),
+/* harmony export */   isProxyAvailable: () => (/* binding */ isProxyAvailable)
 /* harmony export */ });
 function getDevtoolsGlobalHook() {
     return getTarget().__VUE_DEVTOOLS_GLOBAL_HOOK__;
 }
 function getTarget() {
-    // @ts-ignore
+    // @ts-expect-error navigator and windows are not available in all environments
     return (typeof navigator !== 'undefined' && typeof window !== 'undefined')
         ? window
-        : typeof __webpack_require__.g !== 'undefined'
-            ? __webpack_require__.g
+        : typeof globalThis !== 'undefined'
+            ? globalThis
             : {};
 }
 const isProxyAvailable = typeof Proxy === 'function';
@@ -80,14 +69,14 @@ const isProxyAvailable = typeof Proxy === 'function';
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isPerformanceSupported": () => (/* reexport safe */ _time__WEBPACK_IMPORTED_MODULE_0__.isPerformanceSupported),
-/* harmony export */   "now": () => (/* reexport safe */ _time__WEBPACK_IMPORTED_MODULE_0__.now),
-/* harmony export */   "setupDevtoolsPlugin": () => (/* binding */ setupDevtoolsPlugin)
+/* harmony export */   isPerformanceSupported: () => (/* reexport safe */ _time_js__WEBPACK_IMPORTED_MODULE_3__.isPerformanceSupported),
+/* harmony export */   now: () => (/* reexport safe */ _time_js__WEBPACK_IMPORTED_MODULE_3__.now),
+/* harmony export */   setupDevtoolsPlugin: () => (/* binding */ setupDevtoolsPlugin)
 /* harmony export */ });
-/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./env */ "./node_modules/@vue/devtools-api/lib/esm/env.js");
-/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./const */ "./node_modules/@vue/devtools-api/lib/esm/const.js");
-/* harmony import */ var _proxy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./proxy */ "./node_modules/@vue/devtools-api/lib/esm/proxy.js");
-/* harmony import */ var _time__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./time */ "./node_modules/@vue/devtools-api/lib/esm/time.js");
+/* harmony import */ var _env_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./env.js */ "./node_modules/@vue/devtools-api/lib/esm/env.js");
+/* harmony import */ var _const_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./const.js */ "./node_modules/@vue/devtools-api/lib/esm/const.js");
+/* harmony import */ var _proxy_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./proxy.js */ "./node_modules/@vue/devtools-api/lib/esm/proxy.js");
+/* harmony import */ var _time_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./time.js */ "./node_modules/@vue/devtools-api/lib/esm/time.js");
 
 
 
@@ -96,22 +85,23 @@ __webpack_require__.r(__webpack_exports__);
 
 function setupDevtoolsPlugin(pluginDescriptor, setupFn) {
     const descriptor = pluginDescriptor;
-    const target = (0,_env__WEBPACK_IMPORTED_MODULE_1__.getTarget)();
-    const hook = (0,_env__WEBPACK_IMPORTED_MODULE_1__.getDevtoolsGlobalHook)();
-    const enableProxy = _env__WEBPACK_IMPORTED_MODULE_1__.isProxyAvailable && descriptor.enableEarlyProxy;
+    const target = (0,_env_js__WEBPACK_IMPORTED_MODULE_0__.getTarget)();
+    const hook = (0,_env_js__WEBPACK_IMPORTED_MODULE_0__.getDevtoolsGlobalHook)();
+    const enableProxy = _env_js__WEBPACK_IMPORTED_MODULE_0__.isProxyAvailable && descriptor.enableEarlyProxy;
     if (hook && (target.__VUE_DEVTOOLS_PLUGIN_API_AVAILABLE__ || !enableProxy)) {
-        hook.emit(_const__WEBPACK_IMPORTED_MODULE_2__.HOOK_SETUP, pluginDescriptor, setupFn);
+        hook.emit(_const_js__WEBPACK_IMPORTED_MODULE_1__.HOOK_SETUP, pluginDescriptor, setupFn);
     }
     else {
-        const proxy = enableProxy ? new _proxy__WEBPACK_IMPORTED_MODULE_3__.ApiProxy(descriptor, hook) : null;
+        const proxy = enableProxy ? new _proxy_js__WEBPACK_IMPORTED_MODULE_2__.ApiProxy(descriptor, hook) : null;
         const list = target.__VUE_DEVTOOLS_PLUGINS__ = target.__VUE_DEVTOOLS_PLUGINS__ || [];
         list.push({
             pluginDescriptor: descriptor,
             setupFn,
             proxy,
         });
-        if (proxy)
+        if (proxy) {
             setupFn(proxy.proxiedTarget);
+        }
     }
 }
 
@@ -127,10 +117,10 @@ function setupDevtoolsPlugin(pluginDescriptor, setupFn) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ApiProxy": () => (/* binding */ ApiProxy)
+/* harmony export */   ApiProxy: () => (/* binding */ ApiProxy)
 /* harmony export */ });
-/* harmony import */ var _const__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./const */ "./node_modules/@vue/devtools-api/lib/esm/const.js");
-/* harmony import */ var _time__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./time */ "./node_modules/@vue/devtools-api/lib/esm/time.js");
+/* harmony import */ var _const_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./const.js */ "./node_modules/@vue/devtools-api/lib/esm/const.js");
+/* harmony import */ var _time_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./time.js */ "./node_modules/@vue/devtools-api/lib/esm/time.js");
 
 
 class ApiProxy {
@@ -171,11 +161,11 @@ class ApiProxy {
                 currentSettings = value;
             },
             now() {
-                return (0,_time__WEBPACK_IMPORTED_MODULE_0__.now)();
+                return (0,_time_js__WEBPACK_IMPORTED_MODULE_1__.now)();
             },
         };
         if (hook) {
-            hook.on(_const__WEBPACK_IMPORTED_MODULE_1__.HOOK_PLUGIN_SETTINGS_SET, (pluginId, value) => {
+            hook.on(_const_js__WEBPACK_IMPORTED_MODULE_0__.HOOK_PLUGIN_SETTINGS_SET, (pluginId, value) => {
                 if (pluginId === this.plugin.id) {
                     this.fallbacks.setSettings(value);
                 }
@@ -216,7 +206,7 @@ class ApiProxy {
                 }
                 else {
                     return (...args) => {
-                        return new Promise(resolve => {
+                        return new Promise((resolve) => {
                             this.targetQueue.push({
                                 method: prop,
                                 args,
@@ -251,8 +241,8 @@ class ApiProxy {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isPerformanceSupported": () => (/* binding */ isPerformanceSupported),
-/* harmony export */   "now": () => (/* binding */ now)
+/* harmony export */   isPerformanceSupported: () => (/* binding */ isPerformanceSupported),
+/* harmony export */   now: () => (/* binding */ now)
 /* harmony export */ });
 let supported;
 let perf;
@@ -265,9 +255,9 @@ function isPerformanceSupported() {
         supported = true;
         perf = window.performance;
     }
-    else if (typeof __webpack_require__.g !== 'undefined' && ((_a = __webpack_require__.g.perf_hooks) === null || _a === void 0 ? void 0 : _a.performance)) {
+    else if (typeof globalThis !== 'undefined' && ((_a = globalThis.perf_hooks) === null || _a === void 0 ? void 0 : _a.performance)) {
         supported = true;
-        perf = __webpack_require__.g.perf_hooks.performance;
+        perf = globalThis.perf_hooks.performance;
     }
     else {
         supported = false;
@@ -2334,6 +2324,17 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/axios/package.json":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/package.json ***!
+  \*****************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = /*#__PURE__*/JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DetailField.vue?vue&type=script&lang=js":
 /*!*****************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DetailField.vue?vue&type=script&lang=js ***!
@@ -2354,7 +2355,6 @@ __webpack_require__.r(__webpack_exports__);
   props: ['index', 'resourceId'],
   mounted: function mounted() {
     var _this$field$inlineDet, _this$field$detailTwo;
-
     this.isInline = (_this$field$inlineDet = this.field.inlineDetail) !== null && _this$field$inlineDet !== void 0 ? _this$field$inlineDet : false;
     this.twoStepDisabled = (_this$field$detailTwo = this.field.detailTwoStepDisabled) !== null && _this$field$detailTwo !== void 0 ? _this$field$detailTwo : false;
   }
@@ -2405,7 +2405,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this$field$inlineInd, _this$field$indexTwoS;
-
     this.isInline = (_this$field$inlineInd = this.field.inlineIndex) !== null && _this$field$inlineInd !== void 0 ? _this$field$inlineInd : false;
     this.resourceId = this.$attrs.resource.id.value;
     this.twoStepDisabled = (_this$field$indexTwoS = this.field.indexTwoStepDisabled) !== null && _this$field$indexTwoS !== void 0 ? _this$field$indexTwoS : false;
@@ -2432,6 +2431,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
 /* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/mixins */ "./vendor/laravel/nova/resources/js/mixins/index.js");
+/* harmony import */ var _util_filled__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/util/filled */ "./vendor/laravel/nova/resources/js/util/filled.js");
+
 
 
 
@@ -2441,26 +2442,27 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: '',
-      selectedOption: null,
-      value: null
+      selectedOption: null
     };
   },
   created: function created() {
     var _this = this;
-
-    if (this.field.value) {
+    if ((0,_util_filled__WEBPACK_IMPORTED_MODULE_4__["default"])(this.field.value)) {
       var selectedOption = lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(this.field.options, function (v) {
         return v.value == _this.field.value;
       });
-
-      if (!lodash_isNil__WEBPACK_IMPORTED_MODULE_2___default()(selectedOption)) {
-        this.$nextTick(function () {
-          _this.selectOption(selectedOption);
-        });
-      }
+      this.$nextTick(function () {
+        _this.selectOption(selectedOption);
+      });
     }
   },
   methods: {
+    /**
+     * Return the field default value.
+     */
+    fieldDefaultValue: function fieldDefaultValue() {
+      return null;
+    },
     /**
      * Provide a function that fills a passed FormData object with the
      * field's internal value attribute. Here we are forcing there to be a
@@ -2470,41 +2472,38 @@ __webpack_require__.r(__webpack_exports__);
      */
     fill: function fill(formData) {
       var _this$value;
-
-      formData.append(this.field.attribute, (_this$value = this.value) !== null && _this$value !== void 0 ? _this$value : '');
+      this.fillIfVisible(formData, this.fieldAttribute, (_this$value = this.value) !== null && _this$value !== void 0 ? _this$value : '');
     },
-
     /**
      * Set the search string to be used to filter the select field.
      */
     performSearch: function performSearch(event) {
       this.search = event;
     },
-
     /**
      * Clear the current selection for the field.
      */
     clearSelection: function clearSelection() {
-      this.selectedOption = '';
-      this.value = '';
-
+      this.selectedOption = null;
+      this.value = this.fieldDefaultValue();
       if (this.field) {
-        this.emitFieldValueChange(this.field.attribute, this.value);
+        this.emitFieldValueChange(this.fieldAttribute, this.value);
       }
     },
-
     /**
      * Select the given option.
      */
     selectOption: function selectOption(option) {
+      if (lodash_isNil__WEBPACK_IMPORTED_MODULE_2___default()(option)) {
+        this.clearSelection();
+        return;
+      }
       this.selectedOption = option;
       this.value = option.value;
-
       if (this.field) {
-        this.emitFieldValueChange(this.field.attribute, this.value);
+        this.emitFieldValueChange(this.fieldAttribute, this.value);
       }
     },
-
     /**
      * Handle the selection change event.
      */
@@ -2512,41 +2511,36 @@ __webpack_require__.r(__webpack_exports__);
       var selectedOption = lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(this.currentField.options, function (v) {
         return v.value == value;
       });
-
-      if (lodash_isNil__WEBPACK_IMPORTED_MODULE_2___default()(selectedOption)) {
-        this.clearSelection();
-      } else {
-        this.selectOption(selectedOption);
-      }
+      this.selectOption(selectedOption);
     },
-
     /**
      * Handle on synced field.
      */
     onSyncedField: function onSyncedField() {
       var _this2 = this;
-
       var currentSelectedOption = null;
-
+      var hasValue = false;
       if (this.selectedOption) {
+        hasValue = true;
         currentSelectedOption = lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(this.currentField.options, function (v) {
-          return v.value == _this2.selectedOption.value;
+          return v.value === _this2.selectedOption.value;
         });
       }
-
-      if (!currentSelectedOption) {
+      var selectedOption = lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(this.currentField.options, function (v) {
+        return v.value == _this2.currentField.value;
+      });
+      if (lodash_isNil__WEBPACK_IMPORTED_MODULE_2___default()(currentSelectedOption)) {
         this.clearSelection();
-
         if (this.currentField.value) {
-          var selectedOption = lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(this.currentField.options, function (v) {
-            return v.value == _this2.currentField.value;
-          });
           this.selectOption(selectedOption);
-        } else if (!this.currentField.nullable) {
+        } else if (hasValue && !this.currentField.nullable) {
           this.selectOption(lodash_first__WEBPACK_IMPORTED_MODULE_1___default()(this.currentField.options));
         }
+        return;
+      } else if (currentSelectedOption && selectedOption && ['create', 'attach'].includes(this.editMode)) {
+        this.selectOption(selectedOption);
+        return;
       }
-
       this.selectOption(currentSelectedOption);
     }
   },
@@ -2557,27 +2551,23 @@ __webpack_require__.r(__webpack_exports__);
     isSearchable: function isSearchable() {
       return this.currentField.searchable;
     },
-
     /**
      * Return the field options filtered by the search string.
      */
     filteredOptions: function filteredOptions() {
       var _this3 = this;
-
-      return this.field.options.filter(function (option) {
-        return option.label.toLowerCase().indexOf(_this3.search.toLowerCase()) > -1;
+      return this.currentField.options.filter(function (option) {
+        return option.label.toString().toLowerCase().indexOf(_this3.search.toLowerCase()) > -1;
       });
     },
-
     /**
      * Return the placeholder text for the field.
      */
     placeholder: function placeholder() {
       return this.currentField.placeholder || this.__('Choose an option');
     },
-
     /**
-     * Return value has been setted.
+     * Determine if the field has a non-empty value.
      */
     hasValue: function hasValue() {
       return Boolean(!(this.value === undefined || this.value === null || this.value === ''));
@@ -2596,7 +2586,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
@@ -2612,13 +2602,9 @@ var _hoisted_5 = {
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SelectControl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SelectControl");
-
   var _component_Icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Icon");
-
   var _component_BasicButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BasicButton");
-
   var _component_PanelItem = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("PanelItem");
-
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_PanelItem, {
     index: $props.index,
     field: _ctx.field
@@ -2647,16 +2633,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             value: "",
             selected: "",
             disabled: !_ctx.field.nullable
-          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.placeholder), 9
-          /* TEXT, PROPS */
-          , _hoisted_2)];
+          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.placeholder), 9 /* TEXT, PROPS */, _hoisted_2)];
         }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["id", "dusk", "selected", "onChange", "select-classes", "options", "disabled"]), _ctx.showUpdateButton ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_BasicButton, {
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["id", "dusk", "selected", "onChange", "select-classes", "options", "disabled"]), _ctx.showUpdateButton ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_BasicButton, {
         key: 0,
         "class": "shadow relative ml-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900",
         title: _ctx.__('Update'),
@@ -2668,14 +2648,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             solid: ""
           })];
         }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["title", "onClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
-      /* STABLE_FRAGMENT */
-      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["title", "onClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64 /* STABLE_FRAGMENT */)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 1
       }, [_ctx.hasValue ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 0
@@ -2683,26 +2657,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         key: 0,
         onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {}, ["stop"])),
         innerHTML: _ctx.field.value
-      }, null, 8
-      /* PROPS */
-      , _hoisted_3)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
+      }, null, 8 /* PROPS */, _hoisted_3)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
         key: 1,
         "class": "whitespace-nowrap",
         textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.field.value)
-      }, null, 8
-      /* PROPS */
-      , _hoisted_4))], 2112
-      /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
-      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "—"))], 2112
-      /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
-      ))])];
+      }, null, 8 /* PROPS */, _hoisted_4))], 64 /* STABLE_FRAGMENT */)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "—"))], 64 /* STABLE_FRAGMENT */))])];
     }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["index", "field"]);
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["index", "field"]);
 }
 
 /***/ }),
@@ -2716,7 +2678,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
@@ -2732,11 +2694,8 @@ var _hoisted_5 = {
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SelectControl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SelectControl");
-
   var _component_Icon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Icon");
-
   var _component_BasicButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("BasicButton");
-
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_ctx.isInline ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectControl, {
@@ -2760,16 +2719,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value: "",
         selected: "",
         disabled: !_ctx.field.nullable
-      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.placeholder), 9
-      /* TEXT, PROPS */
-      , _hoisted_2)];
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.placeholder), 9 /* TEXT, PROPS */, _hoisted_2)];
     }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["id", "dusk", "selected", "onChange", "select-classes", "options", "disabled"]), _ctx.showUpdateButton ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_BasicButton, {
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["id", "dusk", "selected", "onChange", "select-classes", "options", "disabled"]), _ctx.showUpdateButton ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_BasicButton, {
     key: 0,
     "class": "shadow relative ml-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900",
     title: _ctx.__('Update'),
@@ -2781,14 +2734,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         solid: ""
       })];
     }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["title", "onClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64
-  /* STABLE_FRAGMENT */
-  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["title", "onClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 64 /* STABLE_FRAGMENT */)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 1
   }, [_ctx.hasValue ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     key: 0
@@ -2796,19 +2743,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     key: 0,
     onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {}, ["stop"])),
     innerHTML: _ctx.field.value
-  }, null, 8
-  /* PROPS */
-  , _hoisted_3)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
+  }, null, 8 /* PROPS */, _hoisted_3)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
     key: 1,
     "class": "whitespace-nowrap",
     textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.field.value)
-  }, null, 8
-  /* PROPS */
-  , _hoisted_4))], 2112
-  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
-  )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "—"))], 2112
-  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
-  ))]);
+  }, null, 8 /* PROPS */, _hoisted_4))], 64 /* STABLE_FRAGMENT */)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_5, "—"))], 64 /* STABLE_FRAGMENT */))]);
 }
 
 /***/ }),
@@ -2822,7 +2761,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
@@ -2834,52 +2773,44 @@ var _hoisted_1 = {
 var _hoisted_2 = ["disabled"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SearchInput = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SearchInput");
-
   var _component_SelectControl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SelectControl");
-
   var _component_DefaultField = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DefaultField");
-
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_DefaultField, {
     field: _ctx.currentField,
     errors: _ctx.errors,
-    "show-help-text": _ctx.showHelpText
+    "show-help-text": _ctx.showHelpText,
+    "full-width-content": _ctx.fullWidthContent
   }, {
     field: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Search Input "), !_ctx.currentlyIsReadonly && $options.isSearchable ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_SearchInput, {
         key: 0,
-        "data-testid": "".concat(_ctx.field.attribute, "-search-input"),
+        dusk: "".concat(_ctx.field.attribute, "-search-input"),
         onInput: $options.performSearch,
         onClear: $options.clearSelection,
         onSelected: $options.selectOption,
-        error: _ctx.hasError,
+        "has-error": _ctx.hasError,
         value: _ctx.selectedOption,
         data: $options.filteredOptions,
         clearable: _ctx.currentField.nullable,
         trackBy: "value",
-        "class": "w-full"
+        "class": "w-full",
+        mode: _ctx.mode,
+        disabled: _ctx.currentlyIsReadonly
       }, {
         option: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
           var selected = _ref.selected,
-              option = _ref.option;
+            option = _ref.option;
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Options List Slot "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center text-sm font-semibold leading-5 text-90", {
+            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["flex items-center text-sm font-semibold leading-5", {
               'text-white': selected
             }])
-          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option.label), 3
-          /* TEXT, CLASS */
-          )];
+          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option.label), 3 /* TEXT, CLASS */)];
         }),
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_ctx.selectedOption ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.selectedOption.label), 1
-          /* TEXT */
-          )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+          return [_ctx.selectedOption ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.selectedOption.label), 1 /* TEXT */)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
         }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["data-testid", "onInput", "onClear", "onSelected", "error", "value", "data", "clearable"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["dusk", "onInput", "onClear", "onSelected", "has-error", "value", "data", "clearable", "mode", "disabled"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 1
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Select Input Field "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectControl, {
         id: _ctx.field.attribute,
@@ -2890,9 +2821,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         onChange: $options.handleChange,
         "class": "w-full",
-        "select-classes": {
-          'form-input-border-error': _ctx.hasError
-        },
+        "has-error": _ctx.hasError,
         options: _ctx.currentField.options,
         disabled: _ctx.currentlyIsReadonly
       }, {
@@ -2901,3630 +2830,136 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             value: "",
             selected: "",
             disabled: !_ctx.currentField.nullable
-          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.placeholder), 9
-          /* TEXT, PROPS */
-          , _hoisted_2)];
+          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.placeholder), 9 /* TEXT, PROPS */, _hoisted_2)];
         }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["id", "dusk", "selected", "onChange", "select-classes", "options", "disabled"])], 2112
-      /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
-      ))];
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["id", "dusk", "selected", "onChange", "has-error", "options", "disabled"])], 2112 /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */))];
     }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["field", "errors", "show-help-text"]);
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["field", "errors", "show-help-text", "full-width-content"]);
 }
 
 /***/ }),
 
-/***/ "./resources/js/components/mixins/inline.js":
-/*!**************************************************!*\
-  !*** ./resources/js/components/mixins/inline.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/find */ "./node_modules/lodash/find.js");
-/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_1__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      isInline: false,
-      showUpdateButton: false,
-      twoStepDisabled: false
-    };
-  },
-  computed: {
-    /**
-     * Determine if the field has a value other than null.
-     */
-    hasValue: function hasValue() {
-      return this.field.value !== null;
-    },
-
-    /**
-     * Return the placeholder text for the field.
-     */
-    placeholder: function placeholder() {
-      return this.field.placeholder || this.__('Choose an option');
-    }
-  },
-  methods: {
-    submit: function submit() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                formData = new FormData();
-                formData.append(_this.field.attribute, _this.value);
-                formData.append('_method', 'PUT');
-                return _context.abrupt("return", Nova.request().post("/nova-api/".concat(_this.resourceName, "/").concat(_this.resourceId), formData).then(function () {
-                  var label = lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(_this.field.options, function (option) {
-                    return option.value === _this.value;
-                  }).label;
-                  Nova.success("".concat(_this.field.name, " updated to \"").concat(label, "\""));
-                }, function (response) {
-                  Nova.error(response);
-                })["finally"](function () {
-                  _this.showUpdateButton = false;
-                }));
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-    attemptUpdate: function attemptUpdate(value) {
-      var _this$field$indexTwoS;
-
-      this.value = value;
-
-      if ((_this$field$indexTwoS = this.field.indexTwoStepDisabled) !== null && _this$field$indexTwoS !== void 0 ? _this$field$indexTwoS : false) {
-        return this.submit();
-      }
-
-      this.showUpdateButton = true;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./resources/js/field.js":
-/*!*******************************!*\
-  !*** ./resources/js/field.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_IndexField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/IndexField */ "./resources/js/components/IndexField.vue");
-/* harmony import */ var _components_DetailField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/DetailField */ "./resources/js/components/DetailField.vue");
-/* harmony import */ var _components_FormField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/FormField */ "./resources/js/components/FormField.vue");
-
-
-
-Nova.booting(function (app) {
-  app.component('index-inline-select', _components_IndexField__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  app.component('detail-inline-select', _components_DetailField__WEBPACK_IMPORTED_MODULE_1__["default"]);
-  app.component('form-inline-select', _components_FormField__WEBPACK_IMPORTED_MODULE_2__["default"]);
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/BehavesAsPanel.js":
-/*!*******************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/BehavesAsPanel.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  emits: ['actionExecuted'],
-  props: ['resourceName', 'resourceId', 'resource', 'panel'],
-  methods: {
-    /**
-     * Handle the actionExecuted event and pass it up the chain.
-     */
-    actionExecuted: function actionExecuted() {
-      this.$emit('actionExecuted');
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/Collapsable.js":
-/*!****************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/Collapsable.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      collapsed: false
-    };
-  },
-  created: function created() {
-    this.collapsed = JSON.parse(localStorage.getItem(this.localStorageKey));
-  },
-  unmounted: function unmounted() {
-    localStorage.setItem(this.localStorageKey, this.collapsed);
-  },
-  methods: {
-    toggleCollapse: function toggleCollapse() {
-      this.collapsed = !this.collapsed;
-      localStorage.setItem(this.localStorageKey, this.collapsed);
-    }
-  },
-  computed: {
-    ariaExpanded: function ariaExpanded() {
-      return this.collapsed === false ? 'true' : 'false';
-    },
-    shouldBeCollapsed: function shouldBeCollapsed() {
-      return this.collapsed;
-    },
-    localStorageKey: function localStorageKey() {
-      return "nova.navigation.".concat(this.item.key, ".collapsed");
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/Deletable.js":
-/*!**************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/Deletable.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/filter */ "./node_modules/lodash/filter.js");
-/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_filter__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
-/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_1__);
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  methods: {
-    /**
-     * Open the delete menu modal.
-     */
-    openDeleteModal: function openDeleteModal() {
-      this.deleteModalOpen = true;
-    },
-
-    /**
-     * Delete the given resources.
-     */
-    deleteResources: function deleteResources(resources) {
-      var _this = this;
-
-      var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-      if (this.viaManyToMany) {
-        return this.detachResources(resources);
-      }
-
-      return Nova.request({
-        url: '/nova-api/' + this.resourceName,
-        method: 'delete',
-        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
-          resources: mapResources(resources)
-        })
-      }).then(callback ? callback : function () {
-        _this.deleteModalOpen = false;
-
-        _this.getResources();
-      }).then(function () {
-        Nova.$emit('resources-deleted');
-      });
-    },
-
-    /**
-     * Delete the selected resources.
-     */
-    deleteSelectedResources: function deleteSelectedResources() {
-      this.deleteResources(this.selectedResources);
-    },
-
-    /**
-     * Delete all of the matching resources.
-     */
-    deleteAllMatchingResources: function deleteAllMatchingResources() {
-      var _this2 = this;
-
-      if (this.viaManyToMany) {
-        return this.detachAllMatchingResources();
-      }
-
-      return Nova.request({
-        url: this.deleteAllMatchingResourcesEndpoint,
-        method: 'delete',
-        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
-          resources: 'all'
-        })
-      }).then(function () {
-        _this2.deleteModalOpen = false;
-
-        _this2.getResources();
-      }).then(function () {
-        Nova.$emit('resources-deleted');
-      });
-    },
-
-    /**
-     * Detach the given resources.
-     */
-    detachResources: function detachResources(resources) {
-      var _this3 = this;
-
-      return Nova.request({
-        url: '/nova-api/' + this.resourceName + '/detach',
-        method: 'delete',
-        params: _objectSpread(_objectSpread(_objectSpread({}, this.deletableQueryString), {
-          resources: mapResources(resources)
-        }), {
-          pivots: mapPivots(resources)
-        })
-      }).then(function () {
-        _this3.deleteModalOpen = false;
-
-        _this3.getResources();
-      }).then(function () {
-        Nova.$emit('resources-detached');
-      });
-    },
-
-    /**
-     * Detach all of the matching resources.
-     */
-    detachAllMatchingResources: function detachAllMatchingResources() {
-      var _this4 = this;
-
-      return Nova.request({
-        url: '/nova-api/' + this.resourceName + '/detach',
-        method: 'delete',
-        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
-          resources: 'all'
-        })
-      }).then(function () {
-        _this4.deleteModalOpen = false;
-
-        _this4.getResources();
-      }).then(function () {
-        Nova.$emit('resources-detached');
-      });
-    },
-
-    /**
-     * Force delete the given resources.
-     */
-    forceDeleteResources: function forceDeleteResources(resources) {
-      var _this5 = this;
-
-      var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      return Nova.request({
-        url: '/nova-api/' + this.resourceName + '/force',
-        method: 'delete',
-        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
-          resources: mapResources(resources)
-        })
-      }).then(callback ? callback : function () {
-        _this5.deleteModalOpen = false;
-
-        _this5.getResources();
-      }).then(function () {
-        Nova.$emit('resources-deleted');
-      });
-    },
-
-    /**
-     * Force delete the selected resources.
-     */
-    forceDeleteSelectedResources: function forceDeleteSelectedResources() {
-      this.forceDeleteResources(this.selectedResources);
-    },
-
-    /**
-     * Force delete all of the matching resources.
-     */
-    forceDeleteAllMatchingResources: function forceDeleteAllMatchingResources() {
-      var _this6 = this;
-
-      return Nova.request({
-        url: this.forceDeleteSelectedResourcesEndpoint,
-        method: 'delete',
-        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
-          resources: 'all'
-        })
-      }).then(function () {
-        _this6.deleteModalOpen = false;
-
-        _this6.getResources();
-      }).then(function () {
-        Nova.$emit('resources-deleted');
-      });
-    },
-
-    /**
-     * Restore the given resources.
-     */
-    restoreResources: function restoreResources(resources) {
-      var _this7 = this;
-
-      var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      return Nova.request({
-        url: '/nova-api/' + this.resourceName + '/restore',
-        method: 'put',
-        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
-          resources: mapResources(resources)
-        })
-      }).then(callback ? callback : function () {
-        _this7.restoreModalOpen = false;
-
-        _this7.getResources();
-      }).then(function () {
-        Nova.$emit('resources-restored');
-      });
-    },
-
-    /**
-     * Restore the selected resources.
-     */
-    restoreSelectedResources: function restoreSelectedResources() {
-      this.restoreResources(this.selectedResources);
-    },
-
-    /**
-     * Restore all of the matching resources.
-     */
-    restoreAllMatchingResources: function restoreAllMatchingResources() {
-      var _this8 = this;
-
-      return Nova.request({
-        url: this.restoreAllMatchingResourcesEndpoint,
-        method: 'put',
-        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
-          resources: 'all'
-        })
-      }).then(function () {
-        _this8.restoreModalOpen = false;
-
-        _this8.getResources();
-      }).then(function () {
-        Nova.$emit('resources-restored');
-      });
-    }
-  },
-  computed: {
-    /**
-     * Get the delete all matching resources endpoint.
-     */
-    deleteAllMatchingResourcesEndpoint: function deleteAllMatchingResourcesEndpoint() {
-      if (this.lens) {
-        return '/nova-api/' + this.resourceName + '/lens/' + this.lens;
-      }
-
-      return '/nova-api/' + this.resourceName;
-    },
-
-    /**
-     * Get the force delete all of the matching resources endpoint.
-     */
-    forceDeleteSelectedResourcesEndpoint: function forceDeleteSelectedResourcesEndpoint() {
-      if (this.lens) {
-        return '/nova-api/' + this.resourceName + '/lens/' + this.lens + '/force';
-      }
-
-      return '/nova-api/' + this.resourceName + '/force';
-    },
-
-    /**
-     * Get the restore all of the matching resources endpoint.
-     */
-    restoreAllMatchingResourcesEndpoint: function restoreAllMatchingResourcesEndpoint() {
-      if (this.lens) {
-        return '/nova-api/' + this.resourceName + '/lens/' + this.lens + '/restore';
-      }
-
-      return '/nova-api/' + this.resourceName + '/restore';
-    },
-
-    /**
-     * Get the query string for a deletable resource request.
-     */
-    deletableQueryString: function deletableQueryString() {
-      return {
-        search: this.currentSearch,
-        filters: this.encodedFilters,
-        trashed: this.currentTrashed,
-        viaResource: this.viaResource,
-        viaResourceId: this.viaResourceId,
-        viaRelationship: this.viaRelationship
-      };
-    }
-  }
-});
-
-function mapResources(resources) {
-  return lodash_map__WEBPACK_IMPORTED_MODULE_1___default()(resources, function (resource) {
-    return resource.id.value;
-  });
-}
-
-function mapPivots(resources) {
-  return lodash_filter__WEBPACK_IMPORTED_MODULE_0___default()(lodash_map__WEBPACK_IMPORTED_MODULE_1___default()(resources, function (resource) {
-    return resource.id.pivotValue;
-  }));
-}
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/DependentFormField.js":
-/*!***********************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/DependentFormField.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/debounce */ "./node_modules/lodash/debounce.js");
-/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash_forIn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/forIn */ "./node_modules/lodash/forIn.js");
-/* harmony import */ var lodash_forIn__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_forIn__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/get */ "./node_modules/lodash/get.js");
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var lodash_identity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash/identity */ "./node_modules/lodash/identity.js");
-/* harmony import */ var lodash_identity__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash_identity__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash/isEmpty */ "./node_modules/lodash/isEmpty.js");
-/* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
-/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var lodash_pickBy__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash/pickBy */ "./node_modules/lodash/pickBy.js");
-/* harmony import */ var lodash_pickBy__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash_pickBy__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./FormField */ "./vendor/laravel/nova/resources/js/mixins/FormField.js");
-/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
-
-
-
-
-
-
-
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  "extends": _FormField__WEBPACK_IMPORTED_MODULE_8__["default"],
-  props: (0,_propTypes__WEBPACK_IMPORTED_MODULE_9__.mapProps)(['shownViaNewRelationModal', 'field', 'viaResource', 'viaResourceId', 'viaRelationship', 'resourceName', 'resourceId', 'relatedResourceName', 'relatedResourceId']),
-  data: function data() {
-    return {
-      dependentFieldDebouncer: null,
-      canceller: null,
-      watchedFields: {},
-      watchedEvents: {},
-      syncedField: null,
-      pivot: false,
-      editMode: 'create'
-    };
-  },
-  created: function created() {
-    this.dependentFieldDebouncer = lodash_debounce__WEBPACK_IMPORTED_MODULE_1___default()(function (callback) {
-      return callback();
-    }, 50);
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    if (this.relatedResourceName !== '' && !lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(this.relatedResourceName)) {
-      this.pivot = true;
-
-      if (this.relatedResourceId !== '' && !lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(this.relatedResourceId)) {
-        this.editMode = 'update-attached';
-      } else {
-        this.editMode = 'attach';
-      }
-    } else {
-      if (this.resourceId !== '' && !lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(this.resourceId)) {
-        this.editMode = 'update';
-      }
-    }
-
-    if (!lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5___default()(this.dependsOn)) {
-      lodash_forIn__WEBPACK_IMPORTED_MODULE_2___default()(this.dependsOn, function (defaultValue, dependsOn) {
-        _this.watchedEvents[dependsOn] = function (value) {
-          _this.watchedFields[dependsOn] = value;
-
-          _this.dependentFieldDebouncer(function () {
-            return _this.syncField();
-          });
-        };
-
-        _this.watchedFields[dependsOn] = defaultValue;
-        Nova.$on(_this.getFieldAttributeChangeEventName(dependsOn), _this.watchedEvents[dependsOn]);
-      });
-    }
-  },
-  beforeUnmount: function beforeUnmount() {
-    var _this2 = this;
-
-    if (!lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5___default()(this.watchedEvents)) {
-      lodash_forIn__WEBPACK_IMPORTED_MODULE_2___default()(this.watchedEvents, function (event, dependsOn) {
-        Nova.$off(_this2.getFieldAttributeChangeEventName(event.dependsOn), event);
-      });
-    }
-  },
-  methods: {
-    /*
-     * Set the initial value for the field
-     */
-    setInitialValue: function setInitialValue() {
-      this.value = !(this.currentField.value === undefined || this.currentField.value === null) ? this.currentField.value : this.value;
-    },
-    syncField: function syncField() {
-      var _this3 = this;
-
-      if (this.canceller !== null) this.canceller();
-      Nova.request().patch(this.syncFieldEndpoint, this.watchedFields, {
-        params: lodash_pickBy__WEBPACK_IMPORTED_MODULE_7___default()({
-          editing: true,
-          editMode: this.editMode,
-          viaResource: this.viaResource,
-          viaResourceId: this.viaResourceId,
-          viaRelationship: this.viaRelationship,
-          field: this.field.attribute
-        }, (lodash_identity__WEBPACK_IMPORTED_MODULE_4___default())),
-        cancelToken: new axios__WEBPACK_IMPORTED_MODULE_0__.CancelToken(function (canceller) {
-          _this3.canceller = canceller;
-        })
-      }).then(function (response) {
-        _this3.syncedField = response.data;
-
-        if (lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(_this3.syncedField.value)) {
-          _this3.syncedField.value = _this3.field.value;
-        } else {
-          _this3.setInitialValue();
-        }
-
-        _this3.onSyncedField();
-      });
-    },
-    onSyncedField: function onSyncedField() {//
-    }
-  },
-  computed: {
-    /**
-     * Determine if the field is in readonly mode
-     */
-    currentField: function currentField() {
-      return this.syncedField || this.field;
-    },
-
-    /**
-     * Determine if the field is in readonly mode
-     */
-    currentlyIsReadonly: function currentlyIsReadonly() {
-      if (this.syncedField !== null) {
-        return Boolean(this.syncedField.readonly || lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.syncedField, 'extraAttributes.readonly'));
-      }
-
-      return Boolean(this.field.readonly || lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.field, 'extraAttributes.readonly'));
-    },
-    dependsOn: function dependsOn() {
-      return this.field.dependsOn || [];
-    },
-    syncFieldEndpoint: function syncFieldEndpoint() {
-      if (this.editMode === 'update-attached') {
-        return "/nova-api/".concat(this.resourceName, "/").concat(this.resourceId, "/update-pivot-fields/").concat(this.relatedResourceName, "/").concat(this.relatedResourceId);
-      } else if (this.editMode == 'attach') {
-        return "/nova-api/".concat(this.resourceName, "/").concat(this.resourceId, "/creation-pivot-fields/").concat(this.relatedResourceName);
-      } else if (this.editMode === 'update') {
-        return "/nova-api/".concat(this.resourceName, "/").concat(this.resourceId, "/update-fields");
-      }
-
-      return "/nova-api/".concat(this.resourceName, "/creation-fields");
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/Filterable.js":
-/*!***************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/Filterable.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_identity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/identity */ "./node_modules/lodash/identity.js");
-/* harmony import */ var lodash_identity__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_identity__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash_pickBy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/pickBy */ "./node_modules/lodash/pickBy.js");
-/* harmony import */ var lodash_pickBy__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_pickBy__WEBPACK_IMPORTED_MODULE_2__);
-
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      filterIsActive: false
-    };
-  },
-  methods: {
-    /**
-     * Clear filters and reset the resource table
-     */
-    clearSelectedFilters: function clearSelectedFilters(lens) {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var _this$updateQueryStri;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!lens) {
-                  _context.next = 5;
-                  break;
-                }
-
-                _context.next = 3;
-                return _this.$store.dispatch("".concat(_this.resourceName, "/resetFilterState"), {
-                  resourceName: _this.resourceName,
-                  lens: lens
-                });
-
-              case 3:
-                _context.next = 7;
-                break;
-
-              case 5:
-                _context.next = 7;
-                return _this.$store.dispatch("".concat(_this.resourceName, "/resetFilterState"), {
-                  resourceName: _this.resourceName
-                });
-
-              case 7:
-                _this.updateQueryString((_this$updateQueryStri = {}, _defineProperty(_this$updateQueryStri, _this.pageParameter, 1), _defineProperty(_this$updateQueryStri, _this.filterParameter, ''), _this$updateQueryStri));
-
-                Nova.$emit('filter-reset');
-                Nova.$emit('filter-changed', ['']);
-
-              case 10:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    },
-
-    /**
-     * Handle a filter state change.
-     */
-    filterChanged: function filterChanged() {
-      var filtersAreApplied = this.$store.getters["".concat(this.resourceName, "/filtersAreApplied")];
-      var currentEncodedFilters = this.$store.getters["".concat(this.resourceName, "/currentEncodedFilters")];
-
-      if (filtersAreApplied || this.filterIsActive) {
-        var _this$updateQueryStri2;
-
-        this.filterIsActive = true;
-        this.updateQueryString((_this$updateQueryStri2 = {}, _defineProperty(_this$updateQueryStri2, this.pageParameter, 1), _defineProperty(_this$updateQueryStri2, this.filterParameter, currentEncodedFilters), _this$updateQueryStri2));
-      }
-
-      Nova.$emit('filter-changed', [currentEncodedFilters]);
-    },
-
-    /**
-     * Set up filters for the current view
-     */
-    initializeFilters: function initializeFilters(lens) {
-      var _this2 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                // Clear out the filters from the store first
-                _this2.$store.commit("".concat(_this2.resourceName, "/clearFilters"));
-
-                _context2.next = 3;
-                return _this2.$store.dispatch("".concat(_this2.resourceName, "/fetchFilters"), lodash_pickBy__WEBPACK_IMPORTED_MODULE_2___default()({
-                  resourceName: _this2.resourceName,
-                  viaResource: _this2.viaResource,
-                  viaResourceId: _this2.viaResourceId,
-                  viaRelationship: _this2.viaRelationship,
-                  relationshipType: _this2.relationshipType,
-                  lens: lens
-                }, (lodash_identity__WEBPACK_IMPORTED_MODULE_1___default())));
-
-              case 3:
-                _context2.next = 5;
-                return _this2.initializeState(lens);
-
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }))();
-    },
-
-    /**
-     * Initialize the filter state
-     */
-    initializeState: function initializeState(lens) {
-      var _this3 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                if (!_this3.initialEncodedFilters) {
-                  _context3.next = 5;
-                  break;
-                }
-
-                _context3.next = 3;
-                return _this3.$store.dispatch("".concat(_this3.resourceName, "/initializeCurrentFilterValuesFromQueryString"), _this3.initialEncodedFilters);
-
-              case 3:
-                _context3.next = 7;
-                break;
-
-              case 5:
-                _context3.next = 7;
-                return _this3.$store.dispatch("".concat(_this3.resourceName, "/resetFilterState"), {
-                  resourceName: _this3.resourceName,
-                  lens: lens
-                });
-
-              case 7:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3);
-      }))();
-    }
-  },
-  computed: {
-    /**
-     * Get the name of the filter query string variable.
-     */
-    filterParameter: function filterParameter() {
-      return this.resourceName + '_filter';
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/FormEvents.js":
-/*!***************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/FormEvents.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
-/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    formUniqueId: {
-      type: String
-    }
-  },
-  methods: {
-    emitFieldValue: function emitFieldValue(attribute, value) {
-      Nova.$emit("".concat(attribute, "-value"), value);
-
-      if (this.hasFormUniqueId === true) {
-        Nova.$emit("".concat(this.formUniqueId, "-").concat(attribute, "-value"), value);
-      }
-    },
-    emitFieldValueChange: function emitFieldValueChange(attribute, value) {
-      Nova.$emit("".concat(attribute, "-change"), value);
-
-      if (this.hasFormUniqueId === true) {
-        Nova.$emit("".concat(this.formUniqueId, "-").concat(attribute, "-change"), value);
-      }
-    },
-
-    /**
-     * Get field attribue value event name.
-     */
-    getFieldAttributeValueEventName: function getFieldAttributeValueEventName(attribute) {
-      return this.hasFormUniqueId === true ? "".concat(this.formUniqueId, "-").concat(attribute, "-value") : "".concat(attribute, "-value");
-    },
-
-    /**
-     * Get field attribue value event name.
-     */
-    getFieldAttributeChangeEventName: function getFieldAttributeChangeEventName(attribute) {
-      return this.hasFormUniqueId === true ? "".concat(this.formUniqueId, "-").concat(attribute, "-change") : "".concat(attribute, "-change");
-    }
-  },
-  computed: {
-    /**
-     * Determine if the field has Form Unique ID.
-     */
-    hasFormUniqueId: function hasFormUniqueId() {
-      return !lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default()(this.formUniqueId) && this.formUniqueId !== '';
-    },
-
-    /**
-     * Get field attribue value event name.
-     */
-    fieldAttributeValueEventName: function fieldAttributeValueEventName() {
-      return this.getFieldAttributeValueEventName(this.field.attribute);
-    },
-
-    /**
-     * Get field attribue value event name.
-     */
-    fieldAttributeChangeEventName: function fieldAttributeChangeEventName() {
-      return this.getFieldAttributeChangeEventName(this.field.attribute);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/FormField.js":
-/*!**************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/FormField.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/get */ "./node_modules/lodash/get.js");
-/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
-/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
-/* harmony import */ var _FormEvents__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FormEvents */ "./vendor/laravel/nova/resources/js/mixins/FormEvents.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  "extends": _FormEvents__WEBPACK_IMPORTED_MODULE_3__["default"],
-  props: _objectSpread(_objectSpread({}, (0,_propTypes__WEBPACK_IMPORTED_MODULE_2__.mapProps)(['shownViaNewRelationModal', 'field', 'viaResource', 'viaResourceId', 'viaRelationship', 'resourceName', 'showHelpText'])), {}, {
-    formUniqueId: {
-      type: String
-    }
-  }),
-  data: function data() {
-    return {
-      value: ''
-    };
-  },
-  mounted: function mounted() {
-    this.setInitialValue(); // Add a default fill method for the field
-
-    this.field.fill = this.fill; // Register a global event for setting the field's value
-
-    Nova.$on(this.fieldAttributeValueEventName, this.listenToValueChanges);
-  },
-  beforeUnmount: function beforeUnmount() {
-    Nova.$off(this.fieldAttributeValueEventName, this.listenToValueChanges);
-  },
-  methods: {
-    /*
-     * Set the initial value for the field
-     */
-    setInitialValue: function setInitialValue() {
-      this.value = !(this.field.value === undefined || this.field.value === null) ? this.field.value : '';
-    },
-
-    /**
-     * Provide a function that fills a passed FormData object with the
-     * field's internal value attribute
-     */
-    fill: function fill(formData) {
-      formData.append(this.field.attribute, String(this.value));
-    },
-
-    /**
-     * Update the field's internal value
-     */
-    handleChange: function handleChange(event) {
-      this.value = event.target.value;
-
-      if (this.field) {
-        this.emitFieldValueChange(this.field.attribute, this.value);
-      }
-    },
-    listenToValueChanges: function listenToValueChanges(value) {
-      this.value = value;
-    }
-  },
-  computed: {
-    /**
-     * Determine if the field is in readonly mode
-     */
-    isReadonly: function isReadonly() {
-      return Boolean(this.field.readonly || lodash_get__WEBPACK_IMPORTED_MODULE_0___default()(this.field, 'extraAttributes.readonly'));
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesActions.js":
-/*!*******************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesActions.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/each */ "./node_modules/lodash/each.js");
-/* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_each__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/filter */ "./node_modules/lodash/filter.js");
-/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_filter__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/find */ "./node_modules/lodash/find.js");
-/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
-/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var lodash_tap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash/tap */ "./node_modules/lodash/tap.js");
-/* harmony import */ var lodash_tap__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_tap__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  emits: ['actionExecuted'],
-  props: {
-    resourceName: String,
-    actions: {},
-    pivotActions: {
-      "default": function _default() {
-        return [];
-      }
-    },
-    endpoint: {
-      type: String,
-      "default": null
-    }
-  },
-  data: function data() {
-    return {
-      working: false,
-      selectedActionKey: '',
-      errors: new form_backend_validation__WEBPACK_IMPORTED_MODULE_6__.Errors(),
-      confirmActionModalOpened: false
-    };
-  },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_7__.mapActions)(['fetchPolicies'])), {}, {
-    handleSelectionChange: function handleSelectionChange(event) {
-      this.selectedActionKey = event;
-      this.determineActionStrategy();
-      this.$refs.selectControl.resetSelection();
-    },
-
-    /**
-     * Determine whether the action should redirect or open a confirmation modal
-     */
-    determineActionStrategy: function determineActionStrategy() {
-      if (this.selectedAction.withoutConfirmation) {
-        this.executeAction();
-      } else {
-        this.openConfirmationModal();
-      }
-    },
-
-    /**
-     * Confirm with the user that they actually want to run the selected action.
-     */
-    openConfirmationModal: function openConfirmationModal() {
-      this.confirmActionModalOpened = true;
-    },
-
-    /**
-     * Close the action confirmation modal.
-     */
-    closeConfirmationModal: function closeConfirmationModal() {
-      this.confirmActionModalOpened = false;
-      this.errors = new form_backend_validation__WEBPACK_IMPORTED_MODULE_6__.Errors();
-    },
-
-    /**
-     * Close the action response modal.
-     */
-    closeActionResponseModal: function closeActionResponseModal() {
-      this.showActionResponseModal = false;
-    },
-
-    /**
-     * Initialize all of the action fields to empty strings.
-     */
-    initializeActionFields: function initializeActionFields() {
-      lodash_each__WEBPACK_IMPORTED_MODULE_1___default()(this.allActions, function (action) {
-        lodash_each__WEBPACK_IMPORTED_MODULE_1___default()(action.fields, function (field) {
-          field.fill = function () {
-            return '';
-          };
-        });
-      });
-    },
-
-    /**
-     * Execute the selected action.
-     */
-    executeAction: function executeAction() {
-      var _this$selectedAction$,
-          _this = this;
-
-      this.working = true;
-      Nova.$progress.start();
-      var responseType = (_this$selectedAction$ = this.selectedAction.responseType) !== null && _this$selectedAction$ !== void 0 ? _this$selectedAction$ : 'json';
-      Nova.request({
-        method: 'post',
-        url: this.endpoint || "/nova-api/".concat(this.resourceName, "/action"),
-        params: this.actionRequestQueryString,
-        data: this.actionFormData(),
-        responseType: responseType
-      }).then( /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(response) {
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _this.confirmActionModalOpened = false;
-                  _context.next = 3;
-                  return _this.fetchPolicies();
-
-                case 3:
-                  _this.handleActionResponse(response.data, response.headers);
-
-                  _this.working = false;
-                  Nova.$progress.done();
-                  _this.$refs.selectControl.selectedIndex = 0;
-
-                case 7:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
-
-        return function (_x) {
-          return _ref.apply(this, arguments);
-        };
-      }())["catch"](function (error) {
-        _this.working = false;
-        Nova.$progress.done();
-
-        if (error.response && error.response.status == 422) {
-          if (responseType === 'blob') {
-            error.response.data.text().then(function (data) {
-              _this.errors = new form_backend_validation__WEBPACK_IMPORTED_MODULE_6__.Errors(JSON.parse(data).errors);
-            });
-          } else {
-            _this.errors = new form_backend_validation__WEBPACK_IMPORTED_MODULE_6__.Errors(error.response.data.errors);
-          }
-
-          Nova.error(_this.__('There was a problem executing the action.'));
-        }
-      });
-    },
-
-    /**
-     * Gather the action FormData for the given action.
-     */
-    actionFormData: function actionFormData() {
-      var _this2 = this;
-
-      return lodash_tap__WEBPACK_IMPORTED_MODULE_5___default()(new FormData(), function (formData) {
-        formData.append('resources', _this2.selectedResources);
-        lodash_each__WEBPACK_IMPORTED_MODULE_1___default()(_this2.selectedAction.fields, function (field) {
-          field.fill(formData);
-        });
-      });
-    },
-    emitResponseCallback: function emitResponseCallback(callback) {
-      this.$emit('actionExecuted');
-      Nova.$emit('action-executed');
-
-      if (typeof callback === 'function') {
-        callback();
-      }
-    },
-
-    /**
-     * Handle the action response. Typically either a message, download or a redirect.
-     */
-    handleActionResponse: function handleActionResponse(data, headers) {
-      var _this3 = this;
-
-      var contentDisposition = headers['content-disposition'];
-
-      if (data instanceof Blob && lodash_isNil__WEBPACK_IMPORTED_MODULE_4___default()(contentDisposition) && data.type === 'application/json') {
-        data.text().then(function (jsonStringData) {
-          _this3.handleActionResponse(JSON.parse(jsonStringData), headers);
-        });
-        return;
-      }
-
-      if (data instanceof Blob) {
-        this.emitResponseCallback(function () {
-          var fileName = 'unknown';
-          var url = window.URL.createObjectURL(new Blob([data]));
-          var link = document.createElement('a');
-          link.href = url;
-
-          if (contentDisposition) {
-            var fileNameMatch = contentDisposition.match(/filename="(.+)"/);
-            if (fileNameMatch.length === 2) fileName = fileNameMatch[1];
-          }
-
-          link.setAttribute('download', fileName);
-          document.body.appendChild(link);
-          link.click();
-          link.remove();
-          window.URL.revokeObjectURL(url);
-        });
-      } else if (data.modal) {
-        this.actionResponseData = data;
-        this.showActionResponseModal = true;
-      } else if (data.message) {
-        this.emitResponseCallback(function () {
-          Nova.success(data.message);
-        });
-      } else if (data.deleted) {
-        this.emitResponseCallback();
-      } else if (data.danger) {
-        this.emitResponseCallback(function () {
-          Nova.error(data.danger);
-        });
-      } else if (data.download) {
-        this.emitResponseCallback(function () {
-          var link = document.createElement('a');
-          link.href = data.download;
-          link.download = data.name;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        });
-      } else if (data.redirect) {
-        window.location = data.redirect;
-      } else if (data.visit) {
-        Nova.visit({
-          url: Nova.url(data.visit.path, data.visit.options),
-          remote: false
-        });
-      } else if (data.openInNewTab) {
-        this.emitResponseCallback(function () {
-          window.open(data.openInNewTab, '_blank');
-        });
-      } else {
-        this.emitResponseCallback(function () {
-          Nova.success(_this3.__('The action ran successfully!'));
-        });
-      }
-    },
-
-    /**
-     * Handle an Action button click
-     */
-    handleActionClick: function handleActionClick(uriKey) {
-      this.selectedActionKey = uriKey;
-      this.determineActionStrategy();
-    }
-  }),
-  computed: {
-    /**
-     * Get the query string for an action request.
-     */
-    actionRequestQueryString: function actionRequestQueryString() {
-      return {
-        action: this.selectedActionKey,
-        pivotAction: this.selectedActionIsPivotAction,
-        search: this.currentSearch,
-        filters: this.encodedFilters,
-        trashed: this.currentTrashed,
-        viaResource: this.viaResource,
-        viaResourceId: this.viaResourceId,
-        viaRelationship: this.viaRelationship
-      };
-    },
-
-    /**
-     * Get all of the available actions.
-     */
-    allActions: function allActions() {
-      if (!this.pivotActions) {
-        return this.actions;
-      }
-
-      return this.actions.concat(this.pivotActions.actions);
-    },
-
-    /**
-     * Return the selected action being executed.
-     */
-    selectedAction: function selectedAction() {
-      var _this4 = this;
-
-      if (this.selectedActionKey) {
-        return lodash_find__WEBPACK_IMPORTED_MODULE_3___default()(this.allActions, function (a) {
-          return a.uriKey == _this4.selectedActionKey;
-        });
-      }
-    },
-
-    /**
-     * Determine if the selected action is a pivot action.
-     */
-    selectedActionIsPivotAction: function selectedActionIsPivotAction() {
-      var _this5 = this;
-
-      return this.hasPivotActions && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_3___default()(this.pivotActions.actions, function (a) {
-        return a === _this5.selectedAction;
-      }));
-    },
-
-    /**
-     * Get all of the available actions for the resource.
-     */
-    availableActions: function availableActions() {
-      var _this6 = this;
-
-      return lodash_filter__WEBPACK_IMPORTED_MODULE_2___default()(this.actions, function (action) {
-        return _this6.selectedResources.length > 0 && !action.standalone;
-      });
-    },
-
-    /**
-     * Get all of the available actions for the resource.
-     */
-    availableStandaloneActions: function availableStandaloneActions() {
-      return lodash_filter__WEBPACK_IMPORTED_MODULE_2___default()(this.actions, function (action) {
-        return action.standalone;
-      });
-    },
-
-    /**
-     * Get all of the available pivot actions for the resource.
-     */
-    availablePivotActions: function availablePivotActions() {
-      var _this7 = this;
-
-      if (!this.pivotActions) {
-        return [];
-      }
-
-      return lodash_filter__WEBPACK_IMPORTED_MODULE_2___default()(this.pivotActions.actions, function (action) {
-        if (_this7.selectedResources.length == 0) {
-          return action.standalone;
-        }
-
-        return true;
-      });
-    },
-
-    /**
-     * Determine whether there are any pivot actions
-     */
-    hasPivotActions: function hasPivotActions() {
-      return this.availablePivotActions.length > 0;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesFormRequest.js":
-/*!***********************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesFormRequest.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    formUniqueId: {
-      type: String
-    }
-  },
-  data: function data() {
-    return {
-      validationErrors: new form_backend_validation__WEBPACK_IMPORTED_MODULE_0__.Errors()
-    };
-  },
-  methods: {
-    /**
-     * Handle all response error.
-     */
-    handleResponseError: function handleResponseError(error) {
-      if (error.response === undefined || error.response.status == 500) {
-        Nova.error(this.__('There was a problem submitting the form.'));
-      } else if (error.response.status == 422) {
-        this.validationErrors = new form_backend_validation__WEBPACK_IMPORTED_MODULE_0__.Errors(error.response.data.errors);
-        Nova.error(this.__('There was a problem submitting the form.'));
-      } else {
-        Nova.error(this.__('There was a problem submitting the form.') + ' "' + error.response.statusText + '"');
-      }
-    },
-
-    /**
-     * Handle creating response error.
-     */
-    handleOnCreateResponseError: function handleOnCreateResponseError(error) {
-      this.handleResponseError(error);
-    },
-
-    /**
-     * Handle updating response error.
-     */
-    handleOnUpdateResponseError: function handleOnUpdateResponseError(error) {
-      if (error.response && error.response.status == 409) {
-        Nova.error(this.__('Another user has updated this resource since this page was loaded. Please refresh the page and try again.'));
-      } else {
-        this.handleResponseError(error);
-      }
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesUploads.js":
-/*!*******************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesUploads.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      isWorking: false,
-      fileUploadsCount: 0
-    };
-  },
-  methods: {
-    /**
-     * Handle file upload finishing
-     */
-    handleFileUploadFinished: function handleFileUploadFinished() {
-      this.fileUploadsCount--;
-
-      if (this.fileUploadsCount < 1) {
-        this.fileUploadsCount = 0;
-        this.isWorking = false;
-      }
-    },
-
-    /**
-     * Handle file upload starting
-     */
-    handleFileUploadStarted: function handleFileUploadStarted() {
-      this.isWorking = true;
-      this.fileUploadsCount++;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesValidationErrors.js":
-/*!****************************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesValidationErrors.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    errors: {
-      "default": function _default() {
-        return new form_backend_validation__WEBPACK_IMPORTED_MODULE_0__.Errors();
-      }
-    }
-  },
-  data: function data() {
-    return {
-      errorClass: 'form-input-border-error'
-    };
-  },
-  computed: {
-    errorClasses: function errorClasses() {
-      return this.hasError ? [this.errorClass] : [];
-    },
-    fieldAttribute: function fieldAttribute() {
-      return this.field.attribute;
-    },
-    validationKey: function validationKey() {
-      return this.field.validationKey;
-    },
-    hasError: function hasError() {
-      return this.errors.has(this.validationKey);
-    },
-    firstError: function firstError() {
-      if (this.hasError) {
-        return this.errors.first(this.validationKey);
-      }
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/HasActions.js":
-/*!***************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/HasActions.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/filter */ "./node_modules/lodash/filter.js");
-/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_filter__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      actions: [],
-      pivotActions: null
-    };
-  },
-  computed: {
-    /**
-     * Determine whether there are any standalone actions.
-     */
-    haveStandaloneActions: function haveStandaloneActions() {
-      return lodash_filter__WEBPACK_IMPORTED_MODULE_0___default()(this.allActions, function (a) {
-        return a.standalone == true;
-      }).length > 0;
-    },
-
-    /**
-     * Return the available actions.
-     */
-    availableActions: function availableActions() {
-      return this.actions;
-    },
-
-    /**
-     * Determine if the resource has any pivot actions available.
-     */
-    hasPivotActions: function hasPivotActions() {
-      return this.pivotActions && this.pivotActions.actions.length > 0;
-    },
-
-    /**
-     * Get the name of the pivot model for the resource.
-     */
-    pivotName: function pivotName() {
-      return this.pivotActions ? this.pivotActions.name : '';
-    },
-
-    /**
-     * Determine if the resource has any actions available.
-     */
-    actionsAreAvailable: function actionsAreAvailable() {
-      return this.allActions.length > 0;
-    },
-
-    /**
-     * Get all of the actions available to the resource.
-     */
-    allActions: function allActions() {
-      return this.hasPivotActions ? this.actions.concat(this.pivotActions.actions) : this.actions;
-    },
-
-    /**
-     * Get the selected resources for the action selector.
-     */
-    selectedResourcesForActionSelector: function selectedResourcesForActionSelector() {
-      return this.selectAllMatchingChecked ? 'all' : this.selectedResourceIds;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/HasCards.js":
+/***/ "./node_modules/call-bind-apply-helpers/actualApply.js":
 /*!*************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/HasCards.js ***!
+  !*** ./node_modules/call-bind-apply-helpers/actualApply.js ***!
   \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/filter */ "./node_modules/lodash/filter.js");
-/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_filter__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
 
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+var $apply = __webpack_require__(/*! ./functionApply */ "./node_modules/call-bind-apply-helpers/functionApply.js");
+var $call = __webpack_require__(/*! ./functionCall */ "./node_modules/call-bind-apply-helpers/functionCall.js");
+var $reflectApply = __webpack_require__(/*! ./reflectApply */ "./node_modules/call-bind-apply-helpers/reflectApply.js");
 
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    loadCards: {
-      type: Boolean,
-      "default": true
-    }
-  },
-  data: function data() {
-    return {
-      cards: []
-    };
-  },
-
-  /**
-   * Fetch all of the metrics panels for this view
-   */
-  created: function created() {
-    this.fetchCards();
-  },
-  watch: {
-    cardsEndpoint: function cardsEndpoint() {
-      this.fetchCards();
-    }
-  },
-  methods: {
-    fetchCards: function fetchCards() {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var _yield$Nova$request$g, cards;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                if (!_this.loadCards) {
-                  _context.next = 6;
-                  break;
-                }
-
-                _context.next = 3;
-                return Nova.request().get(_this.cardsEndpoint, {
-                  params: _this.extraCardParams
-                });
-
-              case 3:
-                _yield$Nova$request$g = _context.sent;
-                cards = _yield$Nova$request$g.data;
-                _this.cards = cards;
-
-              case 6:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-    }
-  },
-  computed: {
-    /**
-     * Determine whether we have cards to show on the Dashboard.
-     */
-    shouldShowCards: function shouldShowCards() {
-      return this.cards.length > 0;
-    },
-
-    /**
-     * Determine if the cards array contains some detail-only cards.
-     */
-    hasDetailOnlyCards: function hasDetailOnlyCards() {
-      return lodash_filter__WEBPACK_IMPORTED_MODULE_1___default()(this.cards, function (c) {
-        return c.onlyOnDetail == true;
-      }).length > 0;
-    },
-
-    /**
-     * Get the extra card params to pass to the endpoint.
-     */
-    extraCardParams: function extraCardParams() {
-      return null;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/IndexConcerns.js":
-/*!******************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/IndexConcerns.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/find */ "./node_modules/lodash/find.js");
-/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash_includes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/includes */ "./node_modules/lodash/includes.js");
-/* harmony import */ var lodash_includes__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_includes__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
-/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index */ "./vendor/laravel/nova/resources/js/mixins/index.js");
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/util */ "./vendor/laravel/nova/resources/js/util/index.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_6__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_index__WEBPACK_IMPORTED_MODULE_4__.Filterable, _index__WEBPACK_IMPORTED_MODULE_4__.HasActions, _index__WEBPACK_IMPORTED_MODULE_4__.RouteParameters],
-  props: _objectSpread(_objectSpread({}, (0,_index__WEBPACK_IMPORTED_MODULE_4__.mapProps)(['resourceName', 'viaResource', 'viaResourceId', 'viaRelationship', 'relationshipType', 'disablePagination'])), {}, {
-    field: {
-      type: Object
-    },
-    initialPerPage: {
-      type: Number,
-      required: false
-    }
-  }),
-  provide: function provide() {
-    var _this = this;
-
-    return {
-      selectAllChecked: (0,vue__WEBPACK_IMPORTED_MODULE_6__.computed)(function () {
-        return _this.selectAllChecked;
-      }),
-      selectAllMatchingChecked: (0,vue__WEBPACK_IMPORTED_MODULE_6__.computed)(function () {
-        return _this.selectAllMatchingChecked;
-      }),
-      selectAllAndSelectAllMatchingChecked: (0,vue__WEBPACK_IMPORTED_MODULE_6__.computed)(function () {
-        return _this.selectAllAndSelectAllMatchingChecked;
-      }),
-      selectAllIndeterminate: (0,vue__WEBPACK_IMPORTED_MODULE_6__.computed)(function () {
-        return _this.selectAllIndeterminate;
-      })
-    };
-  },
-  data: function data() {
-    return {
-      allMatchingResourceCount: 0,
-      authorizedToRelate: false,
-      canceller: null,
-      currentPageLoadMore: null,
-      deleteModalOpen: false,
-      initialLoading: true,
-      loading: true,
-      orderBy: '',
-      orderByDirection: '',
-      resourceResponse: null,
-      resourceResponseError: null,
-      resources: [],
-      selectAllMatchingResources: false,
-      selectedResources: [],
-      softDeletes: false,
-      trashed: ''
-    };
-  },
-  created: function created() {
-    var _this2 = this;
-
-    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              if (!Nova.missingResource(_this2.resourceName)) {
-                _context.next = 2;
-                break;
-              }
-
-              return _context.abrupt("return", Nova.visit('/404'));
-
-            case 2:
-              _this2.initializeSearchFromQueryString();
-
-              _this2.initializePerPageFromQueryString();
-
-              _this2.initializeTrashedFromQueryString();
-
-              _this2.initializeOrderingFromQueryString();
-
-              _context.next = 8;
-              return _this2.initializeFilters(_this2.lens || null);
-
-            case 8:
-              _context.next = 10;
-              return _this2.getResources();
-
-            case 10:
-              if (_this2.isLensView) {
-                _context.next = 13;
-                break;
-              }
-
-              _context.next = 13;
-              return _this2.getAuthorizationToRelate();
-
-            case 13:
-              _this2.getActions();
-
-              _this2.initialLoading = false;
-
-              _this2.$watch(function () {
-                return _this2.lens + _this2.resourceName + _this2.encodedFilters + _this2.currentSearch + _this2.currentPage + _this2.currentPerPage + _this2.currentOrderBy + _this2.currentOrderByDirection + _this2.currentTrashed;
-              }, function () {
-                if (_this2.canceller !== null) _this2.canceller();
-
-                if (_this2.currentPage === 1) {
-                  _this2.currentPageLoadMore = null;
-                }
-
-                _this2.getResources();
-              });
-
-            case 16:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }))();
-  },
-  beforeUnmount: function beforeUnmount() {
-    if (this.canceller !== null) this.canceller();
-  },
-  methods: {
-    /**
-     * Handle resources loaded event.
-     */
-    handleResourcesLoaded: function handleResourcesLoaded() {
-      this.loading = false;
-
-      if (!this.isLensView && this.resourceResponse.total !== null) {
-        this.allMatchingResourceCount = this.resourceResponse.total;
-      } else {
-        this.getAllMatchingResourceCount();
-      }
-
-      Nova.$emit('resources-loaded', this.isLensView ? {
-        resourceName: this.resourceName,
-        lens: this.lens,
-        mode: 'lens'
-      } : {
-        resourceName: this.resourceName,
-        mode: this.isRelation ? 'related' : 'index'
-      });
-      this.initializePolling();
-    },
-
-    /**
-     * Select all of the available resources
-     */
-    selectAllResources: function selectAllResources() {
-      this.selectedResources = this.resources.slice(0);
-    },
-
-    /**
-     * Toggle the selection of all resources
-     */
-    toggleSelectAll: function toggleSelectAll() {
-      if (this.selectAllChecked) {
-        this.clearResourceSelections();
-      } else {
-        this.selectAllResources();
-      }
-
-      this.getActions();
-    },
-
-    /**
-     * Toggle the selection of all matching resources in the database
-     */
-    toggleSelectAllMatching: function toggleSelectAllMatching() {
-      if (!this.selectAllMatchingResources) {
-        this.selectAllResources();
-        this.selectAllMatchingResources = true;
-      } else {
-        this.selectAllMatchingResources = false;
-      }
-
-      this.getActions();
-    },
-
-    /*
-     * Update the resource selection status
-     */
-    updateSelectionStatus: function updateSelectionStatus(resource) {
-      if (!lodash_includes__WEBPACK_IMPORTED_MODULE_2___default()(this.selectedResources, resource)) {
-        this.selectedResources.push(resource);
-      } else {
-        var index = this.selectedResources.indexOf(resource);
-        if (index > -1) this.selectedResources.splice(index, 1);
-      }
-
-      this.getActions();
-    },
-
-    /**
-     * Clear the selected resouces and the "select all" states.
-     */
-    clearResourceSelections: function clearResourceSelections() {
-      this.selectAllMatchingResources = false;
-      this.selectedResources = [];
-    },
-
-    /**
-     * Sort the resources by the given field.
-     */
-    orderByField: function orderByField(field) {
-      var _this$updateQueryStri;
-
-      var direction = this.currentOrderByDirection == 'asc' ? 'desc' : 'asc';
-
-      if (this.currentOrderBy != field.sortableUriKey) {
-        direction = 'asc';
-      }
-
-      this.updateQueryString((_this$updateQueryStri = {}, _defineProperty(_this$updateQueryStri, this.orderByParameter, field.sortableUriKey), _defineProperty(_this$updateQueryStri, this.orderByDirectionParameter, direction), _this$updateQueryStri));
-    },
-
-    /**
-     * Reset the order by to its default state
-     */
-    resetOrderBy: function resetOrderBy(field) {
-      var _this$updateQueryStri2;
-
-      this.updateQueryString((_this$updateQueryStri2 = {}, _defineProperty(_this$updateQueryStri2, this.orderByParameter, field.sortableUriKey), _defineProperty(_this$updateQueryStri2, this.orderByDirectionParameter, null), _this$updateQueryStri2));
-    },
-
-    /**
-     * Sync the current search value from the query string.
-     */
-    initializeSearchFromQueryString: function initializeSearchFromQueryString() {
-      this.search = this.currentSearch;
-    },
-
-    /**
-     * Sync the current order by values from the query string.
-     */
-    initializeOrderingFromQueryString: function initializeOrderingFromQueryString() {
-      this.orderBy = this.currentOrderBy;
-      this.orderByDirection = this.currentOrderByDirection;
-    },
-
-    /**
-     * Sync the trashed state values from the query string.
-     */
-    initializeTrashedFromQueryString: function initializeTrashedFromQueryString() {
-      this.trashed = this.currentTrashed;
-    },
-
-    /**
-     * Update the trashed constraint for the resource listing.
-     */
-    trashedChanged: function trashedChanged(trashedStatus) {
-      this.trashed = trashedStatus;
-      this.updateQueryString(_defineProperty({}, this.trashedParameter, this.trashed));
-    },
-
-    /**
-     * Update the per page parameter in the query string
-     */
-    updatePerPageChanged: function updatePerPageChanged(perPage) {
-      this.perPage = perPage;
-      this.perPageChanged();
-    },
-
-    /**
-     * Select the next page.
-     */
-    selectPage: function selectPage(page) {
-      this.updateQueryString(_defineProperty({}, this.pageParameter, page));
-    },
-
-    /**
-     * Sync the per page values from the query string.
-     */
-    initializePerPageFromQueryString: function initializePerPageFromQueryString() {
-      var _this$resourceInforma;
-
-      this.perPage = this.route.params[this.perPageParameter] || this.initialPerPage || ((_this$resourceInforma = this.resourceInformation) === null || _this$resourceInforma === void 0 ? void 0 : _this$resourceInforma.perPageOptions[0]) || null;
-    },
-
-    /**
-     * Close the delete modal.
-     */
-    closeDeleteModal: function closeDeleteModal() {
-      this.deleteModalOpen = false;
-    },
-
-    /**
-     * Execute a search against the resource.
-     */
-    performSearch: function performSearch() {
-      var _this3 = this;
-
-      this.debouncer(function () {
-        var _this3$updateQueryStr;
-
-        _this3.updateQueryString((_this3$updateQueryStr = {}, _defineProperty(_this3$updateQueryStr, _this3.pageParameter, 1), _defineProperty(_this3$updateQueryStr, _this3.searchParameter, _this3.search), _this3$updateQueryStr));
-      });
-    }
-  },
-  computed: {
-    /**
-     * Determine if the resource has any filters
-     */
-    hasFilters: function hasFilters() {
-      return this.$store.getters["".concat(this.resourceName, "/hasFilters")];
-    },
-
-    /**
-     * Get the name of the page query string variable.
-     */
-    pageParameter: function pageParameter() {
-      return this.viaRelationship ? this.viaRelationship + '_page' : this.resourceName + '_page';
-    },
-
-    /**
-     * Determine if all resources are selected on the page.
-     */
-    selectAllChecked: function selectAllChecked() {
-      return this.selectedResources.length == this.resources.length;
-    },
-
-    /**
-     * Determine if Select All Dropdown state is indeterminate.
-     */
-    selectAllIndeterminate: function selectAllIndeterminate() {
-      return Boolean(this.selectAllChecked || this.selectAllMatchingChecked) && Boolean(!this.selectAllAndSelectAllMatchingChecked);
-    },
-    selectAllAndSelectAllMatchingChecked: function selectAllAndSelectAllMatchingChecked() {
-      return this.selectAllChecked && this.selectAllMatchingChecked;
-    },
-
-    /**
-     * Determine if all matching resources are selected.
-     */
-    selectAllMatchingChecked: function selectAllMatchingChecked() {
-      return this.selectAllMatchingResources;
-    },
-
-    /**
-     * Get the IDs for the selected resources.
-     */
-    selectedResourceIds: function selectedResourceIds() {
-      return lodash_map__WEBPACK_IMPORTED_MODULE_3___default()(this.selectedResources, function (resource) {
-        return resource.id.value;
-      });
-    },
-
-    /**
-     * Get the current search value from the query string.
-     */
-    currentSearch: function currentSearch() {
-      return this.route.params[this.searchParameter] || '';
-    },
-
-    /**
-     * Get the current order by value from the query string.
-     */
-    currentOrderBy: function currentOrderBy() {
-      return this.route.params[this.orderByParameter] || '';
-    },
-
-    /**
-     * Get the current order by direction from the query string.
-     */
-    currentOrderByDirection: function currentOrderByDirection() {
-      return this.route.params[this.orderByDirectionParameter] || null;
-    },
-
-    /**
-     * Get the current trashed constraint value from the query string.
-     */
-    currentTrashed: function currentTrashed() {
-      return this.route.params[this.trashedParameter] || '';
-    },
-
-    /**
-     * Determine if the current resource listing is via a many-to-many relationship.
-     */
-    viaManyToMany: function viaManyToMany() {
-      return this.relationshipType == 'belongsToMany' || this.relationshipType == 'morphToMany';
-    },
-
-    /**
-     * Determine if the resource / relationship is "full".
-     */
-    resourceIsFull: function resourceIsFull() {
-      return Boolean(this.viaHasOne) && this.resources.length > 0 || Boolean(this.viaHasOneThrough && this.resources.length > 0);
-    },
-
-    /**
-     * Determine if the current resource listing is via a has-one relationship.
-     */
-    viaHasOne: function viaHasOne() {
-      return this.relationshipType == 'hasOne' || this.relationshipType == 'morphOne';
-    },
-
-    /**
-     * Determine if the resource is shown via a HasOneThrough relationship.
-     */
-    viaHasOneThrough: function viaHasOneThrough() {
-      return this.relationshipType == 'hasOneThrough';
-    },
-
-    /**
-     * Determine if the index is a relation field
-     */
-    isRelation: function isRelation() {
-      return Boolean(this.viaResourceId && this.viaRelationship);
-    },
-
-    /**
-     * Get the singular name for the resource
-     */
-    singularName: function singularName() {
-      if (this.isRelation && this.field) {
-        return (0,_util__WEBPACK_IMPORTED_MODULE_5__.capitalize)(this.field.singularLabel);
-      }
-
-      if (this.resourceInformation) {
-        return (0,_util__WEBPACK_IMPORTED_MODULE_5__.capitalize)(this.resourceInformation.singularLabel);
-      }
-    },
-
-    /**
-     * Determine if there are any resources for the view
-     */
-    hasResources: function hasResources() {
-      return Boolean(this.resources.length > 0);
-    },
-
-    /**
-     * Determine if there any lenses for this resource
-     */
-    hasLenses: function hasLenses() {
-      return Boolean(this.lenses.length > 0);
-    },
-
-    /**
-     * Determine if the resource should show any cards
-     */
-    shouldShowCards: function shouldShowCards() {
-      // Don't show cards if this resource is beings shown via a relations
-      return Boolean(this.cards.length > 0 && !this.isRelation);
-    },
-
-    /**
-     * Determine whether to show the selection checkboxes for resources
-     */
-    shouldShowCheckBoxes: function shouldShowCheckBoxes() {
-      return Boolean(this.hasResources && !this.viaHasOne) && Boolean(this.actionsAreAvailable || this.authorizedToDeleteAnyResources || this.canShowDeleteMenu);
-    },
-
-    /**
-     * Determine whether the delete menu should be shown to the user
-     */
-    shouldShowDeleteMenu: function shouldShowDeleteMenu() {
-      return Boolean(this.selectedResources.length > 0) && this.canShowDeleteMenu;
-    },
-
-    /**
-     * Determine if any selected resources may be deleted.
-     */
-    authorizedToDeleteSelectedResources: function authorizedToDeleteSelectedResources() {
-      return Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.selectedResources, function (resource) {
-        return resource.authorizedToDelete;
-      }));
-    },
-
-    /**
-     * Determine if any selected resources may be force deleted.
-     */
-    authorizedToForceDeleteSelectedResources: function authorizedToForceDeleteSelectedResources() {
-      return Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.selectedResources, function (resource) {
-        return resource.authorizedToForceDelete;
-      }));
-    },
-
-    /**
-     * Determine if the user is authorized to delete any listed resource.
-     */
-    authorizedToDeleteAnyResources: function authorizedToDeleteAnyResources() {
-      return this.resources.length > 0 && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.resources, function (resource) {
-        return resource.authorizedToDelete;
-      }));
-    },
-
-    /**
-     * Determine if the user is authorized to force delete any listed resource.
-     */
-    authorizedToForceDeleteAnyResources: function authorizedToForceDeleteAnyResources() {
-      return this.resources.length > 0 && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.resources, function (resource) {
-        return resource.authorizedToForceDelete;
-      }));
-    },
-
-    /**
-     * Determine if any selected resources may be restored.
-     */
-    authorizedToRestoreSelectedResources: function authorizedToRestoreSelectedResources() {
-      return Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.selectedResources, function (resource) {
-        return resource.authorizedToRestore;
-      }));
-    },
-
-    /**
-     * Determine if the user is authorized to restore any listed resource.
-     */
-    authorizedToRestoreAnyResources: function authorizedToRestoreAnyResources() {
-      return this.resources.length > 0 && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.resources, function (resource) {
-        return resource.authorizedToRestore;
-      }));
-    },
-
-    /**
-     * Return the currently encoded filter string from the store
-     */
-    encodedFilters: function encodedFilters() {
-      return this.$store.getters["".concat(this.resourceName, "/currentEncodedFilters")];
-    },
-
-    /**
-     * Return the initial encoded filters from the query string
-     */
-    initialEncodedFilters: function initialEncodedFilters() {
-      return this.route.params[this.filterParameter] || '';
-    },
-
-    /**
-     * Return the pagination component for the resource.
-     */
-    paginationComponent: function paginationComponent() {
-      return "pagination-".concat(Nova.config('pagination') || 'links');
-    },
-
-    /**
-     * Determine if the resources has a next page.
-     */
-    hasNextPage: function hasNextPage() {
-      return Boolean(this.resourceResponse && this.resourceResponse.next_page_url);
-    },
-
-    /**
-     * Determine if the resources has a previous page.
-     */
-    hasPreviousPage: function hasPreviousPage() {
-      return Boolean(this.resourceResponse && this.resourceResponse.prev_page_url);
-    },
-
-    /**
-     * Return the total pages for the resource.
-     */
-    totalPages: function totalPages() {
-      return Math.ceil(this.allMatchingResourceCount / this.currentPerPage);
-    },
-
-    /**
-     * Return the resource count label
-     */
-    resourceCountLabel: function resourceCountLabel() {
-      var first = this.perPage * (this.currentPage - 1);
-      return this.resources.length && "".concat(Nova.formatNumber(first + 1), "-").concat(Nova.formatNumber(first + this.resources.length), " ").concat(this.__('of'), " ").concat(Nova.formatNumber(this.allMatchingResourceCount));
-    },
-
-    /**
-     * Get the current per page value from the query string.
-     */
-    currentPerPage: function currentPerPage() {
-      return this.perPage;
-    },
-
-    /**
-     * The per-page options configured for this resource.
-     */
-    perPageOptions: function perPageOptions() {
-      if (this.resourceResponse) {
-        return this.resourceResponse.per_page_options;
-      }
-    },
-
-    /**
-     * Get the default label for the create button
-     */
-    createButtonLabel: function createButtonLabel() {
-      if (this.resourceInformation) return this.resourceInformation.createButtonLabel;
-      return this.__('Create');
-    },
-
-    /**
-     * Build the resource request query string.
-     */
-    resourceRequestQueryString: function resourceRequestQueryString() {
-      var queryString = {
-        search: this.currentSearch,
-        filters: this.encodedFilters,
-        orderBy: this.currentOrderBy,
-        orderByDirection: this.currentOrderByDirection,
-        perPage: this.currentPerPage,
-        trashed: this.currentTrashed,
-        page: this.currentPage,
-        viaResource: this.viaResource,
-        viaResourceId: this.viaResourceId,
-        viaRelationship: this.viaRelationship,
-        viaResourceRelationship: this.viaResourceRelationship,
-        relationshipType: this.relationshipType
-      };
-
-      if (!this.lensName) {
-        queryString['viaRelationship'] = this.viaRelationship;
-      }
-
-      return queryString;
-    },
-
-    /**
-     * Determine if the action selector should be shown.
-     */
-    shouldShowActionSelector: function shouldShowActionSelector() {
-      return this.selectedResources.length > 0 || this.haveStandaloneActions;
-    },
-
-    /**
-     * Determine if the view is a resource index or a lens.
-     */
-    isLensView: function isLensView() {
-      return this.lens !== '' && this.lens != undefined && this.lens != null;
-    },
-
-    /**
-     * Determine whether the pagination component should be shown.
-     */
-    shouldShowPagination: function shouldShowPagination() {
-      return this.disablePagination !== true && this.resourceResponse && this.hasResources;
-    },
-
-    /**
-     * Return the current count of all resources
-     */
-    currentResourceCount: function currentResourceCount() {
-      return this.resources.length;
-    },
-
-    /**
-     * Get the name of the search query string variable.
-     */
-    searchParameter: function searchParameter() {
-      return this.viaRelationship ? this.viaRelationship + '_search' : this.resourceName + '_search';
-    },
-
-    /**
-     * Get the name of the order by query string variable.
-     */
-    orderByParameter: function orderByParameter() {
-      return this.viaRelationship ? this.viaRelationship + '_order' : this.resourceName + '_order';
-    },
-
-    /**
-     * Get the name of the order by direction query string variable.
-     */
-    orderByDirectionParameter: function orderByDirectionParameter() {
-      return this.viaRelationship ? this.viaRelationship + '_direction' : this.resourceName + '_direction';
-    },
-
-    /**
-     * Get the name of the trashed constraint query string variable.
-     */
-    trashedParameter: function trashedParameter() {
-      return this.viaRelationship ? this.viaRelationship + '_trashed' : this.resourceName + '_trashed';
-    },
-
-    /**
-     * Get the name of the per page query string variable.
-     */
-    perPageParameter: function perPageParameter() {
-      return this.viaRelationship ? this.viaRelationship + '_per_page' : this.resourceName + '_per_page';
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/InteractsWithDates.js":
-/*!***********************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/InteractsWithDates.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/util */ "./vendor/laravel/nova/resources/js/util/index.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: {
-    /**
-     * Get the user's local timezone.
-     */
-    userTimezone: function userTimezone() {
-      return Nova.config('userTimezone') || Nova.config('timezone');
-    },
-
-    /**
-     * Determine if the user is used to 12 hour time.
-     */
-    usesTwelveHourTime: function usesTwelveHourTime() {
-      var locale = new Intl.DateTimeFormat().resolvedOptions().locale;
-      return (0,_util__WEBPACK_IMPORTED_MODULE_0__.hourCycle)(locale) === 12;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/InteractsWithQueryString.js":
-/*!*****************************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/InteractsWithQueryString.js ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_forEach__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/forEach */ "./node_modules/lodash/forEach.js");
-/* harmony import */ var lodash_forEach__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_forEach__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-
-
-var compiledSearchParams = null;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  methods: {
-    /**
-     * Update the given query string values.
-     */
-    updateQueryString: function updateQueryString(value) {
-      var searchParams = new URLSearchParams(window.location.search);
-      var page = _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.page;
-      lodash_forEach__WEBPACK_IMPORTED_MODULE_0___default()(value, function (v, i) {
-        searchParams.set(i, v || '');
-      });
-
-      if (compiledSearchParams !== searchParams.toString()) {
-        if (page.url !== "".concat(window.location.pathname, "?").concat(searchParams)) {
-          page.url = "".concat(window.location.pathname, "?").concat(searchParams);
-          window.history.pushState(page, '', "".concat(window.location.pathname, "?").concat(searchParams));
-        }
-
-        compiledSearchParams = searchParams.toString();
-      }
-
-      Nova.$emit('query-string-changed', searchParams);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/InteractsWithResourceInformation.js":
-/*!*************************************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/InteractsWithResourceInformation.js ***!
-  \*************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/find */ "./node_modules/lodash/find.js");
-/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: {
-    /**
-     * Get the resource information object for the current resource.
-     */
-    resourceInformation: function resourceInformation() {
-      var _this = this;
-
-      return lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(Nova.config('resources'), function (resource) {
-        return resource.uriKey == _this.resourceName;
-      });
-    },
-
-    /**
-     * Get the resource information object for the current resource.
-     */
-    viaResourceInformation: function viaResourceInformation() {
-      var _this2 = this;
-
-      if (!this.viaResource) {
-        return;
-      }
-
-      return lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(Nova.config('resources'), function (resource) {
-        return resource.uriKey == _this2.viaResource;
-      });
-    },
-
-    /**
-     * Determine if the user is authorized to create the current resource.
-     */
-    authorizedToCreate: function authorizedToCreate() {
-      var _this$resourceInforma;
-
-      if (['hasOneThrough', 'hasManyThrough'].indexOf(this.relationshipType) >= 0) {
-        return false;
-      }
-
-      return ((_this$resourceInforma = this.resourceInformation) === null || _this$resourceInforma === void 0 ? void 0 : _this$resourceInforma.authorizedToCreate) || false;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/LoadsResources.js":
-/*!*******************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/LoadsResources.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  computed: {
-    localStorageKey: function localStorageKey() {
-      return "nova.resources.".concat(this.resourceName, ".collapsed");
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/Localization.js":
-/*!*****************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/Localization.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_forEach__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/forEach */ "./node_modules/lodash/forEach.js");
-/* harmony import */ var lodash_forEach__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_forEach__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  methods: {
-    /**
-     * Translate the given key.
-     */
-    __: function __(key, replace) {
-      var translation = Nova.config('translations')[key] ? Nova.config('translations')[key] : key;
-      lodash_forEach__WEBPACK_IMPORTED_MODULE_0___default()(replace, function (value, key) {
-        key = new String(key);
-
-        if (value === null) {
-          console.error("Translation '".concat(translation, "' for key '").concat(key, "' contains a null replacement."));
-          return;
-        }
-
-        value = new String(value);
-        var searches = [':' + key, ':' + key.toUpperCase(), ':' + key.charAt(0).toUpperCase() + key.slice(1)];
-        var replacements = [value, value.toUpperCase(), value.charAt(0).toUpperCase() + value.slice(1)];
-
-        for (var i = searches.length - 1; i >= 0; i--) {
-          translation = translation.replace(searches[i], replacements[i]);
-        }
-      });
-      return translation;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/MetricBehavior.js":
-/*!*******************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/MetricBehavior.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  created: function created() {
-    Nova.$on('metric-refresh', this.fetch);
-    Nova.$on('resources-deleted', this.fetch);
-    Nova.$on('resources-restored', this.fetch);
-
-    if (this.card.refreshWhenActionRuns) {
-      Nova.$on('action-executed', this.fetch);
-    }
-  },
-  beforeUnmount: function beforeUnmount() {
-    Nova.$off('metric-refresh', this.fetch);
-    Nova.$off('resources-deleted', this.fetch);
-    Nova.$off('resources-restored', this.fetch);
-    Nova.$off('action-executed', this.fetch);
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/Paginatable.js":
-/*!****************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/Paginatable.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  methods: {
-    /**
-     * Select the previous page.
-     */
-    selectPreviousPage: function selectPreviousPage() {
-      this.updateQueryString(_defineProperty({}, this.pageParameter, this.currentPage - 1));
-    },
-
-    /**
-     * Select the next page.
-     */
-    selectNextPage: function selectNextPage() {
-      this.updateQueryString(_defineProperty({}, this.pageParameter, this.currentPage + 1));
-    }
-  },
-  computed: {
-    /**
-     * Get the current page from the query string.
-     */
-    currentPage: function currentPage() {
-      return parseInt(this.route.params[this.pageParameter] || 1);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/PerPageable.js":
-/*!****************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/PerPageable.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      perPage: 25
-    };
-  },
-  methods: {
-    /**
-     * Sync the per page values from the query string.
-     */
-    initializePerPageFromQueryString: function initializePerPageFromQueryString() {
-      this.perPage = this.currentPerPage;
-    },
-
-    /**
-     * Update the desired amount of resources per page.
-     */
-    perPageChanged: function perPageChanged() {
-      this.updateQueryString(_defineProperty({}, this.perPageParameter, this.perPage));
-    }
-  },
-  computed: {
-    /**
-     * Get the current per page value from the query string.
-     */
-    currentPerPage: function currentPerPage() {
-      return this.route.params[this.perPageParameter] || 25;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/PerformsSearches.js":
-/*!*********************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/PerformsSearches.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/debounce */ "./node_modules/lodash/debounce.js");
-/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      search: '',
-      selectedResource: '',
-      availableResources: []
-    };
-  },
-  methods: {
-    /**
-     * Set the currently selected resource
-     */
-    selectResource: function selectResource(resource) {
-      this.selectedResource = resource;
-
-      if (this.field) {
-        if (typeof this['emitFieldValueChange'] == 'function') {
-          this.emitFieldValueChange(this.field.attribute, this.selectedResource.value);
-        } else {
-          Nova.$emit(this.field.attribute + '-change', this.selectedResource.value);
-        }
-      }
-    },
-
-    /**
-     * Handle the search box being cleared.
-     */
-    handleSearchCleared: function handleSearchCleared() {
-      this.availableResources = [];
-    },
-
-    /**
-     * Clear the selected resource and availableResources
-     */
-    clearSelection: function clearSelection() {
-      this.selectedResource = '';
-      this.availableResources = [];
-
-      if (this.field) {
-        if (typeof this['emitFieldValueChange'] == 'function') {
-          this.emitFieldValueChange(this.field.attribute, null);
-        } else {
-          Nova.$emit(this.field.attribute + '-change', null);
-        }
-      }
-    },
-
-    /**
-     * Perform a search to get the relatable resources.
-     */
-    performSearch: function performSearch(search) {
-      var _this = this;
-
-      this.search = search;
-      var trimmedSearch = search.trim(); // If the user performs an empty search, it will load all the results
-      // so let's just set the availableResources to an empty array to avoid
-      // loading a huge result set
-
-      if (trimmedSearch == '') {
-        return;
-      }
-
-      this.searchDebouncer(function () {
-        _this.getAvailableResources(trimmedSearch);
-      }, 500);
-    },
-
-    /**
-     * Debounce function for the search handler
-     */
-    searchDebouncer: lodash_debounce__WEBPACK_IMPORTED_MODULE_0___default()(function (callback) {
-      return callback();
-    }, 500)
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/PreventsFormAbandonment.js":
-/*!****************************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/PreventsFormAbandonment.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  created: function created() {
-    var _this = this;
-
-    this.removeOnNavigationChangesEvent = _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.on('before', function (event) {
-      _this.removeOnNavigationChangesEvent();
-
-      _this.handlePreventFormAbandonmentOnInertia(event);
-    });
-    window.addEventListener('beforeunload', this.handlePreventFormAbandonmentOnInertia);
-
-    this.removeOnBeforeUnloadEvent = function () {
-      window.removeEventListener('beforeunload', _this.handlePreventFormAbandonmentOnInertia);
-
-      _this.removeOnBeforeUnloadEvent = function () {};
-    };
-  },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    window.onpopstate = function (event) {
-      _this2.handlePreventFormAbandonmentOnPopState(event);
-    };
-  },
-  beforeUnmount: function beforeUnmount() {
-    this.removeOnBeforeUnloadEvent();
-  },
-  unmounted: function unmounted() {
-    this.removeOnNavigationChangesEvent();
-  },
-  data: function data() {
-    return {
-      removeOnNavigationChangesEvent: null,
-      removeOnBeforeUnloadEvent: null
-    };
-  },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapMutations)(['allowLeavingForm', 'preventLeavingForm'])), {}, {
-    /**
-     * Prevent accidental abandonment only if form was changed.
-     */
-    updateFormStatus: function updateFormStatus() {
-      if (this.canLeaveForm == true) {
-        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.pushState(_inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.page);
-        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.ignoreHistoryState = true;
-      }
-
-      this.preventLeavingForm();
-    },
-    handlePreventFormAbandonment: function handlePreventFormAbandonment(proceed, revert) {
-      if (this.canLeaveForm) {
-        proceed();
-        return;
-      }
-
-      var answer = window.confirm(this.__('Do you really want to leave? You have unsaved changes.'));
-
-      if (answer) {
-        proceed();
-        return;
-      }
-
-      revert();
-    },
-    handlePreventFormAbandonmentOnInertia: function handlePreventFormAbandonmentOnInertia(event) {
-      var _this3 = this;
-
-      this.handlePreventFormAbandonment(function () {
-        _this3.handleProceedingToNextPage();
-
-        _this3.allowLeavingForm();
-      }, function () {
-        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.ignoreHistoryState = true;
-        event.preventDefault();
-        event.returnValue = '';
-        _this3.removeOnNavigationChangesEvent = _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.on('before', function (event) {
-          _this3.removeOnNavigationChangesEvent();
-
-          _this3.handlePreventFormAbandonmentOnInertia(event);
-        });
-      });
-    },
-    handlePreventFormAbandonmentOnPopState: function handlePreventFormAbandonmentOnPopState(event) {
-      var _this4 = this;
-
-      event.stopImmediatePropagation();
-      event.stopPropagation();
-      this.handlePreventFormAbandonment(function () {
-        _this4.handleProceedingToPreviousPage();
-
-        _this4.allowLeavingForm();
-      }, function () {
-        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.pushState(_inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.page);
-        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.ignoreHistoryState = true;
-      });
-    },
-    handleProceedingToPreviousPage: function handleProceedingToPreviousPage() {
-      window.onpopstate = null;
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.ignoreHistoryState = false;
-      this.removeOnBeforeUnloadEvent();
-
-      if (!this.canLeaveForm) {
-        window.history.back();
-      }
-    },
-    handleProceedingToNextPage: function handleProceedingToNextPage() {
-      window.onpopstate = null;
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.ignoreHistoryState = false;
-      this.removeOnBeforeUnloadEvent();
-    }
-  }),
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)(['canLeaveForm']))
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/PreventsModalAbandonment.js":
-/*!*****************************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/PreventsModalAbandonment.js ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    show: {
-      type: Boolean,
-      "default": false
-    }
-  },
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)(['allowLeavingModal', 'preventLeavingModal'])), {}, {
-    /**
-     * Prevent accidental abandonment only if form was changed.
-     */
-    updateModalStatus: function updateModalStatus() {
-      this.preventLeavingModal();
-    },
-    handlePreventModalAbandonment: function handlePreventModalAbandonment(proceed, revert) {
-      if (this.canLeaveModal) {
-        proceed();
-        return;
-      }
-
-      var answer = window.confirm(this.__('Do you really want to leave? You have unsaved changes.'));
-
-      if (answer) {
-        this.allowLeavingModal();
-        proceed();
-        return;
-      }
-
-      revert();
-    }
-  }),
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['canLeaveModal']))
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/RouteParameters.js":
-/*!********************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/RouteParameters.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    var searchParams = new URLSearchParams(window.location.search);
-    return {
-      route: {
-        params: Object.fromEntries(searchParams.entries())
-      }
-    };
-  },
-  created: function created() {
-    var _this = this;
-
-    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              Nova.$on('query-string-changed', _this.listenToQueryStringChanges);
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }))();
-  },
-  beforeUnmount: function beforeUnmount() {
-    Nova.$off('query-string-changed', this.listenToQueryStringChanges);
-  },
-  methods: {
-    listenToQueryStringChanges: function listenToQueryStringChanges(searchParams) {
-      this.route.params = Object.fromEntries(searchParams.entries());
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/SupportsPolling.js":
-/*!********************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/SupportsPolling.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      pollingListener: null,
-      currentlyPolling: false
-    };
-  },
-
-  /**
-   * Unbind the polling listener before the component is destroyed.
-   */
-  beforeUnmount: function beforeUnmount() {
-    this.stopPolling();
-  },
-  methods: {
-    initializePolling: function initializePolling() {
-      this.currentlyPolling = this.currentlyPolling || this.resourceResponse.polling;
-
-      if (this.currentlyPolling && this.pollingListener === null) {
-        return this.startPolling();
-      }
-    },
-
-    /**
-     * Pause polling for new resources.
-     */
-    stopPolling: function stopPolling() {
-      if (this.pollingListener) {
-        clearInterval(this.pollingListener);
-        this.pollingListener = null;
-      }
-
-      this.currentlyPolling = false;
-    },
-
-    /**
-     * Start polling for new resources.
-     */
-    startPolling: function startPolling() {
-      var _this = this;
-
-      this.pollingListener = setInterval(function () {
-        if (document.hasFocus() && document.querySelectorAll('[data-modal-open]').length < 1) {
-          _this.getResources();
-        }
-      }, this.pollingInterval);
-      this.currentlyPolling = true;
-    },
-
-    /**
-     * Restart polling for the resource.
-     */
-    restartPolling: function restartPolling() {
-      if (this.currentlyPolling === true) {
-        this.stopPolling();
-        this.startPolling();
-      }
-    }
-  },
-  computed: {
-    initiallyPolling: function initiallyPolling() {
-      return this.resourceResponse.polling;
-    },
-    pollingInterval: function pollingInterval() {
-      return this.resourceResponse.pollingInterval;
-    },
-
-    /**
-     * Determine if the polling toggle button should be shown.
-     */
-    shouldShowPollingToggle: function shouldShowPollingToggle() {
-      if (!this.resourceResponse) return false;
-      return this.resourceResponse.showPollingToggle || false;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/TogglesTrashed.js":
-/*!*******************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/TogglesTrashed.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      withTrashed: false
-    };
-  },
-  methods: {
-    /**
-     * Toggle the trashed state of the search
-     */
-    toggleWithTrashed: function toggleWithTrashed() {
-      this.withTrashed = !this.withTrashed;
-    },
-
-    /**
-     * Enable searching for trashed resources
-     */
-    enableWithTrashed: function enableWithTrashed() {
-      this.withTrashed = true;
-    },
-
-    /**
-     * Disable searching for trashed resources
-     */
-    disableWithTrashed: function disableWithTrashed() {
-      this.withTrashed = false;
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/mixins/index.js":
-/*!**********************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/index.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BehavesAsPanel": () => (/* reexport safe */ _BehavesAsPanel__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "Collapsable": () => (/* reexport safe */ _Collapsable__WEBPACK_IMPORTED_MODULE_14__["default"]),
-/* harmony export */   "Deletable": () => (/* reexport safe */ _Deletable__WEBPACK_IMPORTED_MODULE_4__["default"]),
-/* harmony export */   "DependentFormField": () => (/* reexport safe */ _DependentFormField__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "Errors": () => (/* reexport safe */ form_backend_validation__WEBPACK_IMPORTED_MODULE_29__.Errors),
-/* harmony export */   "Filterable": () => (/* reexport safe */ _Filterable__WEBPACK_IMPORTED_MODULE_23__["default"]),
-/* harmony export */   "FormEvents": () => (/* reexport safe */ _FormEvents__WEBPACK_IMPORTED_MODULE_16__["default"]),
-/* harmony export */   "FormField": () => (/* reexport safe */ _FormField__WEBPACK_IMPORTED_MODULE_17__["default"]),
-/* harmony export */   "HandlesActions": () => (/* reexport safe */ _HandlesActions__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   "HandlesFormRequest": () => (/* reexport safe */ _HandlesFormRequest__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   "HandlesUploads": () => (/* reexport safe */ _HandlesUploads__WEBPACK_IMPORTED_MODULE_8__["default"]),
-/* harmony export */   "HandlesValidationErrors": () => (/* reexport safe */ _HandlesValidationErrors__WEBPACK_IMPORTED_MODULE_18__["default"]),
-/* harmony export */   "HasActions": () => (/* reexport safe */ _HasActions__WEBPACK_IMPORTED_MODULE_9__["default"]),
-/* harmony export */   "HasCards": () => (/* reexport safe */ _HasCards__WEBPACK_IMPORTED_MODULE_22__["default"]),
-/* harmony export */   "IndexConcerns": () => (/* reexport safe */ _IndexConcerns__WEBPACK_IMPORTED_MODULE_28__["default"]),
-/* harmony export */   "InteractsWithDates": () => (/* reexport safe */ _InteractsWithDates__WEBPACK_IMPORTED_MODULE_10__["default"]),
-/* harmony export */   "InteractsWithQueryString": () => (/* reexport safe */ _InteractsWithQueryString__WEBPACK_IMPORTED_MODULE_11__["default"]),
-/* harmony export */   "InteractsWithResourceInformation": () => (/* reexport safe */ _InteractsWithResourceInformation__WEBPACK_IMPORTED_MODULE_12__["default"]),
-/* harmony export */   "LoadsResources": () => (/* reexport safe */ _LoadsResources__WEBPACK_IMPORTED_MODULE_19__["default"]),
-/* harmony export */   "Localization": () => (/* reexport safe */ _Localization__WEBPACK_IMPORTED_MODULE_13__["default"]),
-/* harmony export */   "MetricBehavior": () => (/* reexport safe */ _MetricBehavior__WEBPACK_IMPORTED_MODULE_15__["default"]),
-/* harmony export */   "Paginatable": () => (/* reexport safe */ _Paginatable__WEBPACK_IMPORTED_MODULE_24__["default"]),
-/* harmony export */   "PerPageable": () => (/* reexport safe */ _PerPageable__WEBPACK_IMPORTED_MODULE_25__["default"]),
-/* harmony export */   "PerformsSearches": () => (/* reexport safe */ _PerformsSearches__WEBPACK_IMPORTED_MODULE_21__["default"]),
-/* harmony export */   "PreventsFormAbandonment": () => (/* reexport safe */ _PreventsFormAbandonment__WEBPACK_IMPORTED_MODULE_2__["default"]),
-/* harmony export */   "PreventsModalAbandonment": () => (/* reexport safe */ _PreventsModalAbandonment__WEBPACK_IMPORTED_MODULE_3__["default"]),
-/* harmony export */   "RouteParameters": () => (/* reexport safe */ _RouteParameters__WEBPACK_IMPORTED_MODULE_26__["default"]),
-/* harmony export */   "SupportsPolling": () => (/* reexport safe */ _SupportsPolling__WEBPACK_IMPORTED_MODULE_27__["default"]),
-/* harmony export */   "TogglesTrashed": () => (/* reexport safe */ _TogglesTrashed__WEBPACK_IMPORTED_MODULE_20__["default"]),
-/* harmony export */   "mapProps": () => (/* reexport safe */ _propTypes__WEBPACK_IMPORTED_MODULE_0__.mapProps)
-/* harmony export */ });
-/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
-/* harmony import */ var _BehavesAsPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BehavesAsPanel */ "./vendor/laravel/nova/resources/js/mixins/BehavesAsPanel.js");
-/* harmony import */ var _PreventsFormAbandonment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PreventsFormAbandonment */ "./vendor/laravel/nova/resources/js/mixins/PreventsFormAbandonment.js");
-/* harmony import */ var _PreventsModalAbandonment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PreventsModalAbandonment */ "./vendor/laravel/nova/resources/js/mixins/PreventsModalAbandonment.js");
-/* harmony import */ var _Deletable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Deletable */ "./vendor/laravel/nova/resources/js/mixins/Deletable.js");
-/* harmony import */ var _DependentFormField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./DependentFormField */ "./vendor/laravel/nova/resources/js/mixins/DependentFormField.js");
-/* harmony import */ var _HandlesActions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./HandlesActions */ "./vendor/laravel/nova/resources/js/mixins/HandlesActions.js");
-/* harmony import */ var _HandlesFormRequest__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./HandlesFormRequest */ "./vendor/laravel/nova/resources/js/mixins/HandlesFormRequest.js");
-/* harmony import */ var _HandlesUploads__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./HandlesUploads */ "./vendor/laravel/nova/resources/js/mixins/HandlesUploads.js");
-/* harmony import */ var _HasActions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./HasActions */ "./vendor/laravel/nova/resources/js/mixins/HasActions.js");
-/* harmony import */ var _InteractsWithDates__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./InteractsWithDates */ "./vendor/laravel/nova/resources/js/mixins/InteractsWithDates.js");
-/* harmony import */ var _InteractsWithQueryString__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./InteractsWithQueryString */ "./vendor/laravel/nova/resources/js/mixins/InteractsWithQueryString.js");
-/* harmony import */ var _InteractsWithResourceInformation__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./InteractsWithResourceInformation */ "./vendor/laravel/nova/resources/js/mixins/InteractsWithResourceInformation.js");
-/* harmony import */ var _Localization__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Localization */ "./vendor/laravel/nova/resources/js/mixins/Localization.js");
-/* harmony import */ var _Collapsable__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Collapsable */ "./vendor/laravel/nova/resources/js/mixins/Collapsable.js");
-/* harmony import */ var _MetricBehavior__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./MetricBehavior */ "./vendor/laravel/nova/resources/js/mixins/MetricBehavior.js");
-/* harmony import */ var _FormEvents__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./FormEvents */ "./vendor/laravel/nova/resources/js/mixins/FormEvents.js");
-/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./FormField */ "./vendor/laravel/nova/resources/js/mixins/FormField.js");
-/* harmony import */ var _HandlesValidationErrors__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./HandlesValidationErrors */ "./vendor/laravel/nova/resources/js/mixins/HandlesValidationErrors.js");
-/* harmony import */ var _LoadsResources__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./LoadsResources */ "./vendor/laravel/nova/resources/js/mixins/LoadsResources.js");
-/* harmony import */ var _TogglesTrashed__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./TogglesTrashed */ "./vendor/laravel/nova/resources/js/mixins/TogglesTrashed.js");
-/* harmony import */ var _PerformsSearches__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./PerformsSearches */ "./vendor/laravel/nova/resources/js/mixins/PerformsSearches.js");
-/* harmony import */ var _HasCards__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./HasCards */ "./vendor/laravel/nova/resources/js/mixins/HasCards.js");
-/* harmony import */ var _Filterable__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Filterable */ "./vendor/laravel/nova/resources/js/mixins/Filterable.js");
-/* harmony import */ var _Paginatable__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Paginatable */ "./vendor/laravel/nova/resources/js/mixins/Paginatable.js");
-/* harmony import */ var _PerPageable__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./PerPageable */ "./vendor/laravel/nova/resources/js/mixins/PerPageable.js");
-/* harmony import */ var _RouteParameters__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./RouteParameters */ "./vendor/laravel/nova/resources/js/mixins/RouteParameters.js");
-/* harmony import */ var _SupportsPolling__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./SupportsPolling */ "./vendor/laravel/nova/resources/js/mixins/SupportsPolling.js");
-/* harmony import */ var _IndexConcerns__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./IndexConcerns */ "./vendor/laravel/nova/resources/js/mixins/IndexConcerns.js");
-/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/** @type {import('./actualApply')} */
+module.exports = $reflectApply || bind.call($call, $apply);
 
 
 /***/ }),
 
-/***/ "./vendor/laravel/nova/resources/js/mixins/packages.js":
-/*!*************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/packages.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/call-bind-apply-helpers/functionApply.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/call-bind-apply-helpers/functionApply.js ***!
+  \***************************************************************/
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "DependentFormField": () => (/* reexport safe */ _DependentFormField__WEBPACK_IMPORTED_MODULE_3__["default"]),
-/* harmony export */   "Errors": () => (/* reexport safe */ form_backend_validation__WEBPACK_IMPORTED_MODULE_12__.Errors),
-/* harmony export */   "FormEvents": () => (/* reexport safe */ _FormEvents__WEBPACK_IMPORTED_MODULE_8__["default"]),
-/* harmony export */   "FormField": () => (/* reexport safe */ _FormField__WEBPACK_IMPORTED_MODULE_9__["default"]),
-/* harmony export */   "HandlesFormRequest": () => (/* reexport safe */ _HandlesFormRequest__WEBPACK_IMPORTED_MODULE_4__["default"]),
-/* harmony export */   "HandlesUploads": () => (/* reexport safe */ _HandlesUploads__WEBPACK_IMPORTED_MODULE_5__["default"]),
-/* harmony export */   "HandlesValidationErrors": () => (/* reexport safe */ _HandlesValidationErrors__WEBPACK_IMPORTED_MODULE_10__["default"]),
-/* harmony export */   "HasCards": () => (/* reexport safe */ _HasCards__WEBPACK_IMPORTED_MODULE_11__["default"]),
-/* harmony export */   "Localization": () => (/* reexport safe */ _Localization__WEBPACK_IMPORTED_MODULE_6__["default"]),
-/* harmony export */   "MetricBehavior": () => (/* reexport safe */ _MetricBehavior__WEBPACK_IMPORTED_MODULE_7__["default"]),
-/* harmony export */   "PreventsFormAbandonment": () => (/* reexport safe */ _PreventsFormAbandonment__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "PreventsModalAbandonment": () => (/* reexport safe */ _PreventsModalAbandonment__WEBPACK_IMPORTED_MODULE_2__["default"]),
-/* harmony export */   "mapProps": () => (/* reexport safe */ _propTypes__WEBPACK_IMPORTED_MODULE_0__.mapProps)
-/* harmony export */ });
-/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
-/* harmony import */ var _PreventsFormAbandonment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PreventsFormAbandonment */ "./vendor/laravel/nova/resources/js/mixins/PreventsFormAbandonment.js");
-/* harmony import */ var _PreventsModalAbandonment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PreventsModalAbandonment */ "./vendor/laravel/nova/resources/js/mixins/PreventsModalAbandonment.js");
-/* harmony import */ var _DependentFormField__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DependentFormField */ "./vendor/laravel/nova/resources/js/mixins/DependentFormField.js");
-/* harmony import */ var _HandlesFormRequest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HandlesFormRequest */ "./vendor/laravel/nova/resources/js/mixins/HandlesFormRequest.js");
-/* harmony import */ var _HandlesUploads__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./HandlesUploads */ "./vendor/laravel/nova/resources/js/mixins/HandlesUploads.js");
-/* harmony import */ var _Localization__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Localization */ "./vendor/laravel/nova/resources/js/mixins/Localization.js");
-/* harmony import */ var _MetricBehavior__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MetricBehavior */ "./vendor/laravel/nova/resources/js/mixins/MetricBehavior.js");
-/* harmony import */ var _FormEvents__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./FormEvents */ "./vendor/laravel/nova/resources/js/mixins/FormEvents.js");
-/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./FormField */ "./vendor/laravel/nova/resources/js/mixins/FormField.js");
-/* harmony import */ var _HandlesValidationErrors__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./HandlesValidationErrors */ "./vendor/laravel/nova/resources/js/mixins/HandlesValidationErrors.js");
-/* harmony import */ var _HasCards__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./HasCards */ "./vendor/laravel/nova/resources/js/mixins/HasCards.js");
-/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
 
 
-
-
-
-
-
-
-
-
-
-
+/** @type {import('./functionApply')} */
+module.exports = Function.prototype.apply;
 
 
 /***/ }),
 
-/***/ "./vendor/laravel/nova/resources/js/mixins/propTypes.js":
+/***/ "./node_modules/call-bind-apply-helpers/functionCall.js":
 /*!**************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/mixins/propTypes.js ***!
+  !*** ./node_modules/call-bind-apply-helpers/functionCall.js ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "mapProps": () => (/* binding */ mapProps)
-/* harmony export */ });
-/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/pick */ "./node_modules/lodash/pick.js");
-/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_pick__WEBPACK_IMPORTED_MODULE_0__);
 
-var propTypes = {
-  preventInitialLoading: {
-    type: Boolean,
-    "default": false
-  },
-  showHelpText: {
-    type: Boolean,
-    "default": false
-  },
-  shownViaNewRelationModal: {
-    type: Boolean,
-    "default": false
-  },
-  resourceId: {
-    type: [Number, String]
-  },
-  resourceName: {
-    type: String
-  },
-  relatedResourceId: {
-    type: [Number, String]
-  },
-  relatedResourceName: {
-    type: String
-  },
-  field: {
-    type: Object,
-    required: true
-  },
-  viaResource: {
-    type: String,
-    required: false
-  },
-  viaResourceId: {
-    type: [String, Number],
-    required: false
-  },
-  viaRelationship: {
-    type: String,
-    required: false
-  },
-  relationshipType: {
-    type: String,
-    "default": ''
-  },
-  shouldOverrideMeta: {
-    type: Boolean,
-    "default": false
-  },
-  disablePagination: {
-    type: Boolean,
-    "default": false
-  }
+
+/** @type {import('./functionCall')} */
+module.exports = Function.prototype.call;
+
+
+/***/ }),
+
+/***/ "./node_modules/call-bind-apply-helpers/index.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/call-bind-apply-helpers/index.js ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
+var $TypeError = __webpack_require__(/*! es-errors/type */ "./node_modules/es-errors/type.js");
+
+var $call = __webpack_require__(/*! ./functionCall */ "./node_modules/call-bind-apply-helpers/functionCall.js");
+var $actualApply = __webpack_require__(/*! ./actualApply */ "./node_modules/call-bind-apply-helpers/actualApply.js");
+
+/** @type {(args: [Function, thisArg?: unknown, ...args: unknown[]]) => Function} TODO FIXME, find a way to use import('.') */
+module.exports = function callBindBasic(args) {
+	if (args.length < 1 || typeof args[0] !== 'function') {
+		throw new $TypeError('a function is required');
+	}
+	return $actualApply(bind, $call, args);
 };
-function mapProps(attributes) {
-  return lodash_pick__WEBPACK_IMPORTED_MODULE_0___default()(propTypes, attributes);
-}
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/util/capitalize.js":
-/*!*************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/util/capitalize.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var lodash_upperFirst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/upperFirst */ "./node_modules/lodash/upperFirst.js");
-/* harmony import */ var lodash_upperFirst__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_upperFirst__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(string) {
-  return lodash_upperFirst__WEBPACK_IMPORTED_MODULE_0___default()(string);
-}
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/util/hourCycle.js":
-/*!************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/util/hourCycle.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(locale) {
-  var hourCycle = Intl.DateTimeFormat(locale, {
-    hour: 'numeric'
-  }).resolvedOptions().hourCycle;
-
-  if (hourCycle == 'h23' || hourCycle == 'h24') {
-    return 24;
-  }
-
-  return 12;
-}
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/util/index.js":
-/*!********************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/util/index.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "capitalize": () => (/* reexport safe */ _capitalize__WEBPACK_IMPORTED_MODULE_3__["default"]),
-/* harmony export */   "hourCycle": () => (/* reexport safe */ _hourCycle__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   "minimum": () => (/* reexport safe */ _minimum__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "singularOrPlural": () => (/* reexport safe */ _singularOrPlural__WEBPACK_IMPORTED_MODULE_2__["default"])
-/* harmony export */ });
-/* harmony import */ var _hourCycle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hourCycle */ "./vendor/laravel/nova/resources/js/util/hourCycle.js");
-/* harmony import */ var _minimum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./minimum */ "./vendor/laravel/nova/resources/js/util/minimum.js");
-/* harmony import */ var _singularOrPlural__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./singularOrPlural */ "./vendor/laravel/nova/resources/js/util/singularOrPlural.js");
-/* harmony import */ var _capitalize__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./capitalize */ "./vendor/laravel/nova/resources/js/util/capitalize.js");
-
-
-
 
 
 /***/ }),
 
-/***/ "./vendor/laravel/nova/resources/js/util/minimum.js":
-/*!**********************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/util/minimum.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/call-bind-apply-helpers/reflectApply.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/call-bind-apply-helpers/reflectApply.js ***!
+  \**************************************************************/
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(originalPromise) {
-  var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
-  return Promise.all([originalPromise, new Promise(function (resolve) {
-    setTimeout(function () {
-      return resolve();
-    }, delay);
-  })]).then(function (result) {
-    return result[0];
-  });
-} // Usage
-// minimum(axios.get('/'))
-//     .then(response => console.log('done'))
-//     .catch(error => console.log(error))
+
+
+/** @type {import('./reflectApply')} */
+module.exports = typeof Reflect !== 'undefined' && Reflect && Reflect.apply;
+
 
 /***/ }),
 
-/***/ "./vendor/laravel/nova/resources/js/util/singularOrPlural.js":
-/*!*******************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/util/singularOrPlural.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/call-bound/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/call-bound/index.js ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ singularOrPlural)
-/* harmony export */ });
-/* harmony import */ var inflector_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! inflector-js */ "./node_modules/inflector-js/index.js");
-/* harmony import */ var inflector_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(inflector_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_isString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/isString */ "./node_modules/lodash/isString.js");
-/* harmony import */ var lodash_isString__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_isString__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function singularOrPlural(value, suffix) {
-  if (lodash_isString__WEBPACK_IMPORTED_MODULE_1___default()(suffix) && suffix.match(/^(.*)[A-Za-zÀ-ÖØ-öø-ÿ]$/) == null) return suffix;
-  if (value > 1 || value == 0) return inflector_js__WEBPACK_IMPORTED_MODULE_0___default().pluralize(suffix);
-  return inflector_js__WEBPACK_IMPORTED_MODULE_0___default().singularize(suffix);
-}
+var GetIntrinsic = __webpack_require__(/*! get-intrinsic */ "./node_modules/get-intrinsic/index.js");
+
+var callBindBasic = __webpack_require__(/*! call-bind-apply-helpers */ "./node_modules/call-bind-apply-helpers/index.js");
+
+/** @type {(thisArg: string, searchString: string, position?: number) => number} */
+var $indexOf = callBindBasic([GetIntrinsic('%String.prototype.indexOf%')]);
+
+/** @type {import('.')} */
+module.exports = function callBoundIntrinsic(name, allowMissing) {
+	/* eslint no-extra-parens: 0 */
+
+	var intrinsic = /** @type {(this: unknown, ...args: unknown[]) => unknown} */ (GetIntrinsic(name, !!allowMissing));
+	if (typeof intrinsic === 'function' && $indexOf(name, '.prototype.') > -1) {
+		return callBindBasic(/** @type {const} */ ([intrinsic]));
+	}
+	return intrinsic;
+};
+
 
 /***/ }),
 
@@ -6589,7 +3024,7 @@ function getMergeFunction(key, options) {
 function getEnumerableOwnPropertySymbols(target) {
 	return Object.getOwnPropertySymbols
 		? Object.getOwnPropertySymbols(target).filter(function(symbol) {
-			return target.propertyIsEnumerable(symbol)
+			return Object.propertyIsEnumerable.call(target, symbol)
 		})
 		: []
 }
@@ -6672,6 +3107,192 @@ module.exports = deepmerge_1;
 
 /***/ }),
 
+/***/ "./node_modules/dunder-proto/get.js":
+/*!******************************************!*\
+  !*** ./node_modules/dunder-proto/get.js ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var callBind = __webpack_require__(/*! call-bind-apply-helpers */ "./node_modules/call-bind-apply-helpers/index.js");
+var gOPD = __webpack_require__(/*! gopd */ "./node_modules/gopd/index.js");
+
+var hasProtoAccessor;
+try {
+	// eslint-disable-next-line no-extra-parens, no-proto
+	hasProtoAccessor = /** @type {{ __proto__?: typeof Array.prototype }} */ ([]).__proto__ === Array.prototype;
+} catch (e) {
+	if (!e || typeof e !== 'object' || !('code' in e) || e.code !== 'ERR_PROTO_ACCESS') {
+		throw e;
+	}
+}
+
+// eslint-disable-next-line no-extra-parens
+var desc = !!hasProtoAccessor && gOPD && gOPD(Object.prototype, /** @type {keyof typeof Object.prototype} */ ('__proto__'));
+
+var $Object = Object;
+var $getPrototypeOf = $Object.getPrototypeOf;
+
+/** @type {import('./get')} */
+module.exports = desc && typeof desc.get === 'function'
+	? callBind([desc.get])
+	: typeof $getPrototypeOf === 'function'
+		? /** @type {import('./get')} */ function getDunder(value) {
+			// eslint-disable-next-line eqeqeq
+			return $getPrototypeOf(value == null ? value : $Object(value));
+		}
+		: false;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-define-property/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/es-define-property/index.js ***!
+  \**************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('.')} */
+var $defineProperty = Object.defineProperty || false;
+if ($defineProperty) {
+	try {
+		$defineProperty({}, 'a', { value: 1 });
+	} catch (e) {
+		// IE 8 has a broken defineProperty
+		$defineProperty = false;
+	}
+}
+
+module.exports = $defineProperty;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-errors/eval.js":
+/*!****************************************!*\
+  !*** ./node_modules/es-errors/eval.js ***!
+  \****************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./eval')} */
+module.exports = EvalError;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-errors/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/es-errors/index.js ***!
+  \*****************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('.')} */
+module.exports = Error;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-errors/range.js":
+/*!*****************************************!*\
+  !*** ./node_modules/es-errors/range.js ***!
+  \*****************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./range')} */
+module.exports = RangeError;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-errors/ref.js":
+/*!***************************************!*\
+  !*** ./node_modules/es-errors/ref.js ***!
+  \***************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./ref')} */
+module.exports = ReferenceError;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-errors/syntax.js":
+/*!******************************************!*\
+  !*** ./node_modules/es-errors/syntax.js ***!
+  \******************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./syntax')} */
+module.exports = SyntaxError;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-errors/type.js":
+/*!****************************************!*\
+  !*** ./node_modules/es-errors/type.js ***!
+  \****************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./type')} */
+module.exports = TypeError;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-errors/uri.js":
+/*!***************************************!*\
+  !*** ./node_modules/es-errors/uri.js ***!
+  \***************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./uri')} */
+module.exports = URIError;
+
+
+/***/ }),
+
+/***/ "./node_modules/es-object-atoms/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/es-object-atoms/index.js ***!
+  \***********************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('.')} */
+module.exports = Object;
+
+
+/***/ }),
+
 /***/ "./node_modules/form-backend-validation/dist/Errors.js":
 /*!*************************************************************!*\
   !*** ./node_modules/form-backend-validation/dist/Errors.js ***!
@@ -6748,12 +3369,29 @@ var Errors = function () {
 
         /**
          * Determine if we have any errors.
+         * Or return errors for the given keys.
+         *
+         * @param {array} keys
          */
 
     }, {
         key: "any",
         value: function any() {
-            return Object.keys(this.errors).length > 0;
+            var _this = this;
+
+            var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+            if (keys.length === 0) {
+                return Object.keys(this.errors).length > 0;
+            }
+
+            var errors = {};
+
+            keys.forEach(function (key) {
+                return errors[key] = _this.get(key);
+            });
+
+            return errors;
         }
 
         /**
@@ -7106,7 +3744,7 @@ var Form = function () {
             if ((typeof object === 'undefined' ? 'undefined' : _typeof(object)) === 'object') {
                 for (var key in object) {
                     if (object.hasOwnProperty(key)) {
-                        if ((0, _util.isFile)(object[key])) {
+                        if (this.hasFilesDeep(object[key])) {
                             return true;
                         }
                     }
@@ -7332,6 +3970,10 @@ function appendToFormData(formData, key, value) {
         return formData.append(key, value ? '1' : '0');
     }
 
+    if (value === null) {
+        return formData.append(key, '');
+    }
+
     if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) !== 'object') {
         return formData.append(key, value);
     }
@@ -7460,6 +4102,717 @@ function cloneDeep(object) {
 
     return object;
 }
+
+/***/ }),
+
+/***/ "./node_modules/function-bind/implementation.js":
+/*!******************************************************!*\
+  !*** ./node_modules/function-bind/implementation.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/* eslint no-invalid-this: 1 */
+
+var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+var toStr = Object.prototype.toString;
+var max = Math.max;
+var funcType = '[object Function]';
+
+var concatty = function concatty(a, b) {
+    var arr = [];
+
+    for (var i = 0; i < a.length; i += 1) {
+        arr[i] = a[i];
+    }
+    for (var j = 0; j < b.length; j += 1) {
+        arr[j + a.length] = b[j];
+    }
+
+    return arr;
+};
+
+var slicy = function slicy(arrLike, offset) {
+    var arr = [];
+    for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) {
+        arr[j] = arrLike[i];
+    }
+    return arr;
+};
+
+var joiny = function (arr, joiner) {
+    var str = '';
+    for (var i = 0; i < arr.length; i += 1) {
+        str += arr[i];
+        if (i + 1 < arr.length) {
+            str += joiner;
+        }
+    }
+    return str;
+};
+
+module.exports = function bind(that) {
+    var target = this;
+    if (typeof target !== 'function' || toStr.apply(target) !== funcType) {
+        throw new TypeError(ERROR_MESSAGE + target);
+    }
+    var args = slicy(arguments, 1);
+
+    var bound;
+    var binder = function () {
+        if (this instanceof bound) {
+            var result = target.apply(
+                this,
+                concatty(args, arguments)
+            );
+            if (Object(result) === result) {
+                return result;
+            }
+            return this;
+        }
+        return target.apply(
+            that,
+            concatty(args, arguments)
+        );
+
+    };
+
+    var boundLength = max(0, target.length - args.length);
+    var boundArgs = [];
+    for (var i = 0; i < boundLength; i++) {
+        boundArgs[i] = '$' + i;
+    }
+
+    bound = Function('binder', 'return function (' + joiny(boundArgs, ',') + '){ return binder.apply(this,arguments); }')(binder);
+
+    if (target.prototype) {
+        var Empty = function Empty() {};
+        Empty.prototype = target.prototype;
+        bound.prototype = new Empty();
+        Empty.prototype = null;
+    }
+
+    return bound;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/function-bind/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/function-bind/index.js ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var implementation = __webpack_require__(/*! ./implementation */ "./node_modules/function-bind/implementation.js");
+
+module.exports = Function.prototype.bind || implementation;
+
+
+/***/ }),
+
+/***/ "./node_modules/get-intrinsic/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/get-intrinsic/index.js ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var undefined;
+
+var $Object = __webpack_require__(/*! es-object-atoms */ "./node_modules/es-object-atoms/index.js");
+
+var $Error = __webpack_require__(/*! es-errors */ "./node_modules/es-errors/index.js");
+var $EvalError = __webpack_require__(/*! es-errors/eval */ "./node_modules/es-errors/eval.js");
+var $RangeError = __webpack_require__(/*! es-errors/range */ "./node_modules/es-errors/range.js");
+var $ReferenceError = __webpack_require__(/*! es-errors/ref */ "./node_modules/es-errors/ref.js");
+var $SyntaxError = __webpack_require__(/*! es-errors/syntax */ "./node_modules/es-errors/syntax.js");
+var $TypeError = __webpack_require__(/*! es-errors/type */ "./node_modules/es-errors/type.js");
+var $URIError = __webpack_require__(/*! es-errors/uri */ "./node_modules/es-errors/uri.js");
+
+var abs = __webpack_require__(/*! math-intrinsics/abs */ "./node_modules/math-intrinsics/abs.js");
+var floor = __webpack_require__(/*! math-intrinsics/floor */ "./node_modules/math-intrinsics/floor.js");
+var max = __webpack_require__(/*! math-intrinsics/max */ "./node_modules/math-intrinsics/max.js");
+var min = __webpack_require__(/*! math-intrinsics/min */ "./node_modules/math-intrinsics/min.js");
+var pow = __webpack_require__(/*! math-intrinsics/pow */ "./node_modules/math-intrinsics/pow.js");
+var round = __webpack_require__(/*! math-intrinsics/round */ "./node_modules/math-intrinsics/round.js");
+var sign = __webpack_require__(/*! math-intrinsics/sign */ "./node_modules/math-intrinsics/sign.js");
+
+var $Function = Function;
+
+// eslint-disable-next-line consistent-return
+var getEvalledConstructor = function (expressionSyntax) {
+	try {
+		return $Function('"use strict"; return (' + expressionSyntax + ').constructor;')();
+	} catch (e) {}
+};
+
+var $gOPD = __webpack_require__(/*! gopd */ "./node_modules/gopd/index.js");
+var $defineProperty = __webpack_require__(/*! es-define-property */ "./node_modules/es-define-property/index.js");
+
+var throwTypeError = function () {
+	throw new $TypeError();
+};
+var ThrowTypeError = $gOPD
+	? (function () {
+		try {
+			// eslint-disable-next-line no-unused-expressions, no-caller, no-restricted-properties
+			arguments.callee; // IE 8 does not throw here
+			return throwTypeError;
+		} catch (calleeThrows) {
+			try {
+				// IE 8 throws on Object.getOwnPropertyDescriptor(arguments, '')
+				return $gOPD(arguments, 'callee').get;
+			} catch (gOPDthrows) {
+				return throwTypeError;
+			}
+		}
+	}())
+	: throwTypeError;
+
+var hasSymbols = __webpack_require__(/*! has-symbols */ "./node_modules/has-symbols/index.js")();
+
+var getProto = __webpack_require__(/*! get-proto */ "./node_modules/get-proto/index.js");
+var $ObjectGPO = __webpack_require__(/*! get-proto/Object.getPrototypeOf */ "./node_modules/get-proto/Object.getPrototypeOf.js");
+var $ReflectGPO = __webpack_require__(/*! get-proto/Reflect.getPrototypeOf */ "./node_modules/get-proto/Reflect.getPrototypeOf.js");
+
+var $apply = __webpack_require__(/*! call-bind-apply-helpers/functionApply */ "./node_modules/call-bind-apply-helpers/functionApply.js");
+var $call = __webpack_require__(/*! call-bind-apply-helpers/functionCall */ "./node_modules/call-bind-apply-helpers/functionCall.js");
+
+var needsEval = {};
+
+var TypedArray = typeof Uint8Array === 'undefined' || !getProto ? undefined : getProto(Uint8Array);
+
+var INTRINSICS = {
+	__proto__: null,
+	'%AggregateError%': typeof AggregateError === 'undefined' ? undefined : AggregateError,
+	'%Array%': Array,
+	'%ArrayBuffer%': typeof ArrayBuffer === 'undefined' ? undefined : ArrayBuffer,
+	'%ArrayIteratorPrototype%': hasSymbols && getProto ? getProto([][Symbol.iterator]()) : undefined,
+	'%AsyncFromSyncIteratorPrototype%': undefined,
+	'%AsyncFunction%': needsEval,
+	'%AsyncGenerator%': needsEval,
+	'%AsyncGeneratorFunction%': needsEval,
+	'%AsyncIteratorPrototype%': needsEval,
+	'%Atomics%': typeof Atomics === 'undefined' ? undefined : Atomics,
+	'%BigInt%': typeof BigInt === 'undefined' ? undefined : BigInt,
+	'%BigInt64Array%': typeof BigInt64Array === 'undefined' ? undefined : BigInt64Array,
+	'%BigUint64Array%': typeof BigUint64Array === 'undefined' ? undefined : BigUint64Array,
+	'%Boolean%': Boolean,
+	'%DataView%': typeof DataView === 'undefined' ? undefined : DataView,
+	'%Date%': Date,
+	'%decodeURI%': decodeURI,
+	'%decodeURIComponent%': decodeURIComponent,
+	'%encodeURI%': encodeURI,
+	'%encodeURIComponent%': encodeURIComponent,
+	'%Error%': $Error,
+	'%eval%': eval, // eslint-disable-line no-eval
+	'%EvalError%': $EvalError,
+	'%Float16Array%': typeof Float16Array === 'undefined' ? undefined : Float16Array,
+	'%Float32Array%': typeof Float32Array === 'undefined' ? undefined : Float32Array,
+	'%Float64Array%': typeof Float64Array === 'undefined' ? undefined : Float64Array,
+	'%FinalizationRegistry%': typeof FinalizationRegistry === 'undefined' ? undefined : FinalizationRegistry,
+	'%Function%': $Function,
+	'%GeneratorFunction%': needsEval,
+	'%Int8Array%': typeof Int8Array === 'undefined' ? undefined : Int8Array,
+	'%Int16Array%': typeof Int16Array === 'undefined' ? undefined : Int16Array,
+	'%Int32Array%': typeof Int32Array === 'undefined' ? undefined : Int32Array,
+	'%isFinite%': isFinite,
+	'%isNaN%': isNaN,
+	'%IteratorPrototype%': hasSymbols && getProto ? getProto(getProto([][Symbol.iterator]())) : undefined,
+	'%JSON%': typeof JSON === 'object' ? JSON : undefined,
+	'%Map%': typeof Map === 'undefined' ? undefined : Map,
+	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols || !getProto ? undefined : getProto(new Map()[Symbol.iterator]()),
+	'%Math%': Math,
+	'%Number%': Number,
+	'%Object%': $Object,
+	'%Object.getOwnPropertyDescriptor%': $gOPD,
+	'%parseFloat%': parseFloat,
+	'%parseInt%': parseInt,
+	'%Promise%': typeof Promise === 'undefined' ? undefined : Promise,
+	'%Proxy%': typeof Proxy === 'undefined' ? undefined : Proxy,
+	'%RangeError%': $RangeError,
+	'%ReferenceError%': $ReferenceError,
+	'%Reflect%': typeof Reflect === 'undefined' ? undefined : Reflect,
+	'%RegExp%': RegExp,
+	'%Set%': typeof Set === 'undefined' ? undefined : Set,
+	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols || !getProto ? undefined : getProto(new Set()[Symbol.iterator]()),
+	'%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined : SharedArrayBuffer,
+	'%String%': String,
+	'%StringIteratorPrototype%': hasSymbols && getProto ? getProto(''[Symbol.iterator]()) : undefined,
+	'%Symbol%': hasSymbols ? Symbol : undefined,
+	'%SyntaxError%': $SyntaxError,
+	'%ThrowTypeError%': ThrowTypeError,
+	'%TypedArray%': TypedArray,
+	'%TypeError%': $TypeError,
+	'%Uint8Array%': typeof Uint8Array === 'undefined' ? undefined : Uint8Array,
+	'%Uint8ClampedArray%': typeof Uint8ClampedArray === 'undefined' ? undefined : Uint8ClampedArray,
+	'%Uint16Array%': typeof Uint16Array === 'undefined' ? undefined : Uint16Array,
+	'%Uint32Array%': typeof Uint32Array === 'undefined' ? undefined : Uint32Array,
+	'%URIError%': $URIError,
+	'%WeakMap%': typeof WeakMap === 'undefined' ? undefined : WeakMap,
+	'%WeakRef%': typeof WeakRef === 'undefined' ? undefined : WeakRef,
+	'%WeakSet%': typeof WeakSet === 'undefined' ? undefined : WeakSet,
+
+	'%Function.prototype.call%': $call,
+	'%Function.prototype.apply%': $apply,
+	'%Object.defineProperty%': $defineProperty,
+	'%Object.getPrototypeOf%': $ObjectGPO,
+	'%Math.abs%': abs,
+	'%Math.floor%': floor,
+	'%Math.max%': max,
+	'%Math.min%': min,
+	'%Math.pow%': pow,
+	'%Math.round%': round,
+	'%Math.sign%': sign,
+	'%Reflect.getPrototypeOf%': $ReflectGPO
+};
+
+if (getProto) {
+	try {
+		null.error; // eslint-disable-line no-unused-expressions
+	} catch (e) {
+		// https://github.com/tc39/proposal-shadowrealm/pull/384#issuecomment-1364264229
+		var errorProto = getProto(getProto(e));
+		INTRINSICS['%Error.prototype%'] = errorProto;
+	}
+}
+
+var doEval = function doEval(name) {
+	var value;
+	if (name === '%AsyncFunction%') {
+		value = getEvalledConstructor('async function () {}');
+	} else if (name === '%GeneratorFunction%') {
+		value = getEvalledConstructor('function* () {}');
+	} else if (name === '%AsyncGeneratorFunction%') {
+		value = getEvalledConstructor('async function* () {}');
+	} else if (name === '%AsyncGenerator%') {
+		var fn = doEval('%AsyncGeneratorFunction%');
+		if (fn) {
+			value = fn.prototype;
+		}
+	} else if (name === '%AsyncIteratorPrototype%') {
+		var gen = doEval('%AsyncGenerator%');
+		if (gen && getProto) {
+			value = getProto(gen.prototype);
+		}
+	}
+
+	INTRINSICS[name] = value;
+
+	return value;
+};
+
+var LEGACY_ALIASES = {
+	__proto__: null,
+	'%ArrayBufferPrototype%': ['ArrayBuffer', 'prototype'],
+	'%ArrayPrototype%': ['Array', 'prototype'],
+	'%ArrayProto_entries%': ['Array', 'prototype', 'entries'],
+	'%ArrayProto_forEach%': ['Array', 'prototype', 'forEach'],
+	'%ArrayProto_keys%': ['Array', 'prototype', 'keys'],
+	'%ArrayProto_values%': ['Array', 'prototype', 'values'],
+	'%AsyncFunctionPrototype%': ['AsyncFunction', 'prototype'],
+	'%AsyncGenerator%': ['AsyncGeneratorFunction', 'prototype'],
+	'%AsyncGeneratorPrototype%': ['AsyncGeneratorFunction', 'prototype', 'prototype'],
+	'%BooleanPrototype%': ['Boolean', 'prototype'],
+	'%DataViewPrototype%': ['DataView', 'prototype'],
+	'%DatePrototype%': ['Date', 'prototype'],
+	'%ErrorPrototype%': ['Error', 'prototype'],
+	'%EvalErrorPrototype%': ['EvalError', 'prototype'],
+	'%Float32ArrayPrototype%': ['Float32Array', 'prototype'],
+	'%Float64ArrayPrototype%': ['Float64Array', 'prototype'],
+	'%FunctionPrototype%': ['Function', 'prototype'],
+	'%Generator%': ['GeneratorFunction', 'prototype'],
+	'%GeneratorPrototype%': ['GeneratorFunction', 'prototype', 'prototype'],
+	'%Int8ArrayPrototype%': ['Int8Array', 'prototype'],
+	'%Int16ArrayPrototype%': ['Int16Array', 'prototype'],
+	'%Int32ArrayPrototype%': ['Int32Array', 'prototype'],
+	'%JSONParse%': ['JSON', 'parse'],
+	'%JSONStringify%': ['JSON', 'stringify'],
+	'%MapPrototype%': ['Map', 'prototype'],
+	'%NumberPrototype%': ['Number', 'prototype'],
+	'%ObjectPrototype%': ['Object', 'prototype'],
+	'%ObjProto_toString%': ['Object', 'prototype', 'toString'],
+	'%ObjProto_valueOf%': ['Object', 'prototype', 'valueOf'],
+	'%PromisePrototype%': ['Promise', 'prototype'],
+	'%PromiseProto_then%': ['Promise', 'prototype', 'then'],
+	'%Promise_all%': ['Promise', 'all'],
+	'%Promise_reject%': ['Promise', 'reject'],
+	'%Promise_resolve%': ['Promise', 'resolve'],
+	'%RangeErrorPrototype%': ['RangeError', 'prototype'],
+	'%ReferenceErrorPrototype%': ['ReferenceError', 'prototype'],
+	'%RegExpPrototype%': ['RegExp', 'prototype'],
+	'%SetPrototype%': ['Set', 'prototype'],
+	'%SharedArrayBufferPrototype%': ['SharedArrayBuffer', 'prototype'],
+	'%StringPrototype%': ['String', 'prototype'],
+	'%SymbolPrototype%': ['Symbol', 'prototype'],
+	'%SyntaxErrorPrototype%': ['SyntaxError', 'prototype'],
+	'%TypedArrayPrototype%': ['TypedArray', 'prototype'],
+	'%TypeErrorPrototype%': ['TypeError', 'prototype'],
+	'%Uint8ArrayPrototype%': ['Uint8Array', 'prototype'],
+	'%Uint8ClampedArrayPrototype%': ['Uint8ClampedArray', 'prototype'],
+	'%Uint16ArrayPrototype%': ['Uint16Array', 'prototype'],
+	'%Uint32ArrayPrototype%': ['Uint32Array', 'prototype'],
+	'%URIErrorPrototype%': ['URIError', 'prototype'],
+	'%WeakMapPrototype%': ['WeakMap', 'prototype'],
+	'%WeakSetPrototype%': ['WeakSet', 'prototype']
+};
+
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
+var hasOwn = __webpack_require__(/*! hasown */ "./node_modules/hasown/index.js");
+var $concat = bind.call($call, Array.prototype.concat);
+var $spliceApply = bind.call($apply, Array.prototype.splice);
+var $replace = bind.call($call, String.prototype.replace);
+var $strSlice = bind.call($call, String.prototype.slice);
+var $exec = bind.call($call, RegExp.prototype.exec);
+
+/* adapted from https://github.com/lodash/lodash/blob/4.17.15/dist/lodash.js#L6735-L6744 */
+var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
+var reEscapeChar = /\\(\\)?/g; /** Used to match backslashes in property paths. */
+var stringToPath = function stringToPath(string) {
+	var first = $strSlice(string, 0, 1);
+	var last = $strSlice(string, -1);
+	if (first === '%' && last !== '%') {
+		throw new $SyntaxError('invalid intrinsic syntax, expected closing `%`');
+	} else if (last === '%' && first !== '%') {
+		throw new $SyntaxError('invalid intrinsic syntax, expected opening `%`');
+	}
+	var result = [];
+	$replace(string, rePropName, function (match, number, quote, subString) {
+		result[result.length] = quote ? $replace(subString, reEscapeChar, '$1') : number || match;
+	});
+	return result;
+};
+/* end adaptation */
+
+var getBaseIntrinsic = function getBaseIntrinsic(name, allowMissing) {
+	var intrinsicName = name;
+	var alias;
+	if (hasOwn(LEGACY_ALIASES, intrinsicName)) {
+		alias = LEGACY_ALIASES[intrinsicName];
+		intrinsicName = '%' + alias[0] + '%';
+	}
+
+	if (hasOwn(INTRINSICS, intrinsicName)) {
+		var value = INTRINSICS[intrinsicName];
+		if (value === needsEval) {
+			value = doEval(intrinsicName);
+		}
+		if (typeof value === 'undefined' && !allowMissing) {
+			throw new $TypeError('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
+		}
+
+		return {
+			alias: alias,
+			name: intrinsicName,
+			value: value
+		};
+	}
+
+	throw new $SyntaxError('intrinsic ' + name + ' does not exist!');
+};
+
+module.exports = function GetIntrinsic(name, allowMissing) {
+	if (typeof name !== 'string' || name.length === 0) {
+		throw new $TypeError('intrinsic name must be a non-empty string');
+	}
+	if (arguments.length > 1 && typeof allowMissing !== 'boolean') {
+		throw new $TypeError('"allowMissing" argument must be a boolean');
+	}
+
+	if ($exec(/^%?[^%]*%?$/, name) === null) {
+		throw new $SyntaxError('`%` may not be present anywhere but at the beginning and end of the intrinsic name');
+	}
+	var parts = stringToPath(name);
+	var intrinsicBaseName = parts.length > 0 ? parts[0] : '';
+
+	var intrinsic = getBaseIntrinsic('%' + intrinsicBaseName + '%', allowMissing);
+	var intrinsicRealName = intrinsic.name;
+	var value = intrinsic.value;
+	var skipFurtherCaching = false;
+
+	var alias = intrinsic.alias;
+	if (alias) {
+		intrinsicBaseName = alias[0];
+		$spliceApply(parts, $concat([0, 1], alias));
+	}
+
+	for (var i = 1, isOwn = true; i < parts.length; i += 1) {
+		var part = parts[i];
+		var first = $strSlice(part, 0, 1);
+		var last = $strSlice(part, -1);
+		if (
+			(
+				(first === '"' || first === "'" || first === '`')
+				|| (last === '"' || last === "'" || last === '`')
+			)
+			&& first !== last
+		) {
+			throw new $SyntaxError('property names with quotes must have matching quotes');
+		}
+		if (part === 'constructor' || !isOwn) {
+			skipFurtherCaching = true;
+		}
+
+		intrinsicBaseName += '.' + part;
+		intrinsicRealName = '%' + intrinsicBaseName + '%';
+
+		if (hasOwn(INTRINSICS, intrinsicRealName)) {
+			value = INTRINSICS[intrinsicRealName];
+		} else if (value != null) {
+			if (!(part in value)) {
+				if (!allowMissing) {
+					throw new $TypeError('base intrinsic for ' + name + ' exists, but the property is not available.');
+				}
+				return void undefined;
+			}
+			if ($gOPD && (i + 1) >= parts.length) {
+				var desc = $gOPD(value, part);
+				isOwn = !!desc;
+
+				// By convention, when a data property is converted to an accessor
+				// property to emulate a data property that does not suffer from
+				// the override mistake, that accessor's getter is marked with
+				// an `originalValue` property. Here, when we detect this, we
+				// uphold the illusion by pretending to see that original data
+				// property, i.e., returning the value rather than the getter
+				// itself.
+				if (isOwn && 'get' in desc && !('originalValue' in desc.get)) {
+					value = desc.get;
+				} else {
+					value = value[part];
+				}
+			} else {
+				isOwn = hasOwn(value, part);
+				value = value[part];
+			}
+
+			if (isOwn && !skipFurtherCaching) {
+				INTRINSICS[intrinsicRealName] = value;
+			}
+		}
+	}
+	return value;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/get-proto/Object.getPrototypeOf.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/get-proto/Object.getPrototypeOf.js ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var $Object = __webpack_require__(/*! es-object-atoms */ "./node_modules/es-object-atoms/index.js");
+
+/** @type {import('./Object.getPrototypeOf')} */
+module.exports = $Object.getPrototypeOf || null;
+
+
+/***/ }),
+
+/***/ "./node_modules/get-proto/Reflect.getPrototypeOf.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/get-proto/Reflect.getPrototypeOf.js ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./Reflect.getPrototypeOf')} */
+module.exports = (typeof Reflect !== 'undefined' && Reflect.getPrototypeOf) || null;
+
+
+/***/ }),
+
+/***/ "./node_modules/get-proto/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/get-proto/index.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var reflectGetProto = __webpack_require__(/*! ./Reflect.getPrototypeOf */ "./node_modules/get-proto/Reflect.getPrototypeOf.js");
+var originalGetProto = __webpack_require__(/*! ./Object.getPrototypeOf */ "./node_modules/get-proto/Object.getPrototypeOf.js");
+
+var getDunderProto = __webpack_require__(/*! dunder-proto/get */ "./node_modules/dunder-proto/get.js");
+
+/** @type {import('.')} */
+module.exports = reflectGetProto
+	? function getProto(O) {
+		// @ts-expect-error TS can't narrow inside a closure, for some reason
+		return reflectGetProto(O);
+	}
+	: originalGetProto
+		? function getProto(O) {
+			if (!O || (typeof O !== 'object' && typeof O !== 'function')) {
+				throw new TypeError('getProto: not an object');
+			}
+			// @ts-expect-error TS can't narrow inside a closure, for some reason
+			return originalGetProto(O);
+		}
+		: getDunderProto
+			? function getProto(O) {
+				// @ts-expect-error TS can't narrow inside a closure, for some reason
+				return getDunderProto(O);
+			}
+			: null;
+
+
+/***/ }),
+
+/***/ "./node_modules/gopd/gOPD.js":
+/*!***********************************!*\
+  !*** ./node_modules/gopd/gOPD.js ***!
+  \***********************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./gOPD')} */
+module.exports = Object.getOwnPropertyDescriptor;
+
+
+/***/ }),
+
+/***/ "./node_modules/gopd/index.js":
+/*!************************************!*\
+  !*** ./node_modules/gopd/index.js ***!
+  \************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+/** @type {import('.')} */
+var $gOPD = __webpack_require__(/*! ./gOPD */ "./node_modules/gopd/gOPD.js");
+
+if ($gOPD) {
+	try {
+		$gOPD([], 'length');
+	} catch (e) {
+		// IE 8 has a broken gOPD
+		$gOPD = null;
+	}
+}
+
+module.exports = $gOPD;
+
+
+/***/ }),
+
+/***/ "./node_modules/has-symbols/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/has-symbols/index.js ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var origSymbol = typeof Symbol !== 'undefined' && Symbol;
+var hasSymbolSham = __webpack_require__(/*! ./shams */ "./node_modules/has-symbols/shams.js");
+
+/** @type {import('.')} */
+module.exports = function hasNativeSymbols() {
+	if (typeof origSymbol !== 'function') { return false; }
+	if (typeof Symbol !== 'function') { return false; }
+	if (typeof origSymbol('foo') !== 'symbol') { return false; }
+	if (typeof Symbol('bar') !== 'symbol') { return false; }
+
+	return hasSymbolSham();
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/has-symbols/shams.js":
+/*!*******************************************!*\
+  !*** ./node_modules/has-symbols/shams.js ***!
+  \*******************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./shams')} */
+/* eslint complexity: [2, 18], max-statements: [2, 33] */
+module.exports = function hasSymbols() {
+	if (typeof Symbol !== 'function' || typeof Object.getOwnPropertySymbols !== 'function') { return false; }
+	if (typeof Symbol.iterator === 'symbol') { return true; }
+
+	/** @type {{ [k in symbol]?: unknown }} */
+	var obj = {};
+	var sym = Symbol('test');
+	var symObj = Object(sym);
+	if (typeof sym === 'string') { return false; }
+
+	if (Object.prototype.toString.call(sym) !== '[object Symbol]') { return false; }
+	if (Object.prototype.toString.call(symObj) !== '[object Symbol]') { return false; }
+
+	// temp disabled per https://github.com/ljharb/object.assign/issues/17
+	// if (sym instanceof Symbol) { return false; }
+	// temp disabled per https://github.com/WebReflection/get-own-property-symbols/issues/4
+	// if (!(symObj instanceof Symbol)) { return false; }
+
+	// if (typeof Symbol.prototype.toString !== 'function') { return false; }
+	// if (String(sym) !== Symbol.prototype.toString.call(sym)) { return false; }
+
+	var symVal = 42;
+	obj[sym] = symVal;
+	for (var _ in obj) { return false; } // eslint-disable-line no-restricted-syntax, no-unreachable-loop
+	if (typeof Object.keys === 'function' && Object.keys(obj).length !== 0) { return false; }
+
+	if (typeof Object.getOwnPropertyNames === 'function' && Object.getOwnPropertyNames(obj).length !== 0) { return false; }
+
+	var syms = Object.getOwnPropertySymbols(obj);
+	if (syms.length !== 1 || syms[0] !== sym) { return false; }
+
+	if (!Object.prototype.propertyIsEnumerable.call(obj, sym)) { return false; }
+
+	if (typeof Object.getOwnPropertyDescriptor === 'function') {
+		// eslint-disable-next-line no-extra-parens
+		var descriptor = /** @type {PropertyDescriptor} */ (Object.getOwnPropertyDescriptor(obj, sym));
+		if (descriptor.value !== symVal || descriptor.enumerable !== true) { return false; }
+	}
+
+	return true;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/hasown/index.js":
+/*!**************************************!*\
+  !*** ./node_modules/hasown/index.js ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var call = Function.prototype.call;
+var $hasOwn = Object.prototype.hasOwnProperty;
+var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bind/index.js");
+
+/** @type {import('.')} */
+module.exports = bind.call(call, $hasOwn);
+
 
 /***/ }),
 
@@ -7782,7 +5135,8 @@ var _Inflector = {
 
 if (true) {
     module.exports = _Inflector;
-} else {}
+} else // removed by dead control flow
+{}
 
 
 /***/ }),
@@ -13718,6 +11072,38 @@ module.exports = isNil;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/isNull.js":
+/*!***************************************!*\
+  !*** ./node_modules/lodash/isNull.js ***!
+  \***************************************/
+/***/ ((module) => {
+
+/**
+ * Checks if `value` is `null`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is `null`, else `false`.
+ * @example
+ *
+ * _.isNull(null);
+ * // => true
+ *
+ * _.isNull(void 0);
+ * // => false
+ */
+function isNull(value) {
+  return value === null;
+}
+
+module.exports = isNull;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/isObject.js":
 /*!*****************************************!*\
   !*** ./node_modules/lodash/isObject.js ***!
@@ -14149,6 +11535,56 @@ module.exports = memoize;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/negate.js":
+/*!***************************************!*\
+  !*** ./node_modules/lodash/negate.js ***!
+  \***************************************/
+/***/ ((module) => {
+
+/** Error message constants. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/**
+ * Creates a function that negates the result of the predicate `func`. The
+ * `func` predicate is invoked with the `this` binding and arguments of the
+ * created function.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Function
+ * @param {Function} predicate The predicate to negate.
+ * @returns {Function} Returns the new negated function.
+ * @example
+ *
+ * function isEven(n) {
+ *   return n % 2 == 0;
+ * }
+ *
+ * _.filter([1, 2, 3, 4, 5, 6], _.negate(isEven));
+ * // => [1, 3, 5]
+ */
+function negate(predicate) {
+  if (typeof predicate != 'function') {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  return function() {
+    var args = arguments;
+    switch (args.length) {
+      case 0: return !predicate.call(this);
+      case 1: return !predicate.call(this, args[0]);
+      case 2: return !predicate.call(this, args[0], args[1]);
+      case 3: return !predicate.call(this, args[0], args[1], args[2]);
+    }
+    return !predicate.apply(this, args);
+  };
+}
+
+module.exports = negate;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/now.js":
 /*!************************************!*\
   !*** ./node_modules/lodash/now.js ***!
@@ -14178,6 +11614,45 @@ var now = function() {
 };
 
 module.exports = now;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/omitBy.js":
+/*!***************************************!*\
+  !*** ./node_modules/lodash/omitBy.js ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var baseIteratee = __webpack_require__(/*! ./_baseIteratee */ "./node_modules/lodash/_baseIteratee.js"),
+    negate = __webpack_require__(/*! ./negate */ "./node_modules/lodash/negate.js"),
+    pickBy = __webpack_require__(/*! ./pickBy */ "./node_modules/lodash/pickBy.js");
+
+/**
+ * The opposite of `_.pickBy`; this method creates an object composed of
+ * the own and inherited enumerable string keyed properties of `object` that
+ * `predicate` doesn't return truthy for. The predicate is invoked with two
+ * arguments: (value, key).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Object
+ * @param {Object} object The source object.
+ * @param {Function} [predicate=_.identity] The function invoked per property.
+ * @returns {Object} Returns the new object.
+ * @example
+ *
+ * var object = { 'a': 1, 'b': '2', 'c': 3 };
+ *
+ * _.omitBy(object, _.isNumber);
+ * // => { 'b': '2' }
+ */
+function omitBy(object, predicate) {
+  return pickBy(object, negate(baseIteratee(predicate)));
+}
+
+module.exports = omitBy;
 
 
 /***/ }),
@@ -14363,45 +11838,6 @@ function stubFalse() {
 }
 
 module.exports = stubFalse;
-
-
-/***/ }),
-
-/***/ "./node_modules/lodash/tap.js":
-/*!************************************!*\
-  !*** ./node_modules/lodash/tap.js ***!
-  \************************************/
-/***/ ((module) => {
-
-/**
- * This method invokes `interceptor` and returns `value`. The interceptor
- * is invoked with one argument; (value). The purpose of this method is to
- * "tap into" a method chain sequence in order to modify intermediate results.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Seq
- * @param {*} value The value to provide to `interceptor`.
- * @param {Function} interceptor The function to invoke.
- * @returns {*} Returns `value`.
- * @example
- *
- * _([1, 2, 3])
- *  .tap(function(array) {
- *    // Mutate input array.
- *    array.pop();
- *  })
- *  .reverse()
- *  .value();
- * // => [2, 1]
- */
-function tap(value, interceptor) {
-  interceptor(value);
-  return value;
-}
-
-module.exports = tap;
 
 
 /***/ }),
@@ -14692,15 +12128,685 @@ module.exports = values;
 
 /***/ }),
 
-/***/ "./resources/css/field.css":
-/*!*********************************!*\
-  !*** ./resources/css/field.css ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/math-intrinsics/abs.js":
+/*!*********************************************!*\
+  !*** ./node_modules/math-intrinsics/abs.js ***!
+  \*********************************************/
+/***/ ((module) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+
+
+/** @type {import('./abs')} */
+module.exports = Math.abs;
+
+
+/***/ }),
+
+/***/ "./node_modules/math-intrinsics/floor.js":
+/*!***********************************************!*\
+  !*** ./node_modules/math-intrinsics/floor.js ***!
+  \***********************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./floor')} */
+module.exports = Math.floor;
+
+
+/***/ }),
+
+/***/ "./node_modules/math-intrinsics/isNaN.js":
+/*!***********************************************!*\
+  !*** ./node_modules/math-intrinsics/isNaN.js ***!
+  \***********************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./isNaN')} */
+module.exports = Number.isNaN || function isNaN(a) {
+	return a !== a;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/math-intrinsics/max.js":
+/*!*********************************************!*\
+  !*** ./node_modules/math-intrinsics/max.js ***!
+  \*********************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./max')} */
+module.exports = Math.max;
+
+
+/***/ }),
+
+/***/ "./node_modules/math-intrinsics/min.js":
+/*!*********************************************!*\
+  !*** ./node_modules/math-intrinsics/min.js ***!
+  \*********************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./min')} */
+module.exports = Math.min;
+
+
+/***/ }),
+
+/***/ "./node_modules/math-intrinsics/pow.js":
+/*!*********************************************!*\
+  !*** ./node_modules/math-intrinsics/pow.js ***!
+  \*********************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./pow')} */
+module.exports = Math.pow;
+
+
+/***/ }),
+
+/***/ "./node_modules/math-intrinsics/round.js":
+/*!***********************************************!*\
+  !*** ./node_modules/math-intrinsics/round.js ***!
+  \***********************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/** @type {import('./round')} */
+module.exports = Math.round;
+
+
+/***/ }),
+
+/***/ "./node_modules/math-intrinsics/sign.js":
+/*!**********************************************!*\
+  !*** ./node_modules/math-intrinsics/sign.js ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var $isNaN = __webpack_require__(/*! ./isNaN */ "./node_modules/math-intrinsics/isNaN.js");
+
+/** @type {import('./sign')} */
+module.exports = function sign(number) {
+	if ($isNaN(number) || number === 0) {
+		return number;
+	}
+	return number < 0 ? -1 : +1;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/object-inspect/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/object-inspect/index.js ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var hasMap = typeof Map === 'function' && Map.prototype;
+var mapSizeDescriptor = Object.getOwnPropertyDescriptor && hasMap ? Object.getOwnPropertyDescriptor(Map.prototype, 'size') : null;
+var mapSize = hasMap && mapSizeDescriptor && typeof mapSizeDescriptor.get === 'function' ? mapSizeDescriptor.get : null;
+var mapForEach = hasMap && Map.prototype.forEach;
+var hasSet = typeof Set === 'function' && Set.prototype;
+var setSizeDescriptor = Object.getOwnPropertyDescriptor && hasSet ? Object.getOwnPropertyDescriptor(Set.prototype, 'size') : null;
+var setSize = hasSet && setSizeDescriptor && typeof setSizeDescriptor.get === 'function' ? setSizeDescriptor.get : null;
+var setForEach = hasSet && Set.prototype.forEach;
+var hasWeakMap = typeof WeakMap === 'function' && WeakMap.prototype;
+var weakMapHas = hasWeakMap ? WeakMap.prototype.has : null;
+var hasWeakSet = typeof WeakSet === 'function' && WeakSet.prototype;
+var weakSetHas = hasWeakSet ? WeakSet.prototype.has : null;
+var hasWeakRef = typeof WeakRef === 'function' && WeakRef.prototype;
+var weakRefDeref = hasWeakRef ? WeakRef.prototype.deref : null;
+var booleanValueOf = Boolean.prototype.valueOf;
+var objectToString = Object.prototype.toString;
+var functionToString = Function.prototype.toString;
+var $match = String.prototype.match;
+var $slice = String.prototype.slice;
+var $replace = String.prototype.replace;
+var $toUpperCase = String.prototype.toUpperCase;
+var $toLowerCase = String.prototype.toLowerCase;
+var $test = RegExp.prototype.test;
+var $concat = Array.prototype.concat;
+var $join = Array.prototype.join;
+var $arrSlice = Array.prototype.slice;
+var $floor = Math.floor;
+var bigIntValueOf = typeof BigInt === 'function' ? BigInt.prototype.valueOf : null;
+var gOPS = Object.getOwnPropertySymbols;
+var symToString = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? Symbol.prototype.toString : null;
+var hasShammedSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'object';
+// ie, `has-tostringtag/shams
+var toStringTag = typeof Symbol === 'function' && Symbol.toStringTag && (typeof Symbol.toStringTag === hasShammedSymbols ? 'object' : 'symbol')
+    ? Symbol.toStringTag
+    : null;
+var isEnumerable = Object.prototype.propertyIsEnumerable;
+
+var gPO = (typeof Reflect === 'function' ? Reflect.getPrototypeOf : Object.getPrototypeOf) || (
+    [].__proto__ === Array.prototype // eslint-disable-line no-proto
+        ? function (O) {
+            return O.__proto__; // eslint-disable-line no-proto
+        }
+        : null
+);
+
+function addNumericSeparator(num, str) {
+    if (
+        num === Infinity
+        || num === -Infinity
+        || num !== num
+        || (num && num > -1000 && num < 1000)
+        || $test.call(/e/, str)
+    ) {
+        return str;
+    }
+    var sepRegex = /[0-9](?=(?:[0-9]{3})+(?![0-9]))/g;
+    if (typeof num === 'number') {
+        var int = num < 0 ? -$floor(-num) : $floor(num); // trunc(num)
+        if (int !== num) {
+            var intStr = String(int);
+            var dec = $slice.call(str, intStr.length + 1);
+            return $replace.call(intStr, sepRegex, '$&_') + '.' + $replace.call($replace.call(dec, /([0-9]{3})/g, '$&_'), /_$/, '');
+        }
+    }
+    return $replace.call(str, sepRegex, '$&_');
+}
+
+var utilInspect = __webpack_require__(/*! ./util.inspect */ "?4f7e");
+var inspectCustom = utilInspect.custom;
+var inspectSymbol = isSymbol(inspectCustom) ? inspectCustom : null;
+
+var quotes = {
+    __proto__: null,
+    'double': '"',
+    single: "'"
+};
+var quoteREs = {
+    __proto__: null,
+    'double': /(["\\])/g,
+    single: /(['\\])/g
+};
+
+module.exports = function inspect_(obj, options, depth, seen) {
+    var opts = options || {};
+
+    if (has(opts, 'quoteStyle') && !has(quotes, opts.quoteStyle)) {
+        throw new TypeError('option "quoteStyle" must be "single" or "double"');
+    }
+    if (
+        has(opts, 'maxStringLength') && (typeof opts.maxStringLength === 'number'
+            ? opts.maxStringLength < 0 && opts.maxStringLength !== Infinity
+            : opts.maxStringLength !== null
+        )
+    ) {
+        throw new TypeError('option "maxStringLength", if provided, must be a positive integer, Infinity, or `null`');
+    }
+    var customInspect = has(opts, 'customInspect') ? opts.customInspect : true;
+    if (typeof customInspect !== 'boolean' && customInspect !== 'symbol') {
+        throw new TypeError('option "customInspect", if provided, must be `true`, `false`, or `\'symbol\'`');
+    }
+
+    if (
+        has(opts, 'indent')
+        && opts.indent !== null
+        && opts.indent !== '\t'
+        && !(parseInt(opts.indent, 10) === opts.indent && opts.indent > 0)
+    ) {
+        throw new TypeError('option "indent" must be "\\t", an integer > 0, or `null`');
+    }
+    if (has(opts, 'numericSeparator') && typeof opts.numericSeparator !== 'boolean') {
+        throw new TypeError('option "numericSeparator", if provided, must be `true` or `false`');
+    }
+    var numericSeparator = opts.numericSeparator;
+
+    if (typeof obj === 'undefined') {
+        return 'undefined';
+    }
+    if (obj === null) {
+        return 'null';
+    }
+    if (typeof obj === 'boolean') {
+        return obj ? 'true' : 'false';
+    }
+
+    if (typeof obj === 'string') {
+        return inspectString(obj, opts);
+    }
+    if (typeof obj === 'number') {
+        if (obj === 0) {
+            return Infinity / obj > 0 ? '0' : '-0';
+        }
+        var str = String(obj);
+        return numericSeparator ? addNumericSeparator(obj, str) : str;
+    }
+    if (typeof obj === 'bigint') {
+        var bigIntStr = String(obj) + 'n';
+        return numericSeparator ? addNumericSeparator(obj, bigIntStr) : bigIntStr;
+    }
+
+    var maxDepth = typeof opts.depth === 'undefined' ? 5 : opts.depth;
+    if (typeof depth === 'undefined') { depth = 0; }
+    if (depth >= maxDepth && maxDepth > 0 && typeof obj === 'object') {
+        return isArray(obj) ? '[Array]' : '[Object]';
+    }
+
+    var indent = getIndent(opts, depth);
+
+    if (typeof seen === 'undefined') {
+        seen = [];
+    } else if (indexOf(seen, obj) >= 0) {
+        return '[Circular]';
+    }
+
+    function inspect(value, from, noIndent) {
+        if (from) {
+            seen = $arrSlice.call(seen);
+            seen.push(from);
+        }
+        if (noIndent) {
+            var newOpts = {
+                depth: opts.depth
+            };
+            if (has(opts, 'quoteStyle')) {
+                newOpts.quoteStyle = opts.quoteStyle;
+            }
+            return inspect_(value, newOpts, depth + 1, seen);
+        }
+        return inspect_(value, opts, depth + 1, seen);
+    }
+
+    if (typeof obj === 'function' && !isRegExp(obj)) { // in older engines, regexes are callable
+        var name = nameOf(obj);
+        var keys = arrObjKeys(obj, inspect);
+        return '[Function' + (name ? ': ' + name : ' (anonymous)') + ']' + (keys.length > 0 ? ' { ' + $join.call(keys, ', ') + ' }' : '');
+    }
+    if (isSymbol(obj)) {
+        var symString = hasShammedSymbols ? $replace.call(String(obj), /^(Symbol\(.*\))_[^)]*$/, '$1') : symToString.call(obj);
+        return typeof obj === 'object' && !hasShammedSymbols ? markBoxed(symString) : symString;
+    }
+    if (isElement(obj)) {
+        var s = '<' + $toLowerCase.call(String(obj.nodeName));
+        var attrs = obj.attributes || [];
+        for (var i = 0; i < attrs.length; i++) {
+            s += ' ' + attrs[i].name + '=' + wrapQuotes(quote(attrs[i].value), 'double', opts);
+        }
+        s += '>';
+        if (obj.childNodes && obj.childNodes.length) { s += '...'; }
+        s += '</' + $toLowerCase.call(String(obj.nodeName)) + '>';
+        return s;
+    }
+    if (isArray(obj)) {
+        if (obj.length === 0) { return '[]'; }
+        var xs = arrObjKeys(obj, inspect);
+        if (indent && !singleLineValues(xs)) {
+            return '[' + indentedJoin(xs, indent) + ']';
+        }
+        return '[ ' + $join.call(xs, ', ') + ' ]';
+    }
+    if (isError(obj)) {
+        var parts = arrObjKeys(obj, inspect);
+        if (!('cause' in Error.prototype) && 'cause' in obj && !isEnumerable.call(obj, 'cause')) {
+            return '{ [' + String(obj) + '] ' + $join.call($concat.call('[cause]: ' + inspect(obj.cause), parts), ', ') + ' }';
+        }
+        if (parts.length === 0) { return '[' + String(obj) + ']'; }
+        return '{ [' + String(obj) + '] ' + $join.call(parts, ', ') + ' }';
+    }
+    if (typeof obj === 'object' && customInspect) {
+        if (inspectSymbol && typeof obj[inspectSymbol] === 'function' && utilInspect) {
+            return utilInspect(obj, { depth: maxDepth - depth });
+        } else if (customInspect !== 'symbol' && typeof obj.inspect === 'function') {
+            return obj.inspect();
+        }
+    }
+    if (isMap(obj)) {
+        var mapParts = [];
+        if (mapForEach) {
+            mapForEach.call(obj, function (value, key) {
+                mapParts.push(inspect(key, obj, true) + ' => ' + inspect(value, obj));
+            });
+        }
+        return collectionOf('Map', mapSize.call(obj), mapParts, indent);
+    }
+    if (isSet(obj)) {
+        var setParts = [];
+        if (setForEach) {
+            setForEach.call(obj, function (value) {
+                setParts.push(inspect(value, obj));
+            });
+        }
+        return collectionOf('Set', setSize.call(obj), setParts, indent);
+    }
+    if (isWeakMap(obj)) {
+        return weakCollectionOf('WeakMap');
+    }
+    if (isWeakSet(obj)) {
+        return weakCollectionOf('WeakSet');
+    }
+    if (isWeakRef(obj)) {
+        return weakCollectionOf('WeakRef');
+    }
+    if (isNumber(obj)) {
+        return markBoxed(inspect(Number(obj)));
+    }
+    if (isBigInt(obj)) {
+        return markBoxed(inspect(bigIntValueOf.call(obj)));
+    }
+    if (isBoolean(obj)) {
+        return markBoxed(booleanValueOf.call(obj));
+    }
+    if (isString(obj)) {
+        return markBoxed(inspect(String(obj)));
+    }
+    // note: in IE 8, sometimes `global !== window` but both are the prototypes of each other
+    /* eslint-env browser */
+    if (typeof window !== 'undefined' && obj === window) {
+        return '{ [object Window] }';
+    }
+    if (
+        (typeof globalThis !== 'undefined' && obj === globalThis)
+        || (typeof __webpack_require__.g !== 'undefined' && obj === __webpack_require__.g)
+    ) {
+        return '{ [object globalThis] }';
+    }
+    if (!isDate(obj) && !isRegExp(obj)) {
+        var ys = arrObjKeys(obj, inspect);
+        var isPlainObject = gPO ? gPO(obj) === Object.prototype : obj instanceof Object || obj.constructor === Object;
+        var protoTag = obj instanceof Object ? '' : 'null prototype';
+        var stringTag = !isPlainObject && toStringTag && Object(obj) === obj && toStringTag in obj ? $slice.call(toStr(obj), 8, -1) : protoTag ? 'Object' : '';
+        var constructorTag = isPlainObject || typeof obj.constructor !== 'function' ? '' : obj.constructor.name ? obj.constructor.name + ' ' : '';
+        var tag = constructorTag + (stringTag || protoTag ? '[' + $join.call($concat.call([], stringTag || [], protoTag || []), ': ') + '] ' : '');
+        if (ys.length === 0) { return tag + '{}'; }
+        if (indent) {
+            return tag + '{' + indentedJoin(ys, indent) + '}';
+        }
+        return tag + '{ ' + $join.call(ys, ', ') + ' }';
+    }
+    return String(obj);
+};
+
+function wrapQuotes(s, defaultStyle, opts) {
+    var style = opts.quoteStyle || defaultStyle;
+    var quoteChar = quotes[style];
+    return quoteChar + s + quoteChar;
+}
+
+function quote(s) {
+    return $replace.call(String(s), /"/g, '&quot;');
+}
+
+function canTrustToString(obj) {
+    return !toStringTag || !(typeof obj === 'object' && (toStringTag in obj || typeof obj[toStringTag] !== 'undefined'));
+}
+function isArray(obj) { return toStr(obj) === '[object Array]' && canTrustToString(obj); }
+function isDate(obj) { return toStr(obj) === '[object Date]' && canTrustToString(obj); }
+function isRegExp(obj) { return toStr(obj) === '[object RegExp]' && canTrustToString(obj); }
+function isError(obj) { return toStr(obj) === '[object Error]' && canTrustToString(obj); }
+function isString(obj) { return toStr(obj) === '[object String]' && canTrustToString(obj); }
+function isNumber(obj) { return toStr(obj) === '[object Number]' && canTrustToString(obj); }
+function isBoolean(obj) { return toStr(obj) === '[object Boolean]' && canTrustToString(obj); }
+
+// Symbol and BigInt do have Symbol.toStringTag by spec, so that can't be used to eliminate false positives
+function isSymbol(obj) {
+    if (hasShammedSymbols) {
+        return obj && typeof obj === 'object' && obj instanceof Symbol;
+    }
+    if (typeof obj === 'symbol') {
+        return true;
+    }
+    if (!obj || typeof obj !== 'object' || !symToString) {
+        return false;
+    }
+    try {
+        symToString.call(obj);
+        return true;
+    } catch (e) {}
+    return false;
+}
+
+function isBigInt(obj) {
+    if (!obj || typeof obj !== 'object' || !bigIntValueOf) {
+        return false;
+    }
+    try {
+        bigIntValueOf.call(obj);
+        return true;
+    } catch (e) {}
+    return false;
+}
+
+var hasOwn = Object.prototype.hasOwnProperty || function (key) { return key in this; };
+function has(obj, key) {
+    return hasOwn.call(obj, key);
+}
+
+function toStr(obj) {
+    return objectToString.call(obj);
+}
+
+function nameOf(f) {
+    if (f.name) { return f.name; }
+    var m = $match.call(functionToString.call(f), /^function\s*([\w$]+)/);
+    if (m) { return m[1]; }
+    return null;
+}
+
+function indexOf(xs, x) {
+    if (xs.indexOf) { return xs.indexOf(x); }
+    for (var i = 0, l = xs.length; i < l; i++) {
+        if (xs[i] === x) { return i; }
+    }
+    return -1;
+}
+
+function isMap(x) {
+    if (!mapSize || !x || typeof x !== 'object') {
+        return false;
+    }
+    try {
+        mapSize.call(x);
+        try {
+            setSize.call(x);
+        } catch (s) {
+            return true;
+        }
+        return x instanceof Map; // core-js workaround, pre-v2.5.0
+    } catch (e) {}
+    return false;
+}
+
+function isWeakMap(x) {
+    if (!weakMapHas || !x || typeof x !== 'object') {
+        return false;
+    }
+    try {
+        weakMapHas.call(x, weakMapHas);
+        try {
+            weakSetHas.call(x, weakSetHas);
+        } catch (s) {
+            return true;
+        }
+        return x instanceof WeakMap; // core-js workaround, pre-v2.5.0
+    } catch (e) {}
+    return false;
+}
+
+function isWeakRef(x) {
+    if (!weakRefDeref || !x || typeof x !== 'object') {
+        return false;
+    }
+    try {
+        weakRefDeref.call(x);
+        return true;
+    } catch (e) {}
+    return false;
+}
+
+function isSet(x) {
+    if (!setSize || !x || typeof x !== 'object') {
+        return false;
+    }
+    try {
+        setSize.call(x);
+        try {
+            mapSize.call(x);
+        } catch (m) {
+            return true;
+        }
+        return x instanceof Set; // core-js workaround, pre-v2.5.0
+    } catch (e) {}
+    return false;
+}
+
+function isWeakSet(x) {
+    if (!weakSetHas || !x || typeof x !== 'object') {
+        return false;
+    }
+    try {
+        weakSetHas.call(x, weakSetHas);
+        try {
+            weakMapHas.call(x, weakMapHas);
+        } catch (s) {
+            return true;
+        }
+        return x instanceof WeakSet; // core-js workaround, pre-v2.5.0
+    } catch (e) {}
+    return false;
+}
+
+function isElement(x) {
+    if (!x || typeof x !== 'object') { return false; }
+    if (typeof HTMLElement !== 'undefined' && x instanceof HTMLElement) {
+        return true;
+    }
+    return typeof x.nodeName === 'string' && typeof x.getAttribute === 'function';
+}
+
+function inspectString(str, opts) {
+    if (str.length > opts.maxStringLength) {
+        var remaining = str.length - opts.maxStringLength;
+        var trailer = '... ' + remaining + ' more character' + (remaining > 1 ? 's' : '');
+        return inspectString($slice.call(str, 0, opts.maxStringLength), opts) + trailer;
+    }
+    var quoteRE = quoteREs[opts.quoteStyle || 'single'];
+    quoteRE.lastIndex = 0;
+    // eslint-disable-next-line no-control-regex
+    var s = $replace.call($replace.call(str, quoteRE, '\\$1'), /[\x00-\x1f]/g, lowbyte);
+    return wrapQuotes(s, 'single', opts);
+}
+
+function lowbyte(c) {
+    var n = c.charCodeAt(0);
+    var x = {
+        8: 'b',
+        9: 't',
+        10: 'n',
+        12: 'f',
+        13: 'r'
+    }[n];
+    if (x) { return '\\' + x; }
+    return '\\x' + (n < 0x10 ? '0' : '') + $toUpperCase.call(n.toString(16));
+}
+
+function markBoxed(str) {
+    return 'Object(' + str + ')';
+}
+
+function weakCollectionOf(type) {
+    return type + ' { ? }';
+}
+
+function collectionOf(type, size, entries, indent) {
+    var joinedEntries = indent ? indentedJoin(entries, indent) : $join.call(entries, ', ');
+    return type + ' (' + size + ') {' + joinedEntries + '}';
+}
+
+function singleLineValues(xs) {
+    for (var i = 0; i < xs.length; i++) {
+        if (indexOf(xs[i], '\n') >= 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function getIndent(opts, depth) {
+    var baseIndent;
+    if (opts.indent === '\t') {
+        baseIndent = '\t';
+    } else if (typeof opts.indent === 'number' && opts.indent > 0) {
+        baseIndent = $join.call(Array(opts.indent + 1), ' ');
+    } else {
+        return null;
+    }
+    return {
+        base: baseIndent,
+        prev: $join.call(Array(depth + 1), baseIndent)
+    };
+}
+
+function indentedJoin(xs, indent) {
+    if (xs.length === 0) { return ''; }
+    var lineJoiner = '\n' + indent.prev + indent.base;
+    return lineJoiner + $join.call(xs, ',' + lineJoiner) + '\n' + indent.prev;
+}
+
+function arrObjKeys(obj, inspect) {
+    var isArr = isArray(obj);
+    var xs = [];
+    if (isArr) {
+        xs.length = obj.length;
+        for (var i = 0; i < obj.length; i++) {
+            xs[i] = has(obj, i) ? inspect(obj[i], obj) : '';
+        }
+    }
+    var syms = typeof gOPS === 'function' ? gOPS(obj) : [];
+    var symMap;
+    if (hasShammedSymbols) {
+        symMap = {};
+        for (var k = 0; k < syms.length; k++) {
+            symMap['$' + syms[k]] = syms[k];
+        }
+    }
+
+    for (var key in obj) { // eslint-disable-line no-restricted-syntax
+        if (!has(obj, key)) { continue; } // eslint-disable-line no-restricted-syntax, no-continue
+        if (isArr && String(Number(key)) === key && key < obj.length) { continue; } // eslint-disable-line no-restricted-syntax, no-continue
+        if (hasShammedSymbols && symMap['$' + key] instanceof Symbol) {
+            // this is to prevent shammed Symbols, which are stored as strings, from being included in the string key section
+            continue; // eslint-disable-line no-restricted-syntax, no-continue
+        } else if ($test.call(/[^\w$]/, key)) {
+            xs.push(inspect(key, obj) + ': ' + inspect(obj[key], obj));
+        } else {
+            xs.push(key + ': ' + inspect(obj[key], obj));
+        }
+    }
+    if (typeof gOPS === 'function') {
+        for (var j = 0; j < syms.length; j++) {
+            if (isEnumerable.call(obj, syms[j])) {
+                xs.push('[' + inspect(syms[j]) + ']: ' + inspect(obj[syms[j]], obj));
+            }
+        }
+    }
+    return xs;
+}
 
 
 /***/ }),
@@ -14971,20 +13077,26 @@ var isArray = Array.isArray;
 
 var defaults = {
     allowDots: false,
+    allowEmptyArrays: false,
     allowPrototypes: false,
+    allowSparse: false,
     arrayLimit: 20,
     charset: 'utf-8',
     charsetSentinel: false,
     comma: false,
+    decodeDotInKeys: false,
     decoder: utils.decode,
     delimiter: '&',
     depth: 5,
+    duplicates: 'combine',
     ignoreQueryPrefix: false,
     interpretNumericEntities: false,
     parameterLimit: 1000,
     parseArrays: true,
     plainObjects: false,
-    strictNullHandling: false
+    strictDepth: false,
+    strictNullHandling: false,
+    throwOnLimitExceeded: false
 };
 
 var interpretNumericEntities = function (str) {
@@ -14993,9 +13105,13 @@ var interpretNumericEntities = function (str) {
     });
 };
 
-var parseArrayValue = function (val, options) {
+var parseArrayValue = function (val, options, currentArrayLength) {
     if (val && typeof val === 'string' && options.comma && val.indexOf(',') > -1) {
         return val.split(',');
+    }
+
+    if (options.throwOnLimitExceeded && currentArrayLength >= options.arrayLimit) {
+        throw new RangeError('Array limit exceeded. Only ' + options.arrayLimit + ' element' + (options.arrayLimit === 1 ? '' : 's') + ' allowed in an array.');
     }
 
     return val;
@@ -15012,10 +13128,21 @@ var isoSentinel = 'utf8=%26%2310003%3B'; // encodeURIComponent('&#10003;')
 var charsetSentinel = 'utf8=%E2%9C%93'; // encodeURIComponent('✓')
 
 var parseValues = function parseQueryStringValues(str, options) {
-    var obj = {};
+    var obj = { __proto__: null };
+
     var cleanStr = options.ignoreQueryPrefix ? str.replace(/^\?/, '') : str;
+    cleanStr = cleanStr.replace(/%5B/gi, '[').replace(/%5D/gi, ']');
+
     var limit = options.parameterLimit === Infinity ? undefined : options.parameterLimit;
-    var parts = cleanStr.split(options.delimiter, limit);
+    var parts = cleanStr.split(
+        options.delimiter,
+        options.throwOnLimitExceeded ? limit + 1 : limit
+    );
+
+    if (options.throwOnLimitExceeded && parts.length > limit) {
+        throw new RangeError('Parameter limit exceeded. Only ' + limit + ' parameter' + (limit === 1 ? '' : 's') + ' allowed.');
+    }
+
     var skipIndex = -1; // Keep track of where the utf8 sentinel was found
     var i;
 
@@ -15043,14 +13170,20 @@ var parseValues = function parseQueryStringValues(str, options) {
         var bracketEqualsPos = part.indexOf(']=');
         var pos = bracketEqualsPos === -1 ? part.indexOf('=') : bracketEqualsPos + 1;
 
-        var key, val;
+        var key;
+        var val;
         if (pos === -1) {
             key = options.decoder(part, defaults.decoder, charset, 'key');
             val = options.strictNullHandling ? null : '';
         } else {
             key = options.decoder(part.slice(0, pos), defaults.decoder, charset, 'key');
+
             val = utils.maybeMap(
-                parseArrayValue(part.slice(pos + 1), options),
+                parseArrayValue(
+                    part.slice(pos + 1),
+                    options,
+                    isArray(obj[key]) ? obj[key].length : 0
+                ),
                 function (encodedVal) {
                     return options.decoder(encodedVal, defaults.decoder, charset, 'value');
                 }
@@ -15058,16 +13191,17 @@ var parseValues = function parseQueryStringValues(str, options) {
         }
 
         if (val && options.interpretNumericEntities && charset === 'iso-8859-1') {
-            val = interpretNumericEntities(val);
+            val = interpretNumericEntities(String(val));
         }
 
         if (part.indexOf('[]=') > -1) {
             val = isArray(val) ? [val] : val;
         }
 
-        if (has.call(obj, key)) {
+        var existing = has.call(obj, key);
+        if (existing && options.duplicates === 'combine') {
             obj[key] = utils.combine(obj[key], val);
-        } else {
+        } else if (!existing || options.duplicates === 'last') {
             obj[key] = val;
         }
     }
@@ -15076,31 +13210,40 @@ var parseValues = function parseQueryStringValues(str, options) {
 };
 
 var parseObject = function (chain, val, options, valuesParsed) {
-    var leaf = valuesParsed ? val : parseArrayValue(val, options);
+    var currentArrayLength = 0;
+    if (chain.length > 0 && chain[chain.length - 1] === '[]') {
+        var parentKey = chain.slice(0, -1).join('');
+        currentArrayLength = Array.isArray(val) && val[parentKey] ? val[parentKey].length : 0;
+    }
+
+    var leaf = valuesParsed ? val : parseArrayValue(val, options, currentArrayLength);
 
     for (var i = chain.length - 1; i >= 0; --i) {
         var obj;
         var root = chain[i];
 
         if (root === '[]' && options.parseArrays) {
-            obj = [].concat(leaf);
+            obj = options.allowEmptyArrays && (leaf === '' || (options.strictNullHandling && leaf === null))
+                ? []
+                : utils.combine([], leaf);
         } else {
-            obj = options.plainObjects ? Object.create(null) : {};
+            obj = options.plainObjects ? { __proto__: null } : {};
             var cleanRoot = root.charAt(0) === '[' && root.charAt(root.length - 1) === ']' ? root.slice(1, -1) : root;
-            var index = parseInt(cleanRoot, 10);
-            if (!options.parseArrays && cleanRoot === '') {
+            var decodedRoot = options.decodeDotInKeys ? cleanRoot.replace(/%2E/g, '.') : cleanRoot;
+            var index = parseInt(decodedRoot, 10);
+            if (!options.parseArrays && decodedRoot === '') {
                 obj = { 0: leaf };
             } else if (
                 !isNaN(index)
-                && root !== cleanRoot
-                && String(index) === cleanRoot
+                && root !== decodedRoot
+                && String(index) === decodedRoot
                 && index >= 0
                 && (options.parseArrays && index <= options.arrayLimit)
             ) {
                 obj = [];
                 obj[index] = leaf;
-            } else if (cleanRoot !== '__proto__') {
-                obj[cleanRoot] = leaf;
+            } else if (decodedRoot !== '__proto__') {
+                obj[decodedRoot] = leaf;
             }
         }
 
@@ -15155,9 +13298,12 @@ var parseKeys = function parseQueryStringKeys(givenKey, val, options, valuesPars
         keys.push(segment[1]);
     }
 
-    // If there's a remainder, just add whatever is left
+    // If there's a remainder, check strictDepth option for throw, else just add whatever is left
 
     if (segment) {
+        if (options.strictDepth === true) {
+            throw new RangeError('Input depth exceeded depth option of ' + options.depth + ' and strictDepth is true');
+        }
         keys.push('[' + key.slice(segment.index) + ']');
     }
 
@@ -15169,32 +13315,59 @@ var normalizeParseOptions = function normalizeParseOptions(opts) {
         return defaults;
     }
 
-    if (opts.decoder !== null && opts.decoder !== undefined && typeof opts.decoder !== 'function') {
+    if (typeof opts.allowEmptyArrays !== 'undefined' && typeof opts.allowEmptyArrays !== 'boolean') {
+        throw new TypeError('`allowEmptyArrays` option can only be `true` or `false`, when provided');
+    }
+
+    if (typeof opts.decodeDotInKeys !== 'undefined' && typeof opts.decodeDotInKeys !== 'boolean') {
+        throw new TypeError('`decodeDotInKeys` option can only be `true` or `false`, when provided');
+    }
+
+    if (opts.decoder !== null && typeof opts.decoder !== 'undefined' && typeof opts.decoder !== 'function') {
         throw new TypeError('Decoder has to be a function.');
     }
 
     if (typeof opts.charset !== 'undefined' && opts.charset !== 'utf-8' && opts.charset !== 'iso-8859-1') {
         throw new TypeError('The charset option must be either utf-8, iso-8859-1, or undefined');
     }
+
+    if (typeof opts.throwOnLimitExceeded !== 'undefined' && typeof opts.throwOnLimitExceeded !== 'boolean') {
+        throw new TypeError('`throwOnLimitExceeded` option must be a boolean');
+    }
+
     var charset = typeof opts.charset === 'undefined' ? defaults.charset : opts.charset;
 
+    var duplicates = typeof opts.duplicates === 'undefined' ? defaults.duplicates : opts.duplicates;
+
+    if (duplicates !== 'combine' && duplicates !== 'first' && duplicates !== 'last') {
+        throw new TypeError('The duplicates option must be either combine, first, or last');
+    }
+
+    var allowDots = typeof opts.allowDots === 'undefined' ? opts.decodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
+
     return {
-        allowDots: typeof opts.allowDots === 'undefined' ? defaults.allowDots : !!opts.allowDots,
+        allowDots: allowDots,
+        allowEmptyArrays: typeof opts.allowEmptyArrays === 'boolean' ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
         allowPrototypes: typeof opts.allowPrototypes === 'boolean' ? opts.allowPrototypes : defaults.allowPrototypes,
+        allowSparse: typeof opts.allowSparse === 'boolean' ? opts.allowSparse : defaults.allowSparse,
         arrayLimit: typeof opts.arrayLimit === 'number' ? opts.arrayLimit : defaults.arrayLimit,
         charset: charset,
         charsetSentinel: typeof opts.charsetSentinel === 'boolean' ? opts.charsetSentinel : defaults.charsetSentinel,
         comma: typeof opts.comma === 'boolean' ? opts.comma : defaults.comma,
+        decodeDotInKeys: typeof opts.decodeDotInKeys === 'boolean' ? opts.decodeDotInKeys : defaults.decodeDotInKeys,
         decoder: typeof opts.decoder === 'function' ? opts.decoder : defaults.decoder,
         delimiter: typeof opts.delimiter === 'string' || utils.isRegExp(opts.delimiter) ? opts.delimiter : defaults.delimiter,
         // eslint-disable-next-line no-implicit-coercion, no-extra-parens
         depth: (typeof opts.depth === 'number' || opts.depth === false) ? +opts.depth : defaults.depth,
+        duplicates: duplicates,
         ignoreQueryPrefix: opts.ignoreQueryPrefix === true,
         interpretNumericEntities: typeof opts.interpretNumericEntities === 'boolean' ? opts.interpretNumericEntities : defaults.interpretNumericEntities,
         parameterLimit: typeof opts.parameterLimit === 'number' ? opts.parameterLimit : defaults.parameterLimit,
         parseArrays: opts.parseArrays !== false,
         plainObjects: typeof opts.plainObjects === 'boolean' ? opts.plainObjects : defaults.plainObjects,
-        strictNullHandling: typeof opts.strictNullHandling === 'boolean' ? opts.strictNullHandling : defaults.strictNullHandling
+        strictDepth: typeof opts.strictDepth === 'boolean' ? !!opts.strictDepth : defaults.strictDepth,
+        strictNullHandling: typeof opts.strictNullHandling === 'boolean' ? opts.strictNullHandling : defaults.strictNullHandling,
+        throwOnLimitExceeded: typeof opts.throwOnLimitExceeded === 'boolean' ? opts.throwOnLimitExceeded : false
     };
 };
 
@@ -15202,11 +13375,11 @@ module.exports = function (str, opts) {
     var options = normalizeParseOptions(opts);
 
     if (str === '' || str === null || typeof str === 'undefined') {
-        return options.plainObjects ? Object.create(null) : {};
+        return options.plainObjects ? { __proto__: null } : {};
     }
 
     var tempObj = typeof str === 'string' ? parseValues(str, options) : str;
-    var obj = options.plainObjects ? Object.create(null) : {};
+    var obj = options.plainObjects ? { __proto__: null } : {};
 
     // Iterate over the keys and setup the new object
 
@@ -15215,6 +13388,10 @@ module.exports = function (str, opts) {
         var key = keys[i];
         var newObj = parseKeys(key, tempObj[key], options, typeof str === 'string');
         obj = utils.merge(obj, newObj, options);
+    }
+
+    if (options.allowSparse === true) {
+        return obj;
     }
 
     return utils.compact(obj);
@@ -15232,6 +13409,7 @@ module.exports = function (str, opts) {
 "use strict";
 
 
+var getSideChannel = __webpack_require__(/*! side-channel */ "./node_modules/side-channel/index.js");
 var utils = __webpack_require__(/*! ./utils */ "./node_modules/qs/lib/utils.js");
 var formats = __webpack_require__(/*! ./formats */ "./node_modules/qs/lib/formats.js");
 var has = Object.prototype.hasOwnProperty;
@@ -15250,7 +13428,6 @@ var arrayPrefixGenerators = {
 };
 
 var isArray = Array.isArray;
-var split = String.prototype.split;
 var push = Array.prototype.push;
 var pushToArray = function (arr, valueOrArray) {
     push.apply(arr, isArray(valueOrArray) ? valueOrArray : [valueOrArray]);
@@ -15262,12 +13439,17 @@ var defaultFormat = formats['default'];
 var defaults = {
     addQueryPrefix: false,
     allowDots: false,
+    allowEmptyArrays: false,
+    arrayFormat: 'indices',
     charset: 'utf-8',
     charsetSentinel: false,
+    commaRoundTrip: false,
     delimiter: '&',
     encode: true,
+    encodeDotInKeys: false,
     encoder: utils.encode,
     encodeValuesOnly: false,
+    filter: void undefined,
     format: defaultFormat,
     formatter: formats.formatters[defaultFormat],
     // deprecated
@@ -15287,12 +13469,17 @@ var isNonNullishPrimitive = function isNonNullishPrimitive(v) {
         || typeof v === 'bigint';
 };
 
+var sentinel = {};
+
 var stringify = function stringify(
     object,
     prefix,
     generateArrayPrefix,
+    commaRoundTrip,
+    allowEmptyArrays,
     strictNullHandling,
     skipNulls,
+    encodeDotInKeys,
     encoder,
     filter,
     sort,
@@ -15301,9 +13488,30 @@ var stringify = function stringify(
     format,
     formatter,
     encodeValuesOnly,
-    charset
+    charset,
+    sideChannel
 ) {
     var obj = object;
+
+    var tmpSc = sideChannel;
+    var step = 0;
+    var findFlag = false;
+    while ((tmpSc = tmpSc.get(sentinel)) !== void undefined && !findFlag) {
+        // Where object last appeared in the ref tree
+        var pos = tmpSc.get(object);
+        step += 1;
+        if (typeof pos !== 'undefined') {
+            if (pos === step) {
+                throw new RangeError('Cyclic object value');
+            } else {
+                findFlag = true; // Break while
+            }
+        }
+        if (typeof tmpSc.get(sentinel) === 'undefined') {
+            step = 0;
+        }
+    }
+
     if (typeof filter === 'function') {
         obj = filter(prefix, obj);
     } else if (obj instanceof Date) {
@@ -15328,14 +13536,6 @@ var stringify = function stringify(
     if (isNonNullishPrimitive(obj) || utils.isBuffer(obj)) {
         if (encoder) {
             var keyValue = encodeValuesOnly ? prefix : encoder(prefix, defaults.encoder, charset, 'key', format);
-            if (generateArrayPrefix === 'comma' && encodeValuesOnly) {
-                var valuesArray = split.call(String(obj), ',');
-                var valuesJoined = '';
-                for (var i = 0; i < valuesArray.length; ++i) {
-                    valuesJoined += (i === 0 ? '' : ',') + formatter(encoder(valuesArray[i], defaults.encoder, charset, 'value', format));
-                }
-                return [formatter(keyValue) + '=' + valuesJoined];
-            }
             return [formatter(keyValue) + '=' + formatter(encoder(obj, defaults.encoder, charset, 'value', format))];
         }
         return [formatter(prefix) + '=' + formatter(String(obj))];
@@ -15350,6 +13550,9 @@ var stringify = function stringify(
     var objKeys;
     if (generateArrayPrefix === 'comma' && isArray(obj)) {
         // we need to join elements in
+        if (encodeValuesOnly && encoder) {
+            obj = utils.maybeMap(obj, encoder);
+        }
         objKeys = [{ value: obj.length > 0 ? obj.join(',') || null : void undefined }];
     } else if (isArray(filter)) {
         objKeys = filter;
@@ -15358,25 +13561,42 @@ var stringify = function stringify(
         objKeys = sort ? keys.sort(sort) : keys;
     }
 
+    var encodedPrefix = encodeDotInKeys ? String(prefix).replace(/\./g, '%2E') : String(prefix);
+
+    var adjustedPrefix = commaRoundTrip && isArray(obj) && obj.length === 1 ? encodedPrefix + '[]' : encodedPrefix;
+
+    if (allowEmptyArrays && isArray(obj) && obj.length === 0) {
+        return adjustedPrefix + '[]';
+    }
+
     for (var j = 0; j < objKeys.length; ++j) {
         var key = objKeys[j];
-        var value = typeof key === 'object' && typeof key.value !== 'undefined' ? key.value : obj[key];
+        var value = typeof key === 'object' && key && typeof key.value !== 'undefined'
+            ? key.value
+            : obj[key];
 
         if (skipNulls && value === null) {
             continue;
         }
 
+        var encodedKey = allowDots && encodeDotInKeys ? String(key).replace(/\./g, '%2E') : String(key);
         var keyPrefix = isArray(obj)
-            ? typeof generateArrayPrefix === 'function' ? generateArrayPrefix(prefix, key) : prefix
-            : prefix + (allowDots ? '.' + key : '[' + key + ']');
+            ? typeof generateArrayPrefix === 'function' ? generateArrayPrefix(adjustedPrefix, encodedKey) : adjustedPrefix
+            : adjustedPrefix + (allowDots ? '.' + encodedKey : '[' + encodedKey + ']');
 
+        sideChannel.set(object, step);
+        var valueSideChannel = getSideChannel();
+        valueSideChannel.set(sentinel, sideChannel);
         pushToArray(values, stringify(
             value,
             keyPrefix,
             generateArrayPrefix,
+            commaRoundTrip,
+            allowEmptyArrays,
             strictNullHandling,
             skipNulls,
-            encoder,
+            encodeDotInKeys,
+            generateArrayPrefix === 'comma' && encodeValuesOnly && isArray(obj) ? null : encoder,
             filter,
             sort,
             allowDots,
@@ -15384,7 +13604,8 @@ var stringify = function stringify(
             format,
             formatter,
             encodeValuesOnly,
-            charset
+            charset,
+            valueSideChannel
         ));
     }
 
@@ -15394,6 +13615,14 @@ var stringify = function stringify(
 var normalizeStringifyOptions = function normalizeStringifyOptions(opts) {
     if (!opts) {
         return defaults;
+    }
+
+    if (typeof opts.allowEmptyArrays !== 'undefined' && typeof opts.allowEmptyArrays !== 'boolean') {
+        throw new TypeError('`allowEmptyArrays` option can only be `true` or `false`, when provided');
+    }
+
+    if (typeof opts.encodeDotInKeys !== 'undefined' && typeof opts.encodeDotInKeys !== 'boolean') {
+        throw new TypeError('`encodeDotInKeys` option can only be `true` or `false`, when provided');
     }
 
     if (opts.encoder !== null && typeof opts.encoder !== 'undefined' && typeof opts.encoder !== 'function') {
@@ -15419,13 +13648,32 @@ var normalizeStringifyOptions = function normalizeStringifyOptions(opts) {
         filter = opts.filter;
     }
 
+    var arrayFormat;
+    if (opts.arrayFormat in arrayPrefixGenerators) {
+        arrayFormat = opts.arrayFormat;
+    } else if ('indices' in opts) {
+        arrayFormat = opts.indices ? 'indices' : 'repeat';
+    } else {
+        arrayFormat = defaults.arrayFormat;
+    }
+
+    if ('commaRoundTrip' in opts && typeof opts.commaRoundTrip !== 'boolean') {
+        throw new TypeError('`commaRoundTrip` must be a boolean, or absent');
+    }
+
+    var allowDots = typeof opts.allowDots === 'undefined' ? opts.encodeDotInKeys === true ? true : defaults.allowDots : !!opts.allowDots;
+
     return {
         addQueryPrefix: typeof opts.addQueryPrefix === 'boolean' ? opts.addQueryPrefix : defaults.addQueryPrefix,
-        allowDots: typeof opts.allowDots === 'undefined' ? defaults.allowDots : !!opts.allowDots,
+        allowDots: allowDots,
+        allowEmptyArrays: typeof opts.allowEmptyArrays === 'boolean' ? !!opts.allowEmptyArrays : defaults.allowEmptyArrays,
+        arrayFormat: arrayFormat,
         charset: charset,
         charsetSentinel: typeof opts.charsetSentinel === 'boolean' ? opts.charsetSentinel : defaults.charsetSentinel,
+        commaRoundTrip: !!opts.commaRoundTrip,
         delimiter: typeof opts.delimiter === 'undefined' ? defaults.delimiter : opts.delimiter,
         encode: typeof opts.encode === 'boolean' ? opts.encode : defaults.encode,
+        encodeDotInKeys: typeof opts.encodeDotInKeys === 'boolean' ? opts.encodeDotInKeys : defaults.encodeDotInKeys,
         encoder: typeof opts.encoder === 'function' ? opts.encoder : defaults.encoder,
         encodeValuesOnly: typeof opts.encodeValuesOnly === 'boolean' ? opts.encodeValuesOnly : defaults.encodeValuesOnly,
         filter: filter,
@@ -15459,16 +13707,8 @@ module.exports = function (object, opts) {
         return '';
     }
 
-    var arrayFormat;
-    if (opts && opts.arrayFormat in arrayPrefixGenerators) {
-        arrayFormat = opts.arrayFormat;
-    } else if (opts && 'indices' in opts) {
-        arrayFormat = opts.indices ? 'indices' : 'repeat';
-    } else {
-        arrayFormat = 'indices';
-    }
-
-    var generateArrayPrefix = arrayPrefixGenerators[arrayFormat];
+    var generateArrayPrefix = arrayPrefixGenerators[options.arrayFormat];
+    var commaRoundTrip = generateArrayPrefix === 'comma' && options.commaRoundTrip;
 
     if (!objKeys) {
         objKeys = Object.keys(obj);
@@ -15478,18 +13718,23 @@ module.exports = function (object, opts) {
         objKeys.sort(options.sort);
     }
 
+    var sideChannel = getSideChannel();
     for (var i = 0; i < objKeys.length; ++i) {
         var key = objKeys[i];
+        var value = obj[key];
 
-        if (options.skipNulls && obj[key] === null) {
+        if (options.skipNulls && value === null) {
             continue;
         }
         pushToArray(keys, stringify(
-            obj[key],
+            value,
             key,
             generateArrayPrefix,
+            commaRoundTrip,
+            options.allowEmptyArrays,
             options.strictNullHandling,
             options.skipNulls,
+            options.encodeDotInKeys,
             options.encode ? options.encoder : null,
             options.filter,
             options.sort,
@@ -15498,7 +13743,8 @@ module.exports = function (object, opts) {
             options.format,
             options.formatter,
             options.encodeValuesOnly,
-            options.charset
+            options.charset,
+            sideChannel
         ));
     }
 
@@ -15564,7 +13810,7 @@ var compactQueue = function compactQueue(queue) {
 };
 
 var arrayToObject = function arrayToObject(source, options) {
-    var obj = options && options.plainObjects ? Object.create(null) : {};
+    var obj = options && options.plainObjects ? { __proto__: null } : {};
     for (var i = 0; i < source.length; ++i) {
         if (typeof source[i] !== 'undefined') {
             obj[i] = source[i];
@@ -15580,11 +13826,14 @@ var merge = function merge(target, source, options) {
         return target;
     }
 
-    if (typeof source !== 'object') {
+    if (typeof source !== 'object' && typeof source !== 'function') {
         if (isArray(target)) {
             target.push(source);
         } else if (target && typeof target === 'object') {
-            if ((options && (options.plainObjects || options.allowPrototypes)) || !has.call(Object.prototype, source)) {
+            if (
+                (options && (options.plainObjects || options.allowPrototypes))
+                || !has.call(Object.prototype, source)
+            ) {
                 target[source] = true;
             }
         } else {
@@ -15638,7 +13887,7 @@ var assign = function assignSingleSource(target, source) {
     }, target);
 };
 
-var decode = function (str, decoder, charset) {
+var decode = function (str, defaultDecoder, charset) {
     var strWithoutPlus = str.replace(/\+/g, ' ');
     if (charset === 'iso-8859-1') {
         // unescape never throws, no try...catch needed:
@@ -15651,6 +13900,10 @@ var decode = function (str, decoder, charset) {
         return strWithoutPlus;
     }
 };
+
+var limit = 1024;
+
+/* eslint operator-linebreak: [2, "before"] */
 
 var encode = function encode(str, defaultEncoder, charset, kind, format) {
     // This code was originally written by Brian White (mscdex) for the io.js core querystring library.
@@ -15673,45 +13926,54 @@ var encode = function encode(str, defaultEncoder, charset, kind, format) {
     }
 
     var out = '';
-    for (var i = 0; i < string.length; ++i) {
-        var c = string.charCodeAt(i);
+    for (var j = 0; j < string.length; j += limit) {
+        var segment = string.length >= limit ? string.slice(j, j + limit) : string;
+        var arr = [];
 
-        if (
-            c === 0x2D // -
-            || c === 0x2E // .
-            || c === 0x5F // _
-            || c === 0x7E // ~
-            || (c >= 0x30 && c <= 0x39) // 0-9
-            || (c >= 0x41 && c <= 0x5A) // a-z
-            || (c >= 0x61 && c <= 0x7A) // A-Z
-            || (format === formats.RFC1738 && (c === 0x28 || c === 0x29)) // ( )
-        ) {
-            out += string.charAt(i);
-            continue;
+        for (var i = 0; i < segment.length; ++i) {
+            var c = segment.charCodeAt(i);
+            if (
+                c === 0x2D // -
+                || c === 0x2E // .
+                || c === 0x5F // _
+                || c === 0x7E // ~
+                || (c >= 0x30 && c <= 0x39) // 0-9
+                || (c >= 0x41 && c <= 0x5A) // a-z
+                || (c >= 0x61 && c <= 0x7A) // A-Z
+                || (format === formats.RFC1738 && (c === 0x28 || c === 0x29)) // ( )
+            ) {
+                arr[arr.length] = segment.charAt(i);
+                continue;
+            }
+
+            if (c < 0x80) {
+                arr[arr.length] = hexTable[c];
+                continue;
+            }
+
+            if (c < 0x800) {
+                arr[arr.length] = hexTable[0xC0 | (c >> 6)]
+                    + hexTable[0x80 | (c & 0x3F)];
+                continue;
+            }
+
+            if (c < 0xD800 || c >= 0xE000) {
+                arr[arr.length] = hexTable[0xE0 | (c >> 12)]
+                    + hexTable[0x80 | ((c >> 6) & 0x3F)]
+                    + hexTable[0x80 | (c & 0x3F)];
+                continue;
+            }
+
+            i += 1;
+            c = 0x10000 + (((c & 0x3FF) << 10) | (segment.charCodeAt(i) & 0x3FF));
+
+            arr[arr.length] = hexTable[0xF0 | (c >> 18)]
+                + hexTable[0x80 | ((c >> 12) & 0x3F)]
+                + hexTable[0x80 | ((c >> 6) & 0x3F)]
+                + hexTable[0x80 | (c & 0x3F)];
         }
 
-        if (c < 0x80) {
-            out = out + hexTable[c];
-            continue;
-        }
-
-        if (c < 0x800) {
-            out = out + (hexTable[0xC0 | (c >> 6)] + hexTable[0x80 | (c & 0x3F)]);
-            continue;
-        }
-
-        if (c < 0xD800 || c >= 0xE000) {
-            out = out + (hexTable[0xE0 | (c >> 12)] + hexTable[0x80 | ((c >> 6) & 0x3F)] + hexTable[0x80 | (c & 0x3F)]);
-            continue;
-        }
-
-        i += 1;
-        c = 0x10000 + (((c & 0x3FF) << 10) | (string.charCodeAt(i) & 0x3FF));
-        /* eslint operator-linebreak: [2, "before"] */
-        out += hexTable[0xF0 | (c >> 18)]
-            + hexTable[0x80 | ((c >> 12) & 0x3F)]
-            + hexTable[0x80 | ((c >> 6) & 0x3F)]
-            + hexTable[0x80 | (c & 0x3F)];
+        out += arr.join('');
     }
 
     return out;
@@ -15784,766 +14046,354 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/regenerator-runtime/runtime.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime.js ***!
-  \*****************************************************/
-/***/ ((module) => {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var runtime = (function (exports) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  function define(obj, key, value) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-    return obj[key];
-  }
-  try {
-    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-    define({}, "");
-  } catch (err) {
-    define = function(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  exports.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  define(IteratorPrototype, iteratorSymbol, function () {
-    return this;
-  });
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = GeneratorFunctionPrototype;
-  define(Gp, "constructor", GeneratorFunctionPrototype);
-  define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
-  GeneratorFunction.displayName = define(
-    GeneratorFunctionPrototype,
-    toStringTagSymbol,
-    "GeneratorFunction"
-  );
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      define(prototype, method, function(arg) {
-        return this._invoke(method, arg);
-      });
-    });
-  }
-
-  exports.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  exports.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      define(genFun, toStringTagSymbol, "GeneratorFunction");
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  exports.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator, PromiseImpl) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return PromiseImpl.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return PromiseImpl.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new PromiseImpl(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
-    return this;
-  });
-  exports.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    if (PromiseImpl === void 0) PromiseImpl = Promise;
-
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList),
-      PromiseImpl
-    );
-
-    return exports.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        // Note: ["return"] must be used for ES3 parsing compatibility.
-        if (delegate.iterator["return"]) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  define(Gp, toStringTagSymbol, "Generator");
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  define(Gp, iteratorSymbol, function() {
-    return this;
-  });
-
-  define(Gp, "toString", function() {
-    return "[object Generator]";
-  });
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  exports.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  exports.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-
-  // Regardless of whether this script is executing as a CommonJS module
-  // or not, return the runtime object so that we can declare the variable
-  // regeneratorRuntime in the outer scope, which allows this module to be
-  // injected easily by `bin/regenerator --include-runtime script.js`.
-  return exports;
-
-}(
-  // If this script is executing as a CommonJS module, use module.exports
-  // as the regeneratorRuntime namespace. Otherwise create a new empty
-  // object. Either way, the resulting object will be used to initialize
-  // the regeneratorRuntime variable at the top of this file.
-   true ? module.exports : 0
-));
-
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  // This module should not be running in strict mode, so the above
-  // assignment should always work unless something is misconfigured. Just
-  // in case runtime.js accidentally runs in strict mode, in modern engines
-  // we can explicitly access globalThis. In older engines we can escape
-  // strict mode using a global Function call. This could conceivably fail
-  // if a Content Security Policy forbids using Function, but in that case
-  // the proper solution is to fix the accidental strict mode problem. If
-  // you've misconfigured your bundler to force strict mode and applied a
-  // CSP to forbid Function, and you're not willing to fix either of those
-  // problems, please detail your unique predicament in a GitHub issue.
-  if (typeof globalThis === "object") {
-    globalThis.regeneratorRuntime = runtime;
-  } else {
-    Function("r", "regeneratorRuntime = r")(runtime);
-  }
-}
+/***/ "./node_modules/side-channel-list/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/side-channel-list/index.js ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var inspect = __webpack_require__(/*! object-inspect */ "./node_modules/object-inspect/index.js");
+
+var $TypeError = __webpack_require__(/*! es-errors/type */ "./node_modules/es-errors/type.js");
+
+/*
+* This function traverses the list returning the node corresponding to the given key.
+*
+* That node is also moved to the head of the list, so that if it's accessed again we don't need to traverse the whole list.
+* By doing so, all the recently used nodes can be accessed relatively quickly.
+*/
+/** @type {import('./list.d.ts').listGetNode} */
+// eslint-disable-next-line consistent-return
+var listGetNode = function (list, key, isDelete) {
+	/** @type {typeof list | NonNullable<(typeof list)['next']>} */
+	var prev = list;
+	/** @type {(typeof list)['next']} */
+	var curr;
+	// eslint-disable-next-line eqeqeq
+	for (; (curr = prev.next) != null; prev = curr) {
+		if (curr.key === key) {
+			prev.next = curr.next;
+			if (!isDelete) {
+				// eslint-disable-next-line no-extra-parens
+				curr.next = /** @type {NonNullable<typeof list.next>} */ (list.next);
+				list.next = curr; // eslint-disable-line no-param-reassign
+			}
+			return curr;
+		}
+	}
+};
+
+/** @type {import('./list.d.ts').listGet} */
+var listGet = function (objects, key) {
+	if (!objects) {
+		return void undefined;
+	}
+	var node = listGetNode(objects, key);
+	return node && node.value;
+};
+/** @type {import('./list.d.ts').listSet} */
+var listSet = function (objects, key, value) {
+	var node = listGetNode(objects, key);
+	if (node) {
+		node.value = value;
+	} else {
+		// Prepend the new node to the beginning of the list
+		objects.next = /** @type {import('./list.d.ts').ListNode<typeof value, typeof key>} */ ({ // eslint-disable-line no-param-reassign, no-extra-parens
+			key: key,
+			next: objects.next,
+			value: value
+		});
+	}
+};
+/** @type {import('./list.d.ts').listHas} */
+var listHas = function (objects, key) {
+	if (!objects) {
+		return false;
+	}
+	return !!listGetNode(objects, key);
+};
+/** @type {import('./list.d.ts').listDelete} */
+// eslint-disable-next-line consistent-return
+var listDelete = function (objects, key) {
+	if (objects) {
+		return listGetNode(objects, key, true);
+	}
+};
+
+/** @type {import('.')} */
+module.exports = function getSideChannelList() {
+	/** @typedef {ReturnType<typeof getSideChannelList>} Channel */
+	/** @typedef {Parameters<Channel['get']>[0]} K */
+	/** @typedef {Parameters<Channel['set']>[1]} V */
+
+	/** @type {import('./list.d.ts').RootNode<V, K> | undefined} */ var $o;
+
+	/** @type {Channel} */
+	var channel = {
+		assert: function (key) {
+			if (!channel.has(key)) {
+				throw new $TypeError('Side channel does not contain ' + inspect(key));
+			}
+		},
+		'delete': function (key) {
+			var root = $o && $o.next;
+			var deletedNode = listDelete($o, key);
+			if (deletedNode && root && root === deletedNode) {
+				$o = void undefined;
+			}
+			return !!deletedNode;
+		},
+		get: function (key) {
+			return listGet($o, key);
+		},
+		has: function (key) {
+			return listHas($o, key);
+		},
+		set: function (key, value) {
+			if (!$o) {
+				// Initialize the linked list as an empty node, so that we don't have to special-case handling of the first node: we can always refer to it as (previous node).next, instead of something like (list).head
+				$o = {
+					next: void undefined
+				};
+			}
+			// eslint-disable-next-line no-extra-parens
+			listSet(/** @type {NonNullable<typeof $o>} */ ($o), key, value);
+		}
+	};
+	// @ts-expect-error TODO: figure out why this is erroring
+	return channel;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/side-channel-map/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/side-channel-map/index.js ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var GetIntrinsic = __webpack_require__(/*! get-intrinsic */ "./node_modules/get-intrinsic/index.js");
+var callBound = __webpack_require__(/*! call-bound */ "./node_modules/call-bound/index.js");
+var inspect = __webpack_require__(/*! object-inspect */ "./node_modules/object-inspect/index.js");
+
+var $TypeError = __webpack_require__(/*! es-errors/type */ "./node_modules/es-errors/type.js");
+var $Map = GetIntrinsic('%Map%', true);
+
+/** @type {<K, V>(thisArg: Map<K, V>, key: K) => V} */
+var $mapGet = callBound('Map.prototype.get', true);
+/** @type {<K, V>(thisArg: Map<K, V>, key: K, value: V) => void} */
+var $mapSet = callBound('Map.prototype.set', true);
+/** @type {<K, V>(thisArg: Map<K, V>, key: K) => boolean} */
+var $mapHas = callBound('Map.prototype.has', true);
+/** @type {<K, V>(thisArg: Map<K, V>, key: K) => boolean} */
+var $mapDelete = callBound('Map.prototype.delete', true);
+/** @type {<K, V>(thisArg: Map<K, V>) => number} */
+var $mapSize = callBound('Map.prototype.size', true);
+
+/** @type {import('.')} */
+module.exports = !!$Map && /** @type {Exclude<import('.'), false>} */ function getSideChannelMap() {
+	/** @typedef {ReturnType<typeof getSideChannelMap>} Channel */
+	/** @typedef {Parameters<Channel['get']>[0]} K */
+	/** @typedef {Parameters<Channel['set']>[1]} V */
+
+	/** @type {Map<K, V> | undefined} */ var $m;
+
+	/** @type {Channel} */
+	var channel = {
+		assert: function (key) {
+			if (!channel.has(key)) {
+				throw new $TypeError('Side channel does not contain ' + inspect(key));
+			}
+		},
+		'delete': function (key) {
+			if ($m) {
+				var result = $mapDelete($m, key);
+				if ($mapSize($m) === 0) {
+					$m = void undefined;
+				}
+				return result;
+			}
+			return false;
+		},
+		get: function (key) { // eslint-disable-line consistent-return
+			if ($m) {
+				return $mapGet($m, key);
+			}
+		},
+		has: function (key) {
+			if ($m) {
+				return $mapHas($m, key);
+			}
+			return false;
+		},
+		set: function (key, value) {
+			if (!$m) {
+				// @ts-expect-error TS can't handle narrowing a variable inside a closure
+				$m = new $Map();
+			}
+			$mapSet($m, key, value);
+		}
+	};
+
+	// @ts-expect-error TODO: figure out why TS is erroring here
+	return channel;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/side-channel-weakmap/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/side-channel-weakmap/index.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var GetIntrinsic = __webpack_require__(/*! get-intrinsic */ "./node_modules/get-intrinsic/index.js");
+var callBound = __webpack_require__(/*! call-bound */ "./node_modules/call-bound/index.js");
+var inspect = __webpack_require__(/*! object-inspect */ "./node_modules/object-inspect/index.js");
+var getSideChannelMap = __webpack_require__(/*! side-channel-map */ "./node_modules/side-channel-map/index.js");
+
+var $TypeError = __webpack_require__(/*! es-errors/type */ "./node_modules/es-errors/type.js");
+var $WeakMap = GetIntrinsic('%WeakMap%', true);
+
+/** @type {<K extends object, V>(thisArg: WeakMap<K, V>, key: K) => V} */
+var $weakMapGet = callBound('WeakMap.prototype.get', true);
+/** @type {<K extends object, V>(thisArg: WeakMap<K, V>, key: K, value: V) => void} */
+var $weakMapSet = callBound('WeakMap.prototype.set', true);
+/** @type {<K extends object, V>(thisArg: WeakMap<K, V>, key: K) => boolean} */
+var $weakMapHas = callBound('WeakMap.prototype.has', true);
+/** @type {<K extends object, V>(thisArg: WeakMap<K, V>, key: K) => boolean} */
+var $weakMapDelete = callBound('WeakMap.prototype.delete', true);
+
+/** @type {import('.')} */
+module.exports = $WeakMap
+	? /** @type {Exclude<import('.'), false>} */ function getSideChannelWeakMap() {
+		/** @typedef {ReturnType<typeof getSideChannelWeakMap>} Channel */
+		/** @typedef {Parameters<Channel['get']>[0]} K */
+		/** @typedef {Parameters<Channel['set']>[1]} V */
+
+		/** @type {WeakMap<K & object, V> | undefined} */ var $wm;
+		/** @type {Channel | undefined} */ var $m;
+
+		/** @type {Channel} */
+		var channel = {
+			assert: function (key) {
+				if (!channel.has(key)) {
+					throw new $TypeError('Side channel does not contain ' + inspect(key));
+				}
+			},
+			'delete': function (key) {
+				if ($WeakMap && key && (typeof key === 'object' || typeof key === 'function')) {
+					if ($wm) {
+						return $weakMapDelete($wm, key);
+					}
+				} else if (getSideChannelMap) {
+					if ($m) {
+						return $m['delete'](key);
+					}
+				}
+				return false;
+			},
+			get: function (key) {
+				if ($WeakMap && key && (typeof key === 'object' || typeof key === 'function')) {
+					if ($wm) {
+						return $weakMapGet($wm, key);
+					}
+				}
+				return $m && $m.get(key);
+			},
+			has: function (key) {
+				if ($WeakMap && key && (typeof key === 'object' || typeof key === 'function')) {
+					if ($wm) {
+						return $weakMapHas($wm, key);
+					}
+				}
+				return !!$m && $m.has(key);
+			},
+			set: function (key, value) {
+				if ($WeakMap && key && (typeof key === 'object' || typeof key === 'function')) {
+					if (!$wm) {
+						$wm = new $WeakMap();
+					}
+					$weakMapSet($wm, key, value);
+				} else if (getSideChannelMap) {
+					if (!$m) {
+						$m = getSideChannelMap();
+					}
+					// eslint-disable-next-line no-extra-parens
+					/** @type {NonNullable<typeof $m>} */ ($m).set(key, value);
+				}
+			}
+		};
+
+		// @ts-expect-error TODO: figure out why this is erroring
+		return channel;
+	}
+	: getSideChannelMap;
+
+
+/***/ }),
+
+/***/ "./node_modules/side-channel/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/side-channel/index.js ***!
+  \********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var $TypeError = __webpack_require__(/*! es-errors/type */ "./node_modules/es-errors/type.js");
+var inspect = __webpack_require__(/*! object-inspect */ "./node_modules/object-inspect/index.js");
+var getSideChannelList = __webpack_require__(/*! side-channel-list */ "./node_modules/side-channel-list/index.js");
+var getSideChannelMap = __webpack_require__(/*! side-channel-map */ "./node_modules/side-channel-map/index.js");
+var getSideChannelWeakMap = __webpack_require__(/*! side-channel-weakmap */ "./node_modules/side-channel-weakmap/index.js");
+
+var makeChannel = getSideChannelWeakMap || getSideChannelMap || getSideChannelList;
+
+/** @type {import('.')} */
+module.exports = function getSideChannel() {
+	/** @typedef {ReturnType<typeof getSideChannel>} Channel */
+
+	/** @type {Channel | undefined} */ var $channelData;
+
+	/** @type {Channel} */
+	var channel = {
+		assert: function (key) {
+			if (!channel.has(key)) {
+				throw new $TypeError('Side channel does not contain ' + inspect(key));
+			}
+		},
+		'delete': function (key) {
+			return !!$channelData && $channelData['delete'](key);
+		},
+		get: function (key) {
+			return $channelData && $channelData.get(key);
+		},
+		has: function (key) {
+			return !!$channelData && $channelData.has(key);
+		},
+		set: function (key, value) {
+			if (!$channelData) {
+				$channelData = makeChannel();
+			}
+
+			$channelData.set(key, value);
+		}
+	};
+	// @ts-expect-error TODO: figure out why this is erroring
+	return channel;
+};
 
 
 /***/ }),
@@ -16570,228 +14420,6 @@ exports["default"] = (sfc, props) => {
 
 /***/ }),
 
-/***/ "./resources/js/components/DetailField.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/components/DetailField.vue ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DetailField.vue?vue&type=template&id=0224618e */ "./resources/js/components/DetailField.vue?vue&type=template&id=0224618e");
-/* harmony import */ var _DetailField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DetailField.vue?vue&type=script&lang=js */ "./resources/js/components/DetailField.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_brandon_Code_belchertown_web_vendor_kirschbaum_development_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,_Users_brandon_Code_belchertown_web_vendor_kirschbaum_development_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DetailField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/DetailField.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
-/***/ "./resources/js/components/FormField.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/components/FormField.vue ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _FormField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormField.vue?vue&type=script&lang=js */ "./resources/js/components/FormField.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_brandon_Code_belchertown_web_vendor_kirschbaum_development_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,_Users_brandon_Code_belchertown_web_vendor_kirschbaum_development_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_FormField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"], [['__file',"resources/js/components/FormField.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
-/***/ "./resources/js/components/IndexField.vue":
-/*!************************************************!*\
-  !*** ./resources/js/components/IndexField.vue ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IndexField.vue?vue&type=template&id=9e63f81a */ "./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a");
-/* harmony import */ var _IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexField.vue?vue&type=script&lang=js */ "./resources/js/components/IndexField.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_brandon_Code_belchertown_web_vendor_kirschbaum_development_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,_Users_brandon_Code_belchertown_web_vendor_kirschbaum_development_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/IndexField.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue":
-/*!**********************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _SelectField_vue_vue_type_template_id_42e6707e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SelectField.vue?vue&type=template&id=42e6707e */ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=template&id=42e6707e");
-/* harmony import */ var _SelectField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectField.vue?vue&type=script&lang=js */ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=script&lang=js");
-/* harmony import */ var _Users_brandon_Code_belchertown_web_vendor_kirschbaum_development_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-const __exports__ = /*#__PURE__*/(0,_Users_brandon_Code_belchertown_web_vendor_kirschbaum_development_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_SelectField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SelectField_vue_vue_type_template_id_42e6707e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"vendor/laravel/nova/resources/js/fields/Form/SelectField.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
-/***/ "./resources/js/components/DetailField.vue?vue&type=script&lang=js":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/DetailField.vue?vue&type=script&lang=js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DetailField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DetailField.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
-/***/ "./resources/js/components/FormField.vue?vue&type=script&lang=js":
-/*!***********************************************************************!*\
-  !*** ./resources/js/components/FormField.vue?vue&type=script&lang=js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FormField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FormField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FormField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FormField.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
-/***/ "./resources/js/components/IndexField.vue?vue&type=script&lang=js":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/IndexField.vue?vue&type=script&lang=js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./IndexField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=script&lang=js":
-/*!**********************************************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=script&lang=js ***!
-  \**********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SelectField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SelectField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SelectField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
-/***/ "./resources/js/components/DetailField.vue?vue&type=template&id=0224618e":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/DetailField.vue?vue&type=template&id=0224618e ***!
-  \*******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__.render)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DetailField.vue?vue&type=template&id=0224618e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DetailField.vue?vue&type=template&id=0224618e");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__.render)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./IndexField.vue?vue&type=template&id=9e63f81a */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a");
-
-
-/***/ }),
-
-/***/ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=template&id=42e6707e":
-/*!****************************************************************************************************!*\
-  !*** ./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=template&id=42e6707e ***!
-  \****************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SelectField_vue_vue_type_template_id_42e6707e__WEBPACK_IMPORTED_MODULE_0__.render)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SelectField_vue_vue_type_template_id_42e6707e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SelectField.vue?vue&type=template&id=42e6707e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=template&id=42e6707e");
-
-
-/***/ }),
-
 /***/ "./node_modules/vuex/dist/vuex.esm-bundler.js":
 /*!****************************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm-bundler.js ***!
@@ -16801,24 +14429,24 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Store": () => (/* binding */ Store),
-/* harmony export */   "createLogger": () => (/* binding */ createLogger),
-/* harmony export */   "createNamespacedHelpers": () => (/* binding */ createNamespacedHelpers),
-/* harmony export */   "createStore": () => (/* binding */ createStore),
+/* harmony export */   Store: () => (/* binding */ Store),
+/* harmony export */   createLogger: () => (/* binding */ createLogger),
+/* harmony export */   createNamespacedHelpers: () => (/* binding */ createNamespacedHelpers),
+/* harmony export */   createStore: () => (/* binding */ createStore),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "mapActions": () => (/* binding */ mapActions),
-/* harmony export */   "mapGetters": () => (/* binding */ mapGetters),
-/* harmony export */   "mapMutations": () => (/* binding */ mapMutations),
-/* harmony export */   "mapState": () => (/* binding */ mapState),
-/* harmony export */   "storeKey": () => (/* binding */ storeKey),
-/* harmony export */   "useStore": () => (/* binding */ useStore)
+/* harmony export */   mapActions: () => (/* binding */ mapActions),
+/* harmony export */   mapGetters: () => (/* binding */ mapGetters),
+/* harmony export */   mapMutations: () => (/* binding */ mapMutations),
+/* harmony export */   mapState: () => (/* binding */ mapState),
+/* harmony export */   storeKey: () => (/* binding */ storeKey),
+/* harmony export */   useStore: () => (/* binding */ useStore)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _vue_devtools_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/devtools-api */ "./node_modules/@vue/devtools-api/lib/esm/index.js");
 /*!
- * vuex v4.0.2
- * (c) 2021 Evan You
+ * vuex v4.1.0
+ * (c) 2022 Evan You
  * @license MIT
  */
 
@@ -16935,6 +14563,7 @@ function resetStore (store, hot) {
 
 function resetStoreState (store, state, hot) {
   var oldState = store._state;
+  var oldScope = store._scope;
 
   // bind store public getters
   store.getters = {};
@@ -16942,22 +14571,33 @@ function resetStoreState (store, state, hot) {
   store._makeLocalGettersCache = Object.create(null);
   var wrappedGetters = store._wrappedGetters;
   var computedObj = {};
-  forEachValue(wrappedGetters, function (fn, key) {
-    // use computed to leverage its lazy-caching mechanism
-    // direct inline function use will lead to closure preserving oldState.
-    // using partial to return function with only arguments preserved in closure environment.
-    computedObj[key] = partial(fn, store);
-    Object.defineProperty(store.getters, key, {
-      // TODO: use `computed` when it's possible. at the moment we can't due to
-      // https://github.com/vuejs/vuex/pull/1883
-      get: function () { return computedObj[key](); },
-      enumerable: true // for local getters
+  var computedCache = {};
+
+  // create a new effect scope and create computed object inside it to avoid
+  // getters (computed) getting destroyed on component unmount.
+  var scope = (0,vue__WEBPACK_IMPORTED_MODULE_0__.effectScope)(true);
+
+  scope.run(function () {
+    forEachValue(wrappedGetters, function (fn, key) {
+      // use computed to leverage its lazy-caching mechanism
+      // direct inline function use will lead to closure preserving oldState.
+      // using partial to return function with only arguments preserved in closure environment.
+      computedObj[key] = partial(fn, store);
+      computedCache[key] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () { return computedObj[key](); });
+      Object.defineProperty(store.getters, key, {
+        get: function () { return computedCache[key].value; },
+        enumerable: true // for local getters
+      });
     });
   });
 
   store._state = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
     data: state
   });
+
+  // register the newly created effect scope to the store so that we can
+  // dispose the effects when this method runs again in the future.
+  store._scope = scope;
 
   // enable strict mode for new state
   if (store.strict) {
@@ -16972,6 +14612,11 @@ function resetStoreState (store, state, hot) {
         oldState.data = null;
       });
     }
+  }
+
+  // dispose previously registered effect scope if there is one.
+  if (oldScope) {
+    oldScope.stop();
   }
 }
 
@@ -17721,6 +15366,12 @@ var Store = function Store (options) {
   this._modulesNamespaceMap = Object.create(null);
   this._subscribers = [];
   this._makeLocalGettersCache = Object.create(null);
+
+  // EffectScope instance. when registering new getters, we wrap them inside
+  // EffectScope so that getters (computed) would not be destroyed on
+  // component unmount.
+  this._scope = null;
+
   this._devtools = devtools;
 
   // bind commit and dispatch to self
@@ -18263,7 +15914,7 @@ function pad (num, maxLength) {
 }
 
 var index = {
-  version: '4.0.2',
+  version: '4.1.0',
   Store: Store,
   storeKey: storeKey,
   createStore: createStore,
@@ -18282,6 +15933,3928 @@ var index = {
 
 /***/ }),
 
+/***/ "./resources/css/field.css":
+/*!*********************************!*\
+  !*** ./resources/css/field.css ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/js/components/DetailField.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/DetailField.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DetailField.vue?vue&type=template&id=0224618e */ "./resources/js/components/DetailField.vue?vue&type=template&id=0224618e");
+/* harmony import */ var _DetailField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DetailField.vue?vue&type=script&lang=js */ "./resources/js/components/DetailField.vue?vue&type=script&lang=js");
+/* harmony import */ var _home_rober_PhpstormProjects_Packages_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_rober_PhpstormProjects_Packages_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DetailField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/DetailField.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/DetailField.vue?vue&type=script&lang=js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/DetailField.vue?vue&type=script&lang=js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DetailField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DetailField.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/DetailField.vue?vue&type=template&id=0224618e":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/DetailField.vue?vue&type=template&id=0224618e ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DetailField_vue_vue_type_template_id_0224618e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DetailField.vue?vue&type=template&id=0224618e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/DetailField.vue?vue&type=template&id=0224618e");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FormField.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/FormField.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FormField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormField.vue?vue&type=script&lang=js */ "./resources/js/components/FormField.vue?vue&type=script&lang=js");
+/* harmony import */ var _home_rober_PhpstormProjects_Packages_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_rober_PhpstormProjects_Packages_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(_FormField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"], [['__file',"resources/js/components/FormField.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/FormField.vue?vue&type=script&lang=js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/FormField.vue?vue&type=script&lang=js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FormField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_FormField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./FormField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/FormField.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/IndexField.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/IndexField.vue ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IndexField.vue?vue&type=template&id=9e63f81a */ "./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a");
+/* harmony import */ var _IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IndexField.vue?vue&type=script&lang=js */ "./resources/js/components/IndexField.vue?vue&type=script&lang=js");
+/* harmony import */ var _home_rober_PhpstormProjects_Packages_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_rober_PhpstormProjects_Packages_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/components/IndexField.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/IndexField.vue?vue&type=script&lang=js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/IndexField.vue?vue&type=script&lang=js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./IndexField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_IndexField_vue_vue_type_template_id_9e63f81a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./IndexField.vue?vue&type=template&id=9e63f81a */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/IndexField.vue?vue&type=template&id=9e63f81a");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/mixins/inline.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/mixins/inline.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/find */ "./node_modules/lodash/find.js");
+/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_0__);
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      isInline: false,
+      showUpdateButton: false,
+      twoStepDisabled: false
+    };
+  },
+  computed: {
+    /**
+     * Determine if the field has a value other than null.
+     */
+    hasValue: function hasValue() {
+      return this.field.value !== null;
+    },
+    /**
+     * Return the placeholder text for the field.
+     */
+    placeholder: function placeholder() {
+      return this.field.placeholder || this.__('Choose an option');
+    }
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var formData;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.n) {
+            case 0:
+              formData = new FormData();
+              console.log(_this.value);
+              formData.append(_this.field.attribute, _this.value);
+              formData.append('_method', 'PUT');
+              return _context.a(2, Nova.request().post("/nova-api/".concat(_this.resourceName, "/").concat(_this.resourceId), formData).then(function () {
+                var label = lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(_this.field.options, function (option) {
+                  return option.value === _this.value;
+                }).label;
+                Nova.success("".concat(_this.field.name, " updated to \"").concat(label, "\""));
+              }, function (response) {
+                Nova.error(response);
+              })["finally"](function () {
+                _this.showUpdateButton = false;
+              }));
+          }
+        }, _callee);
+      }))();
+    },
+    attemptUpdate: function attemptUpdate(eventOrValue) {
+      var _eventOrValue$target$, _eventOrValue$target, _this$field$indexTwoS;
+      /* If the variable is an event, get the value from the target otherwise use the variable itself */
+      this.value = (_eventOrValue$target$ = eventOrValue === null || eventOrValue === void 0 || (_eventOrValue$target = eventOrValue.target) === null || _eventOrValue$target === void 0 ? void 0 : _eventOrValue$target.value) !== null && _eventOrValue$target$ !== void 0 ? _eventOrValue$target$ : eventOrValue;
+      if ((_this$field$indexTwoS = this.field.indexTwoStepDisabled) !== null && _this$field$indexTwoS !== void 0 ? _this$field$indexTwoS : false) {
+        return this.submit();
+      }
+      this.showUpdateButton = true;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/field.js":
+/*!*******************************!*\
+  !*** ./resources/js/field.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_IndexField__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/IndexField */ "./resources/js/components/IndexField.vue");
+/* harmony import */ var _components_DetailField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/DetailField */ "./resources/js/components/DetailField.vue");
+/* harmony import */ var _components_FormField__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/FormField */ "./resources/js/components/FormField.vue");
+
+
+
+Nova.booting(function (app) {
+  app.component('index-inline-select', _components_IndexField__WEBPACK_IMPORTED_MODULE_0__["default"]);
+  app.component('detail-inline-select', _components_DetailField__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  app.component('form-inline-select', _components_FormField__WEBPACK_IMPORTED_MODULE_2__["default"]);
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/composables/useLocalization.js":
+/*!*************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/composables/useLocalization.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   useLocalization: () => (/* binding */ useLocalization)
+/* harmony export */ });
+/* harmony import */ var _util_localization__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/localization */ "./vendor/laravel/nova/resources/js/util/localization.js");
+
+function useLocalization() {
+  return {
+    __: function __(key, replace) {
+      return (0,_util_localization__WEBPACK_IMPORTED_MODULE_0__["default"])(key, replace);
+    }
+  };
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue":
+/*!**********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SelectField_vue_vue_type_template_id_42e6707e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SelectField.vue?vue&type=template&id=42e6707e */ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=template&id=42e6707e");
+/* harmony import */ var _SelectField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectField.vue?vue&type=script&lang=js */ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=script&lang=js");
+/* harmony import */ var _home_rober_PhpstormProjects_Packages_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_rober_PhpstormProjects_Packages_nova_inline_select_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_SelectField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SelectField_vue_vue_type_template_id_42e6707e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"vendor/laravel/nova/resources/js/fields/Form/SelectField.vue"]])
+/* hot reload */
+if (false) // removed by dead control flow
+{}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=script&lang=js":
+/*!**********************************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=script&lang=js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SelectField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SelectField_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SelectField.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=template&id=42e6707e":
+/*!****************************************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=template&id=42e6707e ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SelectField_vue_vue_type_template_id_42e6707e__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SelectField_vue_vue_type_template_id_42e6707e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SelectField.vue?vue&type=template&id=42e6707e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./vendor/laravel/nova/resources/js/fields/Form/SelectField.vue?vue&type=template&id=42e6707e");
+
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/BehavesAsPanel.js":
+/*!*******************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/BehavesAsPanel.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ['actionExecuted'],
+  props: ['resourceName', 'resourceId', 'resource', 'panel'],
+  methods: {
+    /**
+     * Handle the actionExecuted event and pass it up the chain.
+     */
+    actionExecuted: function actionExecuted() {
+      this.$emit('actionExecuted');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/Collapsable.js":
+/*!****************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/Collapsable.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      collapsed: false
+    };
+  },
+  created: function created() {
+    var value = localStorage.getItem(this.localStorageKey);
+    if (value !== 'undefined') {
+      var _JSON$parse;
+      this.collapsed = (_JSON$parse = JSON.parse(value)) !== null && _JSON$parse !== void 0 ? _JSON$parse : this.collapsedByDefault;
+    }
+  },
+  unmounted: function unmounted() {
+    localStorage.setItem(this.localStorageKey, this.collapsed);
+  },
+  methods: {
+    toggleCollapse: function toggleCollapse() {
+      this.collapsed = !this.collapsed;
+      localStorage.setItem(this.localStorageKey, this.collapsed);
+    }
+  },
+  computed: {
+    ariaExpanded: function ariaExpanded() {
+      return this.collapsed === false ? 'true' : 'false';
+    },
+    shouldBeCollapsed: function shouldBeCollapsed() {
+      return this.collapsed;
+    },
+    localStorageKey: function localStorageKey() {
+      return "nova.navigation.".concat(this.item.key, ".collapsed");
+    },
+    collapsedByDefault: function collapsedByDefault() {
+      return false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/CopiesToClipboard.js":
+/*!**********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/CopiesToClipboard.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   useCopyValueToClipboard: () => (/* binding */ useCopyValueToClipboard)
+/* harmony export */ });
+var mixin = {
+  methods: {
+    copyValueToClipboard: function copyValueToClipboard(value) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(value);
+      } else if (window.clipboardData) {
+        window.clipboardData.setData('Text', value);
+      } else {
+        var input = document.createElement('input');
+        var _ref = [document.documentElement.scrollTop, document.documentElement.scrollLeft],
+          scrollTop = _ref[0],
+          scrollLeft = _ref[1];
+        document.body.appendChild(input);
+        input.value = value;
+        input.focus();
+        input.select();
+        document.documentElement.scrollTop = scrollTop;
+        document.documentElement.scrollLeft = scrollLeft;
+        document.execCommand('copy');
+        input.remove();
+      }
+    }
+  }
+};
+function useCopyValueToClipboard() {
+  return {
+    copyValueToClipboard: function copyValueToClipboard(value) {
+      return mixin.methods.copyValueToClipboard(value);
+    }
+  };
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (mixin);
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/Deletable.js":
+/*!**************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/Deletable.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/filter */ "./node_modules/lodash/filter.js");
+/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_filter__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
+/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    /**
+     * Open the delete menu modal.
+     */
+    openDeleteModal: function openDeleteModal() {
+      this.deleteModalOpen = true;
+    },
+    /**
+     * Delete the given resources.
+     */
+    deleteResources: function deleteResources(resources) {
+      var _this = this;
+      var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      if (this.viaManyToMany) {
+        return this.detachResources(resources);
+      }
+      return Nova.request({
+        url: '/nova-api/' + this.resourceName,
+        method: 'delete',
+        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
+          resources: mapResources(resources)
+        })
+      }).then(callback ? callback : function () {
+        _this.getResources();
+      }).then(function () {
+        Nova.$emit('resources-deleted');
+      })["finally"](function () {
+        _this.deleteModalOpen = false;
+      });
+    },
+    /**
+     * Delete the selected resources.
+     */
+    deleteSelectedResources: function deleteSelectedResources() {
+      this.deleteResources(this.selectedResources);
+    },
+    /**
+     * Delete all of the matching resources.
+     */
+    deleteAllMatchingResources: function deleteAllMatchingResources() {
+      var _this2 = this;
+      if (this.viaManyToMany) {
+        return this.detachAllMatchingResources();
+      }
+      return Nova.request({
+        url: this.deleteAllMatchingResourcesEndpoint,
+        method: 'delete',
+        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
+          resources: 'all'
+        })
+      }).then(function () {
+        _this2.getResources();
+      }).then(function () {
+        Nova.$emit('resources-deleted');
+      })["finally"](function () {
+        _this2.deleteModalOpen = false;
+      });
+    },
+    /**
+     * Detach the given resources.
+     */
+    detachResources: function detachResources(resources) {
+      var _this3 = this;
+      return Nova.request({
+        url: '/nova-api/' + this.resourceName + '/detach',
+        method: 'delete',
+        params: _objectSpread(_objectSpread(_objectSpread({}, this.deletableQueryString), {
+          resources: mapResources(resources)
+        }), {
+          pivots: mapPivots(resources)
+        })
+      }).then(function () {
+        _this3.getResources();
+      }).then(function () {
+        Nova.$emit('resources-detached');
+      })["finally"](function () {
+        _this3.deleteModalOpen = false;
+      });
+    },
+    /**
+     * Detach all of the matching resources.
+     */
+    detachAllMatchingResources: function detachAllMatchingResources() {
+      var _this4 = this;
+      return Nova.request({
+        url: '/nova-api/' + this.resourceName + '/detach',
+        method: 'delete',
+        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
+          resources: 'all'
+        })
+      }).then(function () {
+        _this4.getResources();
+      }).then(function () {
+        Nova.$emit('resources-detached');
+      })["finally"](function () {
+        _this4.deleteModalOpen = false;
+      });
+    },
+    /**
+     * Force delete the given resources.
+     */
+    forceDeleteResources: function forceDeleteResources(resources) {
+      var _this5 = this;
+      var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      return Nova.request({
+        url: '/nova-api/' + this.resourceName + '/force',
+        method: 'delete',
+        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
+          resources: mapResources(resources)
+        })
+      }).then(callback ? callback : function () {
+        _this5.getResources();
+      }).then(function () {
+        Nova.$emit('resources-deleted');
+      })["finally"](function () {
+        _this5.deleteModalOpen = false;
+      });
+    },
+    /**
+     * Force delete the selected resources.
+     */
+    forceDeleteSelectedResources: function forceDeleteSelectedResources() {
+      this.forceDeleteResources(this.selectedResources);
+    },
+    /**
+     * Force delete all of the matching resources.
+     */
+    forceDeleteAllMatchingResources: function forceDeleteAllMatchingResources() {
+      var _this6 = this;
+      return Nova.request({
+        url: this.forceDeleteSelectedResourcesEndpoint,
+        method: 'delete',
+        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
+          resources: 'all'
+        })
+      }).then(function () {
+        _this6.getResources();
+      }).then(function () {
+        Nova.$emit('resources-deleted');
+      })["finally"](function () {
+        _this6.deleteModalOpen = false;
+      });
+    },
+    /**
+     * Restore the given resources.
+     */
+    restoreResources: function restoreResources(resources) {
+      var _this7 = this;
+      var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      return Nova.request({
+        url: '/nova-api/' + this.resourceName + '/restore',
+        method: 'put',
+        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
+          resources: mapResources(resources)
+        })
+      }).then(callback ? callback : function () {
+        _this7.getResources();
+      }).then(function () {
+        Nova.$emit('resources-restored');
+      })["finally"](function () {
+        _this7.restoreModalOpen = false;
+      });
+    },
+    /**
+     * Restore the selected resources.
+     */
+    restoreSelectedResources: function restoreSelectedResources() {
+      this.restoreResources(this.selectedResources);
+    },
+    /**
+     * Restore all of the matching resources.
+     */
+    restoreAllMatchingResources: function restoreAllMatchingResources() {
+      var _this8 = this;
+      return Nova.request({
+        url: this.restoreAllMatchingResourcesEndpoint,
+        method: 'put',
+        params: _objectSpread(_objectSpread({}, this.deletableQueryString), {
+          resources: 'all'
+        })
+      }).then(function () {
+        _this8.getResources();
+      }).then(function () {
+        Nova.$emit('resources-restored');
+      })["finally"](function () {
+        _this8.restoreModalOpen = false;
+      });
+    }
+  },
+  computed: {
+    /**
+     * Get the delete all matching resources endpoint.
+     */
+    deleteAllMatchingResourcesEndpoint: function deleteAllMatchingResourcesEndpoint() {
+      if (this.lens) {
+        return '/nova-api/' + this.resourceName + '/lens/' + this.lens;
+      }
+      return '/nova-api/' + this.resourceName;
+    },
+    /**
+     * Get the force delete all of the matching resources endpoint.
+     */
+    forceDeleteSelectedResourcesEndpoint: function forceDeleteSelectedResourcesEndpoint() {
+      if (this.lens) {
+        return '/nova-api/' + this.resourceName + '/lens/' + this.lens + '/force';
+      }
+      return '/nova-api/' + this.resourceName + '/force';
+    },
+    /**
+     * Get the restore all of the matching resources endpoint.
+     */
+    restoreAllMatchingResourcesEndpoint: function restoreAllMatchingResourcesEndpoint() {
+      if (this.lens) {
+        return '/nova-api/' + this.resourceName + '/lens/' + this.lens + '/restore';
+      }
+      return '/nova-api/' + this.resourceName + '/restore';
+    },
+    /**
+     * Get the query string for a deletable resource request.
+     */
+    deletableQueryString: function deletableQueryString() {
+      return {
+        search: this.currentSearch,
+        filters: this.encodedFilters,
+        trashed: this.currentTrashed,
+        viaResource: this.viaResource,
+        viaResourceId: this.viaResourceId,
+        viaRelationship: this.viaRelationship
+      };
+    }
+  }
+});
+function mapResources(resources) {
+  return lodash_map__WEBPACK_IMPORTED_MODULE_1___default()(resources, function (resource) {
+    return resource.id.value;
+  });
+}
+function mapPivots(resources) {
+  return lodash_filter__WEBPACK_IMPORTED_MODULE_0___default()(lodash_map__WEBPACK_IMPORTED_MODULE_1___default()(resources, function (resource) {
+    return resource.id.pivotValue;
+  }));
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/DependentFormField.js":
+/*!***********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/DependentFormField.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/debounce */ "./node_modules/lodash/debounce.js");
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash_forIn__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/forIn */ "./node_modules/lodash/forIn.js");
+/* harmony import */ var lodash_forIn__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_forIn__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/get */ "./node_modules/lodash/get.js");
+/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var lodash_identity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash/identity */ "./node_modules/lodash/identity.js");
+/* harmony import */ var lodash_identity__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash_identity__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash/isEmpty */ "./node_modules/lodash/isEmpty.js");
+/* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var lodash_pickBy__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! lodash/pickBy */ "./node_modules/lodash/pickBy.js");
+/* harmony import */ var lodash_pickBy__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(lodash_pickBy__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./FormField */ "./vendor/laravel/nova/resources/js/mixins/FormField.js");
+/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
+/* harmony import */ var _util_filled__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../util/filled */ "./vendor/laravel/nova/resources/js/util/filled.js");
+/* harmony import */ var _util_escapeUnicode__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../util/escapeUnicode */ "./vendor/laravel/nova/resources/js/util/escapeUnicode.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  "extends": _FormField__WEBPACK_IMPORTED_MODULE_8__["default"],
+  emits: ['field-shown', 'field-hidden'],
+  props: _objectSpread(_objectSpread({}, (0,_propTypes__WEBPACK_IMPORTED_MODULE_9__.mapProps)(['shownViaNewRelationModal', 'field', 'viaResource', 'viaResourceId', 'viaRelationship', 'resourceName', 'resourceId', 'relatedResourceName', 'relatedResourceId'])), {}, {
+    syncEndpoint: {
+      type: String,
+      required: false
+    }
+  }),
+  data: function data() {
+    return {
+      dependentFieldDebouncer: null,
+      canceller: null,
+      watchedFields: {},
+      watchedEvents: {},
+      syncedField: null,
+      pivot: false,
+      editMode: 'create'
+    };
+  },
+  created: function created() {
+    this.dependentFieldDebouncer = lodash_debounce__WEBPACK_IMPORTED_MODULE_1___default()(function (callback) {
+      return callback();
+    }, 50);
+  },
+  mounted: function mounted() {
+    var _this = this;
+    if (this.relatedResourceName !== '' && !lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(this.relatedResourceName)) {
+      this.pivot = true;
+      if (this.relatedResourceId !== '' && !lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(this.relatedResourceId)) {
+        this.editMode = 'update-attached';
+      } else {
+        this.editMode = 'attach';
+      }
+    } else {
+      if (this.resourceId !== '' && !lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(this.resourceId)) {
+        this.editMode = 'update';
+      }
+    }
+    if (!lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5___default()(this.dependsOn)) {
+      lodash_forIn__WEBPACK_IMPORTED_MODULE_2___default()(this.dependsOn, function (defaultValue, dependsOn) {
+        _this.watchedEvents[dependsOn] = function (value) {
+          _this.watchedFields[dependsOn] = value;
+          _this.dependentFieldDebouncer(function () {
+            _this.watchedFields[dependsOn] = value;
+            _this.syncField();
+          });
+        };
+        _this.watchedFields[dependsOn] = defaultValue;
+        Nova.$on(_this.getFieldAttributeChangeEventName(dependsOn), _this.watchedEvents[dependsOn]);
+      });
+    }
+  },
+  beforeUnmount: function beforeUnmount() {
+    var _this2 = this;
+    if (this.canceller !== null) this.canceller();
+    if (!lodash_isEmpty__WEBPACK_IMPORTED_MODULE_5___default()(this.watchedEvents)) {
+      lodash_forIn__WEBPACK_IMPORTED_MODULE_2___default()(this.watchedEvents, function (event, dependsOn) {
+        Nova.$off(_this2.getFieldAttributeChangeEventName(dependsOn), event);
+      });
+    }
+  },
+  methods: {
+    /*
+     * Set the initial value for the field
+     */
+    setInitialValue: function setInitialValue() {
+      this.value = !(this.currentField.value === undefined || this.currentField.value === null) ? this.currentField.value : this.value;
+    },
+    /**
+     * Provide a function to fills FormData when field is visible.
+     */
+    fillIfVisible: function fillIfVisible(formData, attribute, value) {
+      if (this.currentlyIsVisible) {
+        formData.append(attribute, value);
+      }
+    },
+    syncField: function syncField() {
+      var _this3 = this;
+      if (this.canceller !== null) this.canceller();
+      Nova.request().patch(this.syncEndpoint || this.syncFieldEndpoint, this.dependentFieldValues, {
+        params: lodash_pickBy__WEBPACK_IMPORTED_MODULE_7___default()({
+          editing: true,
+          editMode: this.editMode,
+          viaResource: this.viaResource,
+          viaResourceId: this.viaResourceId,
+          viaRelationship: this.viaRelationship,
+          field: this.fieldAttribute,
+          component: this.field.dependentComponentKey
+        }, (lodash_identity__WEBPACK_IMPORTED_MODULE_4___default())),
+        cancelToken: new axios__WEBPACK_IMPORTED_MODULE_0__.CancelToken(function (canceller) {
+          _this3.canceller = canceller;
+        })
+      }).then(function (response) {
+        var snapshot = JSON.parse(JSON.stringify(_this3.currentField));
+        var wasVisible = _this3.currentlyIsVisible;
+        _this3.syncedField = response.data;
+        if (_this3.syncedField.visible !== wasVisible) {
+          _this3.$emit(_this3.syncedField.visible === true ? 'field-shown' : 'field-hidden', _this3.fieldAttribute);
+        }
+        if (lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(_this3.syncedField.value)) {
+          _this3.syncedField.value = snapshot.value;
+          _this3.revertSyncedFieldToPreviousValue(snapshot);
+        } else {
+          _this3.setInitialValue();
+        }
+        var emitChangesEvent = !_this3.syncedFieldValueHasNotChanged();
+        _this3.onSyncedField();
+        if (_this3.syncedField.dependentShouldEmitChangesEvent && emitChangesEvent) {
+          _this3.emitOnSyncedFieldValueChange();
+        }
+      })["catch"](function (e) {
+        if ((0,axios__WEBPACK_IMPORTED_MODULE_0__.isCancel)(e)) {
+          return;
+        }
+        throw e;
+      });
+    },
+    revertSyncedFieldToPreviousValue: function revertSyncedFieldToPreviousValue(field) {
+      //
+    },
+    onSyncedField: function onSyncedField() {
+      //
+    },
+    emitOnSyncedFieldValueChange: function emitOnSyncedFieldValueChange() {
+      this.emitFieldValueChange(this.field.attribute, this.currentField.value);
+    },
+    syncedFieldValueHasNotChanged: function syncedFieldValueHasNotChanged() {
+      var _this$value;
+      var value = this.currentField.value;
+      if ((0,_util_filled__WEBPACK_IMPORTED_MODULE_10__["default"])(value)) {
+        return !(0,_util_filled__WEBPACK_IMPORTED_MODULE_10__["default"])(this.value);
+      }
+      return !lodash_isNil__WEBPACK_IMPORTED_MODULE_6___default()(value) && (value === null || value === void 0 ? void 0 : value.toString()) === ((_this$value = this.value) === null || _this$value === void 0 ? void 0 : _this$value.toString());
+    }
+  },
+  computed: {
+    /**
+     * Determine the current field
+     */
+    currentField: function currentField() {
+      return this.syncedField || this.field;
+    },
+    /**
+     * Determine if the field is in visible mode
+     */
+    currentlyIsVisible: function currentlyIsVisible() {
+      return this.currentField.visible;
+    },
+    /**
+     * Determine if the field is in readonly mode
+     */
+    currentlyIsReadonly: function currentlyIsReadonly() {
+      if (this.syncedField !== null) {
+        return Boolean(this.syncedField.readonly || lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.syncedField, 'extraAttributes.readonly'));
+      }
+      return Boolean(this.field.readonly || lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.field, 'extraAttributes.readonly'));
+    },
+    dependsOn: function dependsOn() {
+      return this.field.dependsOn || [];
+    },
+    currentFieldValues: function currentFieldValues() {
+      return _defineProperty({}, this.fieldAttribute, this.value);
+    },
+    dependentFieldValues: function dependentFieldValues() {
+      return _objectSpread(_objectSpread({}, this.currentFieldValues), this.watchedFields);
+    },
+    encodedDependentFieldValues: function encodedDependentFieldValues() {
+      return btoa((0,_util_escapeUnicode__WEBPACK_IMPORTED_MODULE_11__.escapeUnicode)(JSON.stringify(this.dependentFieldValues)));
+    },
+    syncFieldEndpoint: function syncFieldEndpoint() {
+      if (this.editMode === 'update-attached') {
+        return "/nova-api/".concat(this.resourceName, "/").concat(this.resourceId, "/update-pivot-fields/").concat(this.relatedResourceName, "/").concat(this.relatedResourceId);
+      } else if (this.editMode === 'attach') {
+        return "/nova-api/".concat(this.resourceName, "/").concat(this.resourceId, "/creation-pivot-fields/").concat(this.relatedResourceName);
+      } else if (this.editMode === 'update') {
+        return "/nova-api/".concat(this.resourceName, "/").concat(this.resourceId, "/update-fields");
+      }
+      return "/nova-api/".concat(this.resourceName, "/creation-fields");
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/FieldSuggestions.js":
+/*!*********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/FieldSuggestions.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_omitBy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/omitBy */ "./node_modules/lodash/omitBy.js");
+/* harmony import */ var lodash_omitBy__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_omitBy__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  computed: {
+    suggestionsId: function suggestionsId() {
+      return "".concat(this.fieldAttribute, "-list");
+    },
+    suggestions: function suggestions() {
+      var field = !lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default()(this.syncedField) ? this.syncedField : this.field;
+      if (lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default()(field.suggestions)) {
+        return [];
+      }
+      return field.suggestions;
+    },
+    suggestionsAttributes: function suggestionsAttributes() {
+      return _objectSpread({}, lodash_omitBy__WEBPACK_IMPORTED_MODULE_1___default()({
+        list: this.suggestions.length > 0 ? this.suggestionsId : null
+      }, (lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default())));
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/FieldValue.js":
+/*!***************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/FieldValue.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _util_filled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/filled */ "./vendor/laravel/nova/resources/js/util/filled.js");
+/* harmony import */ var lodash_isArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/isArray */ "./node_modules/lodash/isArray.js");
+/* harmony import */ var lodash_isArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_isArray__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['field'],
+  methods: {
+    isEqualsToValue: function isEqualsToValue(value) {
+      var _this$field$value, _this$field$value2;
+      if (lodash_isArray__WEBPACK_IMPORTED_MODULE_1___default()(this.field.value) && (0,_util_filled__WEBPACK_IMPORTED_MODULE_0__["default"])(value)) {
+        return Boolean(this.field.value.includes(value) || this.field.value.includes(value.toString()));
+      }
+      return Boolean(this.field.value === value || ((_this$field$value = this.field.value) === null || _this$field$value === void 0 ? void 0 : _this$field$value.toString()) === value || this.field.value === (value === null || value === void 0 ? void 0 : value.toString()) || ((_this$field$value2 = this.field.value) === null || _this$field$value2 === void 0 ? void 0 : _this$field$value2.toString()) === (value === null || value === void 0 ? void 0 : value.toString()));
+    }
+  },
+  computed: {
+    fieldAttribute: function fieldAttribute() {
+      return this.field.attribute;
+    },
+    fieldHasValue: function fieldHasValue() {
+      return (0,_util_filled__WEBPACK_IMPORTED_MODULE_0__["default"])(this.field.value);
+    },
+    usesCustomizedDisplay: function usesCustomizedDisplay() {
+      return this.field.usesCustomizedDisplay && (0,_util_filled__WEBPACK_IMPORTED_MODULE_0__["default"])(this.field.displayedAs);
+    },
+    fieldHasValueOrCustomizedDisplay: function fieldHasValueOrCustomizedDisplay() {
+      return this.usesCustomizedDisplay || this.fieldHasValue;
+    },
+    fieldValue: function fieldValue() {
+      var _this$field$displayed;
+      if (!this.fieldHasValueOrCustomizedDisplay) {
+        return null;
+      }
+      return String((_this$field$displayed = this.field.displayedAs) !== null && _this$field$displayed !== void 0 ? _this$field$displayed : this.field.value);
+    },
+    shouldDisplayAsHtml: function shouldDisplayAsHtml() {
+      return this.field.asHtml;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/Filterable.js":
+/*!***************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/Filterable.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_identity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/identity */ "./node_modules/lodash/identity.js");
+/* harmony import */ var lodash_identity__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_identity__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_pickBy__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/pickBy */ "./node_modules/lodash/pickBy.js");
+/* harmony import */ var lodash_pickBy__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_pickBy__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      filterHasLoaded: false,
+      filterIsActive: false
+    };
+  },
+  watch: {
+    encodedFilters: function encodedFilters(value) {
+      Nova.$emit('filter-changed', [value]);
+    }
+  },
+  methods: {
+    /**
+     * Clear filters and reset the resource table
+     */
+    clearSelectedFilters: function clearSelectedFilters(lens) {
+      var _this = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.n) {
+            case 0:
+              if (!lens) {
+                _context.n = 2;
+                break;
+              }
+              _context.n = 1;
+              return _this.$store.dispatch("".concat(_this.resourceName, "/resetFilterState"), {
+                resourceName: _this.resourceName,
+                lens: lens
+              });
+            case 1:
+              _context.n = 3;
+              break;
+            case 2:
+              _context.n = 3;
+              return _this.$store.dispatch("".concat(_this.resourceName, "/resetFilterState"), {
+                resourceName: _this.resourceName
+              });
+            case 3:
+              _this.updateQueryString(_defineProperty(_defineProperty({}, _this.pageParameter, 1), _this.filterParameter, ''));
+              Nova.$emit('filter-reset');
+            case 4:
+              return _context.a(2);
+          }
+        }, _callee);
+      }))();
+    },
+    /**
+     * Handle a filter state change.
+     */
+    filterChanged: function filterChanged() {
+      var filtersAreApplied = this.$store.getters["".concat(this.resourceName, "/filtersAreApplied")];
+      if (filtersAreApplied || this.filterIsActive) {
+        this.filterIsActive = true;
+        this.updateQueryString(_defineProperty(_defineProperty({}, this.pageParameter, 1), this.filterParameter, this.encodedFilters));
+      }
+    },
+    /**
+     * Set up filters for the current view
+     */
+    initializeFilters: function initializeFilters(lens) {
+      var _this2 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee2() {
+        return _regenerator().w(function (_context2) {
+          while (1) switch (_context2.n) {
+            case 0:
+              if (!(_this2.filterHasLoaded === true)) {
+                _context2.n = 1;
+                break;
+              }
+              return _context2.a(2);
+            case 1:
+              // Clear out the filters from the store first
+              _this2.$store.commit("".concat(_this2.resourceName, "/clearFilters"));
+              _context2.n = 2;
+              return _this2.$store.dispatch("".concat(_this2.resourceName, "/fetchFilters"), lodash_pickBy__WEBPACK_IMPORTED_MODULE_1___default()({
+                resourceName: _this2.resourceName,
+                viaResource: _this2.viaResource,
+                viaResourceId: _this2.viaResourceId,
+                viaRelationship: _this2.viaRelationship,
+                relationshipType: _this2.relationshipType,
+                lens: lens
+              }, (lodash_identity__WEBPACK_IMPORTED_MODULE_0___default())));
+            case 2:
+              _context2.n = 3;
+              return _this2.initializeState(lens);
+            case 3:
+              _this2.filterHasLoaded = true;
+            case 4:
+              return _context2.a(2);
+          }
+        }, _callee2);
+      }))();
+    },
+    /**
+     * Initialize the filter state
+     */
+    initializeState: function initializeState(lens) {
+      var _this3 = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3() {
+        return _regenerator().w(function (_context3) {
+          while (1) switch (_context3.n) {
+            case 0:
+              if (!_this3.initialEncodedFilters) {
+                _context3.n = 2;
+                break;
+              }
+              _context3.n = 1;
+              return _this3.$store.dispatch("".concat(_this3.resourceName, "/initializeCurrentFilterValuesFromQueryString"), _this3.initialEncodedFilters);
+            case 1:
+              _context3.n = 3;
+              break;
+            case 2:
+              _context3.n = 3;
+              return _this3.$store.dispatch("".concat(_this3.resourceName, "/resetFilterState"), {
+                resourceName: _this3.resourceName,
+                lens: lens
+              });
+            case 3:
+              return _context3.a(2);
+          }
+        }, _callee3);
+      }))();
+    }
+  },
+  computed: {
+    /**
+     * Get the name of the filter query string variable.
+     */
+    filterParameter: function filterParameter() {
+      return this.resourceName + '_filter';
+    },
+    encodedFilters: function encodedFilters() {
+      return this.$store.getters["".concat(this.resourceName, "/currentEncodedFilters")];
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/FormEvents.js":
+/*!***************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/FormEvents.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    formUniqueId: {
+      type: String
+    }
+  },
+  methods: {
+    emitFieldValue: function emitFieldValue(attribute, value) {
+      Nova.$emit("".concat(attribute, "-value"), value);
+      if (this.hasFormUniqueId === true) {
+        Nova.$emit("".concat(this.formUniqueId, "-").concat(attribute, "-value"), value);
+      }
+    },
+    emitFieldValueChange: function emitFieldValueChange(attribute, value) {
+      Nova.$emit("".concat(attribute, "-change"), value);
+      if (this.hasFormUniqueId === true) {
+        Nova.$emit("".concat(this.formUniqueId, "-").concat(attribute, "-change"), value);
+      }
+    },
+    /**
+     * Get field attribute value event name.
+     */
+    getFieldAttributeValueEventName: function getFieldAttributeValueEventName(attribute) {
+      return this.hasFormUniqueId === true ? "".concat(this.formUniqueId, "-").concat(attribute, "-value") : "".concat(attribute, "-value");
+    },
+    /**
+     * Get field attribue value event name.
+     */
+    getFieldAttributeChangeEventName: function getFieldAttributeChangeEventName(attribute) {
+      return this.hasFormUniqueId === true ? "".concat(this.formUniqueId, "-").concat(attribute, "-change") : "".concat(attribute, "-change");
+    }
+  },
+  computed: {
+    /**
+     * Return the field attribute.
+     */
+    fieldAttribute: function fieldAttribute() {
+      return this.field.attribute;
+    },
+    /**
+     * Determine if the field has Form Unique ID.
+     */
+    hasFormUniqueId: function hasFormUniqueId() {
+      return !lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default()(this.formUniqueId) && this.formUniqueId !== '';
+    },
+    /**
+     * Get field attribue value event name.
+     */
+    fieldAttributeValueEventName: function fieldAttributeValueEventName() {
+      return this.getFieldAttributeValueEventName(this.fieldAttribute);
+    },
+    /**
+     * Get field attribue value event name.
+     */
+    fieldAttributeChangeEventName: function fieldAttributeChangeEventName() {
+      return this.getFieldAttributeChangeEventName(this.fieldAttribute);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/FormField.js":
+/*!**************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/FormField.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/get */ "./node_modules/lodash/get.js");
+/* harmony import */ var lodash_get__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_get__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
+/* harmony import */ var _FormEvents__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FormEvents */ "./vendor/laravel/nova/resources/js/mixins/FormEvents.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  "extends": _FormEvents__WEBPACK_IMPORTED_MODULE_2__["default"],
+  props: _objectSpread({}, (0,_propTypes__WEBPACK_IMPORTED_MODULE_1__.mapProps)(['nested', 'shownViaNewRelationModal', 'field', 'viaResource', 'viaResourceId', 'viaRelationship', 'resourceName', 'resourceId', 'showHelpText', 'mode'])),
+  emits: ['field-changed'],
+  data: function data() {
+    return {
+      value: this.fieldDefaultValue()
+    };
+  },
+  created: function created() {
+    this.setInitialValue();
+  },
+  mounted: function mounted() {
+    // Add a default fill method for the field
+    this.field.fill = this.fill;
+
+    // Register a global event for setting the field's value
+    Nova.$on(this.fieldAttributeValueEventName, this.listenToValueChanges);
+  },
+  beforeUnmount: function beforeUnmount() {
+    Nova.$off(this.fieldAttributeValueEventName, this.listenToValueChanges);
+  },
+  methods: {
+    /*
+     * Set the initial value for the field
+     */
+    setInitialValue: function setInitialValue() {
+      this.value = !(this.field.value === undefined || this.field.value === null) ? this.field.value : this.fieldDefaultValue();
+    },
+    /**
+     * Return the field default value.
+     */
+    fieldDefaultValue: function fieldDefaultValue() {
+      return '';
+    },
+    /**
+     * Provide a function that fills a passed FormData object with the
+     * field's internal value attribute
+     */
+    fill: function fill(formData) {
+      this.fillIfVisible(formData, this.fieldAttribute, String(this.value));
+    },
+    /**
+     * Provide a function to fills FormData when field is visible.
+     */
+    fillIfVisible: function fillIfVisible(formData, attribute, value) {
+      if (this.isVisible) {
+        formData.append(attribute, value);
+      }
+    },
+    /**
+     * Update the field's internal value
+     */
+    handleChange: function handleChange(event) {
+      this.value = event.target.value;
+      if (this.field) {
+        this.emitFieldValueChange(this.fieldAttribute, this.value);
+        this.$emit('field-changed');
+      }
+    },
+    /**
+     * Clean up any side-effects when removing this field dynamically (Repeater).
+     */
+    beforeRemove: function beforeRemove() {
+      //
+    },
+    listenToValueChanges: function listenToValueChanges(value) {
+      this.value = value;
+    }
+  },
+  computed: {
+    /**
+     * Determine the current field.
+     */
+    currentField: function currentField() {
+      return this.field;
+    },
+    /**
+     * Determine if the field should use all the available white-space.
+     */
+    fullWidthContent: function fullWidthContent() {
+      return this.currentField.fullWidth || this.field.fullWidth;
+    },
+    /**
+     * Return the placeholder text for the field.
+     */
+    placeholder: function placeholder() {
+      return this.currentField.placeholder || this.field.name;
+    },
+    /**
+     * Determine if the field is in visible mode
+     */
+    isVisible: function isVisible() {
+      return this.field.visible;
+    },
+    /**
+     * Determine if the field is in readonly mode
+     */
+    isReadonly: function isReadonly() {
+      return Boolean(this.field.readonly || lodash_get__WEBPACK_IMPORTED_MODULE_0___default()(this.field, 'extraAttributes.readonly'));
+    },
+    /**
+     * Determine if the field is accessed from Action
+     */
+    isActionRequest: function isActionRequest() {
+      return ['action-fullscreen', 'action-modal'].includes(this.mode);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesFieldAttachments.js":
+/*!****************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesFieldAttachments.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
+function _toArray(r) { return _arrayWithHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ['file-upload-started', 'file-upload-finished'],
+  props: (0,_propTypes__WEBPACK_IMPORTED_MODULE_2__.mapProps)(['resourceName']),
+  created: function created() {
+    var _this = this;
+    return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var _yield$Nova$request$g, draftId;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.n) {
+          case 0:
+            if (!_this.field.withFiles) {
+              _context.n = 2;
+              break;
+            }
+            _context.n = 1;
+            return Nova.request().get("/nova-api/".concat(_this.resourceName, "/field-attachment/").concat(_this.fieldAttribute, "/draftId"));
+          case 1:
+            _yield$Nova$request$g = _context.v;
+            draftId = _yield$Nova$request$g.data.draftId;
+            _this.draftId = draftId;
+          case 2:
+            return _context.a(2);
+        }
+      }, _callee);
+    }))();
+  },
+  data: function data() {
+    return {
+      draftId: null,
+      files: [],
+      filesToRemove: []
+    };
+  },
+  methods: {
+    /**
+     * Upload an attachment
+     */
+    uploadAttachment: function uploadAttachment(file, _ref) {
+      var _this2 = this;
+      var onUploadProgress = _ref.onUploadProgress,
+        onCompleted = _ref.onCompleted,
+        onFailure = _ref.onFailure;
+      var data = new FormData();
+      data.append('Content-Type', file.type);
+      data.append('attachment', file);
+      data.append('draftId', this.draftId);
+      if (lodash_isNil__WEBPACK_IMPORTED_MODULE_1___default()(onUploadProgress)) {
+        onUploadProgress = function onUploadProgress() {};
+      }
+      if (lodash_isNil__WEBPACK_IMPORTED_MODULE_1___default()(onFailure)) {
+        onFailure = function onFailure() {};
+      }
+      if (lodash_isNil__WEBPACK_IMPORTED_MODULE_1___default()(onCompleted)) {
+        throw 'Missing onCompleted parameter';
+      }
+      this.$emit('file-upload-started');
+      Nova.request().post("/nova-api/".concat(this.resourceName, "/field-attachment/").concat(this.fieldAttribute), data, {
+        onUploadProgress: onUploadProgress
+      }).then(function (_ref2) {
+        var _ref2$data = _ref2.data,
+          path = _ref2$data.path,
+          url = _ref2$data.url;
+        _this2.files.push({
+          path: path,
+          url: url
+        });
+        var response = onCompleted(path, url);
+        _this2.$emit('file-upload-finished');
+        return response;
+      })["catch"](function (error) {
+        onFailure(error);
+        if (error.response.status == 422) {
+          var validationErrors = new form_backend_validation__WEBPACK_IMPORTED_MODULE_0__.Errors(error.response.data.errors);
+          Nova.error(_this2.__('An error occurred while uploading the file: :error', {
+            error: validationErrors.first('attachment')
+          }));
+        } else {
+          Nova.error(_this2.__('An error occurred while uploading the file.'));
+        }
+      });
+    },
+    /**
+     * Remove an attachment from the server
+     */
+    flagFileForRemoval: function flagFileForRemoval(url) {
+      var fileIndex = this.files.findIndex(function (file) {
+        return file.url === url;
+      });
+      if (fileIndex !== -1) {
+        this.filesToRemove.push(this.files[fileIndex]);
+        return;
+      }
+      // Case of deleting a file which was added prior to this draft
+      this.filesToRemove.push({
+        url: url
+      });
+    },
+    unflagFileForRemoval: function unflagFileForRemoval(url) {
+      var fileIndex = this.filesToRemove.findIndex(function (file) {
+        return file.url === url;
+      });
+      if (fileIndex === -1) {
+        return;
+      }
+      this.filesToRemove.splice(fileIndex, 1);
+    },
+    /**
+     * Purge pending attachments for the draft
+     */
+    clearAttachments: function clearAttachments() {
+      if (this.field.withFiles) {
+        Nova.request()["delete"]("/nova-api/".concat(this.resourceName, "/field-attachment/").concat(this.fieldAttribute, "/").concat(this.draftId)).then(function (response) {})["catch"](function (error) {});
+      }
+    },
+    clearFilesMarkedForRemoval: function clearFilesMarkedForRemoval() {
+      var _this3 = this;
+      if (this.field.withFiles) {
+        this.filesToRemove.forEach(function (file) {
+          console.log('deleting', file);
+          Nova.request()["delete"]("/nova-api/".concat(_this3.resourceName, "/field-attachment/").concat(_this3.fieldAttribute), {
+            params: {
+              attachment: file.path,
+              attachmentUrl: file.url,
+              draftId: _this3.draftId
+            }
+          }).then(function (response) {})["catch"](function (error) {});
+        });
+      }
+    },
+    /**
+     * Fill draft id for the field
+     */
+    fillAttachmentDraftId: function fillAttachmentDraftId(formData) {
+      var attribute = this.fieldAttribute;
+      var _attribute$split = attribute.split('['),
+        _attribute$split2 = _toArray(_attribute$split),
+        name = _attribute$split2[0],
+        nested = _attribute$split2.slice(1);
+      if (!lodash_isNil__WEBPACK_IMPORTED_MODULE_1___default()(nested) && nested.length > 0) {
+        var last = nested.pop();
+        if (nested.length > 0) {
+          attribute = "".concat(name, "[").concat(nested.join('['), "[").concat(last.slice(0, -1), "DraftId]");
+        } else {
+          attribute = "".concat(name, "[").concat(last.slice(0, -1), "DraftId]");
+        }
+      } else {
+        attribute = "".concat(attribute, "DraftId");
+      }
+      this.fillIfVisible(formData, attribute, this.draftId);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesFormRequest.js":
+/*!***********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesFormRequest.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    formUniqueId: {
+      type: String
+    }
+  },
+  data: function data() {
+    return {
+      validationErrors: new form_backend_validation__WEBPACK_IMPORTED_MODULE_0__.Errors()
+    };
+  },
+  methods: {
+    /**
+     * Handle all response error.
+     */
+    handleResponseError: function handleResponseError(error) {
+      if (error.response === undefined || error.response.status == 500) {
+        Nova.error(this.__('There was a problem submitting the form.'));
+      } else if (error.response.status == 422) {
+        this.validationErrors = new form_backend_validation__WEBPACK_IMPORTED_MODULE_0__.Errors(error.response.data.errors);
+        Nova.error(this.__('There was a problem submitting the form.'));
+      } else {
+        Nova.error(this.__('There was a problem submitting the form.') + ' "' + error.response.statusText + '"');
+      }
+    },
+    /**
+     * Handle creating response error.
+     */
+    handleOnCreateResponseError: function handleOnCreateResponseError(error) {
+      this.handleResponseError(error);
+    },
+    /**
+     * Handle updating response error.
+     */
+    handleOnUpdateResponseError: function handleOnUpdateResponseError(error) {
+      if (error.response && error.response.status == 409) {
+        Nova.error(this.__('Another user has updated this resource since this page was loaded. Please refresh the page and try again.'));
+      } else {
+        this.handleResponseError(error);
+      }
+    },
+    /**
+     * Reset validation errors.
+     */
+    resetErrors: function resetErrors() {
+      this.validationErrors = new form_backend_validation__WEBPACK_IMPORTED_MODULE_0__.Errors();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesPanelVisibility.js":
+/*!***************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesPanelVisibility.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/each */ "./node_modules/lodash/each.js");
+/* harmony import */ var lodash_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/filter */ "./node_modules/lodash/filter.js");
+/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_filter__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ['field-shown', 'field-hidden'],
+  data: function data() {
+    return {
+      visibleFieldsForPanel: {}
+    };
+  },
+  created: function created() {
+    var _this = this;
+    lodash_each__WEBPACK_IMPORTED_MODULE_0___default()(this.panel.fields, function (field) {
+      _this.visibleFieldsForPanel[field.attribute] = field.visible;
+    });
+  },
+  methods: {
+    handleFieldShown: function handleFieldShown(field) {
+      this.visibleFieldsForPanel[field] = true;
+      this.$emit('field-shown', field);
+    },
+    handleFieldHidden: function handleFieldHidden(field) {
+      this.visibleFieldsForPanel[field] = false;
+      this.$emit('field-hidden', field);
+    }
+  },
+  computed: {
+    visibleFieldsCount: function visibleFieldsCount() {
+      return Object.entries(lodash_filter__WEBPACK_IMPORTED_MODULE_1___default()(this.visibleFieldsForPanel, function (visible) {
+        return visible === true;
+      })).length;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesUploads.js":
+/*!*******************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesUploads.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      isWorking: false,
+      fileUploadsCount: 0
+    };
+  },
+  methods: {
+    /**
+     * Handle file upload finishing
+     */
+    handleFileUploadFinished: function handleFileUploadFinished() {
+      this.fileUploadsCount--;
+      if (this.fileUploadsCount < 1) {
+        this.fileUploadsCount = 0;
+        this.isWorking = false;
+      }
+    },
+    /**
+     * Handle file upload starting
+     */
+    handleFileUploadStarted: function handleFileUploadStarted() {
+      this.isWorking = true;
+      this.fileUploadsCount++;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/HandlesValidationErrors.js":
+/*!****************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/HandlesValidationErrors.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    errors: {
+      "default": function _default() {
+        return new form_backend_validation__WEBPACK_IMPORTED_MODULE_0__.Errors();
+      }
+    }
+  },
+  inject: {
+    index: {
+      "default": null
+    },
+    viaParent: {
+      "default": null
+    }
+  },
+  data: function data() {
+    return {
+      errorClass: 'form-control-bordered-error'
+    };
+  },
+  computed: {
+    errorClasses: function errorClasses() {
+      return this.hasError ? [this.errorClass] : [];
+    },
+    fieldAttribute: function fieldAttribute() {
+      return this.field.attribute;
+    },
+    validationKey: function validationKey() {
+      return this.nestedValidationKey || this.field.validationKey;
+    },
+    hasError: function hasError() {
+      return this.errors.has(this.validationKey);
+    },
+    firstError: function firstError() {
+      if (this.hasError) {
+        return this.errors.first(this.validationKey);
+      }
+    },
+    nestedAttribute: function nestedAttribute() {
+      if (this.viaParent) {
+        return "".concat(this.viaParent, "[").concat(this.index, "][").concat(this.field.attribute, "]");
+      }
+    },
+    nestedValidationKey: function nestedValidationKey() {
+      if (this.viaParent) {
+        return "".concat(this.viaParent, ".").concat(this.index, ".fields.").concat(this.field.attribute);
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/HasCards.js":
+/*!*************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/HasCards.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/filter */ "./node_modules/lodash/filter.js");
+/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_filter__WEBPACK_IMPORTED_MODULE_0__);
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    loadCards: {
+      type: Boolean,
+      "default": true
+    }
+  },
+  data: function data() {
+    return {
+      cards: []
+    };
+  },
+  /**
+   * Fetch all of the metrics panels for this view
+   */
+  created: function created() {
+    this.fetchCards();
+  },
+  watch: {
+    cardsEndpoint: function cardsEndpoint() {
+      this.fetchCards();
+    }
+  },
+  methods: {
+    fetchCards: function fetchCards() {
+      var _this = this;
+      return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+        var _yield$Nova$request$g, cards;
+        return _regenerator().w(function (_context) {
+          while (1) switch (_context.n) {
+            case 0:
+              if (!_this.loadCards) {
+                _context.n = 2;
+                break;
+              }
+              _context.n = 1;
+              return Nova.request().get(_this.cardsEndpoint, {
+                params: _this.extraCardParams
+              });
+            case 1:
+              _yield$Nova$request$g = _context.v;
+              cards = _yield$Nova$request$g.data;
+              _this.cards = cards;
+            case 2:
+              return _context.a(2);
+          }
+        }, _callee);
+      }))();
+    }
+  },
+  computed: {
+    /**
+     * Determine whether we have cards to show on the Dashboard.
+     */
+    shouldShowCards: function shouldShowCards() {
+      return this.cards.length > 0;
+    },
+    /**
+     * Determine if the cards array contains some detail-only cards.
+     */
+    hasDetailOnlyCards: function hasDetailOnlyCards() {
+      return lodash_filter__WEBPACK_IMPORTED_MODULE_0___default()(this.cards, function (c) {
+        return c.onlyOnDetail == true;
+      }).length > 0;
+    },
+    /**
+     * Get the extra card params to pass to the endpoint.
+     */
+    extraCardParams: function extraCardParams() {
+      return null;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/IndexConcerns.js":
+/*!******************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/IndexConcerns.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/debounce */ "./node_modules/lodash/debounce.js");
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/find */ "./node_modules/lodash/find.js");
+/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash_includes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/includes */ "./node_modules/lodash/includes.js");
+/* harmony import */ var lodash_includes__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_includes__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var lodash_isNull__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! lodash/isNull */ "./node_modules/lodash/isNull.js");
+/* harmony import */ var lodash_isNull__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(lodash_isNull__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
+/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index */ "./vendor/laravel/nova/resources/js/mixins/index.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/util */ "./vendor/laravel/nova/resources/js/util/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue */ "vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash/filter */ "./node_modules/lodash/filter.js");
+/* harmony import */ var lodash_filter__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash_filter__WEBPACK_IMPORTED_MODULE_8__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_index__WEBPACK_IMPORTED_MODULE_5__.Filterable, _index__WEBPACK_IMPORTED_MODULE_5__.InteractsWithQueryString],
+  props: _objectSpread(_objectSpread({}, (0,_index__WEBPACK_IMPORTED_MODULE_5__.mapProps)(['resourceName', 'viaResource', 'viaResourceId', 'viaRelationship', 'relationshipType', 'disablePagination'])), {}, {
+    field: {
+      type: Object
+    },
+    initialPerPage: {
+      type: Number,
+      required: false
+    }
+  }),
+  provide: function provide() {
+    var _this = this;
+    return {
+      resourceHasId: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.resourceHasId;
+      }),
+      authorizedToViewAnyResources: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.authorizedToViewAnyResources;
+      }),
+      authorizedToUpdateAnyResources: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.authorizedToUpdateAnyResources;
+      }),
+      authorizedToDeleteAnyResources: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.authorizedToDeleteAnyResources;
+      }),
+      authorizedToRestoreAnyResources: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.authorizedToRestoreAnyResources;
+      }),
+      selectedResourcesCount: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.selectedResources.length;
+      }),
+      selectAllChecked: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.selectAllChecked;
+      }),
+      selectAllMatchingChecked: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.selectAllMatchingChecked;
+      }),
+      selectAllOrSelectAllMatchingChecked: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.selectAllOrSelectAllMatchingChecked;
+      }),
+      selectAllAndSelectAllMatchingChecked: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.selectAllAndSelectAllMatchingChecked;
+      }),
+      selectAllIndeterminate: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.selectAllIndeterminate;
+      }),
+      orderByParameter: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.orderByParameter;
+      }),
+      orderByDirectionParameter: (0,vue__WEBPACK_IMPORTED_MODULE_7__.computed)(function () {
+        return _this.orderByDirectionParameter;
+      })
+    };
+  },
+  data: function data() {
+    return {
+      actions: [],
+      allMatchingResourceCount: 0,
+      authorizedToRelate: false,
+      canceller: null,
+      currentPageLoadMore: null,
+      deleteModalOpen: false,
+      initialLoading: true,
+      loading: true,
+      orderBy: '',
+      orderByDirection: '',
+      pivotActions: null,
+      resourceHasId: true,
+      resourceHasActions: false,
+      resourceResponse: null,
+      resourceResponseError: null,
+      resources: [],
+      search: '',
+      selectAllMatchingResources: false,
+      selectedResources: [],
+      softDeletes: false,
+      trashed: ''
+    };
+  },
+  created: function created() {
+    var _this2 = this;
+    return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      var debouncer;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.n) {
+          case 0:
+            if (!Nova.missingResource(_this2.resourceName)) {
+              _context.n = 1;
+              break;
+            }
+            return _context.a(2, Nova.visit('/404'));
+          case 1:
+            debouncer = lodash_debounce__WEBPACK_IMPORTED_MODULE_0___default()(function (callback) {
+              return callback();
+            }, _this2.resourceInformation.debounce);
+            _this2.initializeSearchFromQueryString();
+            _this2.initializePerPageFromQueryString();
+            _this2.initializeTrashedFromQueryString();
+            _this2.initializeOrderingFromQueryString();
+            _context.n = 2;
+            return _this2.initializeFilters(_this2.lens || null);
+          case 2:
+            _context.n = 3;
+            return _this2.getResources();
+          case 3:
+            if (_this2.isLensView) {
+              _context.n = 4;
+              break;
+            }
+            _context.n = 4;
+            return _this2.getAuthorizationToRelate();
+          case 4:
+            _this2.getActions();
+            _this2.initialLoading = false;
+            _this2.$watch(function () {
+              return _this2.lens + _this2.resourceName + _this2.encodedFilters + _this2.currentSearch + _this2.currentPage + _this2.currentPerPage + _this2.currentOrderBy + _this2.currentOrderByDirection + _this2.currentTrashed;
+            }, function () {
+              if (_this2.canceller !== null) _this2.canceller();
+              if (_this2.currentPage === 1) {
+                _this2.currentPageLoadMore = null;
+              }
+              _this2.getResources();
+            });
+            _this2.$watch('search', function (newValue) {
+              _this2.search = newValue;
+              debouncer(function () {
+                return _this2.performSearch();
+              });
+            });
+          case 5:
+            return _context.a(2);
+        }
+      }, _callee);
+    }))();
+  },
+  beforeUnmount: function beforeUnmount() {
+    if (this.canceller !== null) this.canceller();
+  },
+  methods: {
+    /**
+     * Handle resources loaded event.
+     */
+    handleResourcesLoaded: function handleResourcesLoaded() {
+      this.loading = false;
+      if (!this.isLensView && this.resourceResponse.total !== null) {
+        this.allMatchingResourceCount = this.resourceResponse.total;
+      } else {
+        this.getAllMatchingResourceCount();
+      }
+      Nova.$emit('resources-loaded', this.isLensView ? {
+        resourceName: this.resourceName,
+        lens: this.lens,
+        mode: 'lens'
+      } : {
+        resourceName: this.resourceName,
+        mode: this.isRelation ? 'related' : 'index'
+      });
+      this.initializePolling();
+    },
+    /**
+     * Select all of the available resources
+     */
+    selectAllResources: function selectAllResources() {
+      this.selectedResources = this.resources.slice(0);
+    },
+    /**
+     * Toggle the selection of all resources
+     */
+    toggleSelectAll: function toggleSelectAll(e) {
+      if (e) {
+        e.preventDefault();
+      }
+      if (this.selectAllChecked) {
+        this.clearResourceSelections();
+      } else {
+        this.selectAllResources();
+      }
+      this.getActions();
+    },
+    /**
+     * Toggle the selection of all matching resources in the database
+     */
+    toggleSelectAllMatching: function toggleSelectAllMatching(e) {
+      if (e) {
+        e.preventDefault();
+      }
+      if (!this.selectAllMatchingResources) {
+        this.selectAllResources();
+        this.selectAllMatchingResources = true;
+      } else {
+        this.selectAllMatchingResources = false;
+      }
+      this.getActions();
+    },
+    /**
+     * Deselect all selections
+     */
+    deselectAllResources: function deselectAllResources(e) {
+      if (e) {
+        e.preventDefault();
+      }
+      this.clearResourceSelections();
+      this.getActions();
+    },
+    /*
+     * Update the resource selection status
+     */
+    updateSelectionStatus: function updateSelectionStatus(resource) {
+      if (!lodash_includes__WEBPACK_IMPORTED_MODULE_2___default()(this.selectedResources, resource)) {
+        this.selectedResources.push(resource);
+      } else {
+        var index = this.selectedResources.indexOf(resource);
+        if (index > -1) this.selectedResources.splice(index, 1);
+      }
+      this.selectAllMatchingResources = false;
+      this.getActions();
+    },
+    /**
+     * Clear the selected resources and the "select all" states.
+     */
+    clearResourceSelections: function clearResourceSelections() {
+      this.selectAllMatchingResources = false;
+      this.selectedResources = [];
+    },
+    /**
+     * Sort the resources by the given field.
+     */
+    orderByField: function orderByField(field) {
+      var direction = this.currentOrderByDirection == 'asc' ? 'desc' : 'asc';
+      if (this.currentOrderBy != field.sortableUriKey) {
+        direction = 'asc';
+      }
+      this.updateQueryString(_defineProperty(_defineProperty({}, this.orderByParameter, field.sortableUriKey), this.orderByDirectionParameter, direction));
+    },
+    /**
+     * Reset the order by to its default state
+     */
+    resetOrderBy: function resetOrderBy(field) {
+      this.updateQueryString(_defineProperty(_defineProperty({}, this.orderByParameter, field.sortableUriKey), this.orderByDirectionParameter, null));
+    },
+    /**
+     * Sync the current search value from the query string.
+     */
+    initializeSearchFromQueryString: function initializeSearchFromQueryString() {
+      this.search = this.currentSearch;
+    },
+    /**
+     * Sync the current order by values from the query string.
+     */
+    initializeOrderingFromQueryString: function initializeOrderingFromQueryString() {
+      this.orderBy = this.currentOrderBy;
+      this.orderByDirection = this.currentOrderByDirection;
+    },
+    /**
+     * Sync the trashed state values from the query string.
+     */
+    initializeTrashedFromQueryString: function initializeTrashedFromQueryString() {
+      this.trashed = this.currentTrashed;
+    },
+    /**
+     * Update the trashed constraint for the resource listing.
+     */
+    trashedChanged: function trashedChanged(trashedStatus) {
+      this.trashed = trashedStatus;
+      this.updateQueryString(_defineProperty({}, this.trashedParameter, this.trashed));
+    },
+    /**
+     * Update the per page parameter in the query string
+     */
+    updatePerPageChanged: function updatePerPageChanged(perPage) {
+      this.perPage = perPage;
+      this.perPageChanged();
+    },
+    /**
+     * Select the next page.
+     */
+    selectPage: function selectPage(page) {
+      this.updateQueryString(_defineProperty({}, this.pageParameter, page));
+    },
+    /**
+     * Sync the per page values from the query string.
+     */
+    initializePerPageFromQueryString: function initializePerPageFromQueryString() {
+      var _this$resourceInforma;
+      this.perPage = this.queryStringParams[this.perPageParameter] || this.initialPerPage || ((_this$resourceInforma = this.resourceInformation) === null || _this$resourceInforma === void 0 ? void 0 : _this$resourceInforma.perPageOptions[0]) || null;
+    },
+    /**
+     * Close the delete modal.
+     */
+    closeDeleteModal: function closeDeleteModal() {
+      this.deleteModalOpen = false;
+    },
+    /**
+     * Execute a search against the resource.
+     */
+    performSearch: function performSearch() {
+      this.updateQueryString(_defineProperty(_defineProperty({}, this.pageParameter, 1), this.searchParameter, this.search));
+    },
+    handleActionExecuted: function handleActionExecuted() {
+      this.fetchPolicies();
+      this.getResources();
+    }
+  },
+  computed: {
+    /**
+     * Determine if the resource has any filters
+     */
+    hasFilters: function hasFilters() {
+      return this.$store.getters["".concat(this.resourceName, "/hasFilters")];
+    },
+    /**
+     * Get the name of the page query string variable.
+     */
+    pageParameter: function pageParameter() {
+      return this.viaRelationship ? this.viaRelationship + '_page' : this.resourceName + '_page';
+    },
+    /**
+     * Determine if all resources are selected on the page.
+     */
+    selectAllChecked: function selectAllChecked() {
+      return this.selectedResources.length == this.resources.length;
+    },
+    /**
+     * Determine if Select All Dropdown state is indeterminate.
+     */
+    selectAllIndeterminate: function selectAllIndeterminate() {
+      return Boolean(this.selectAllChecked || this.selectAllMatchingChecked) && Boolean(!this.selectAllAndSelectAllMatchingChecked);
+    },
+    selectAllAndSelectAllMatchingChecked: function selectAllAndSelectAllMatchingChecked() {
+      return this.selectAllChecked && this.selectAllMatchingChecked;
+    },
+    selectAllOrSelectAllMatchingChecked: function selectAllOrSelectAllMatchingChecked() {
+      return this.selectAllChecked || this.selectAllMatchingChecked;
+    },
+    /**
+     * Determine if all matching resources are selected.
+     */
+    selectAllMatchingChecked: function selectAllMatchingChecked() {
+      return this.selectAllMatchingResources;
+    },
+    /**
+     * Get the IDs for the selected resources.
+     */
+    selectedResourceIds: function selectedResourceIds() {
+      return lodash_map__WEBPACK_IMPORTED_MODULE_4___default()(this.selectedResources, function (resource) {
+        return resource.id.value;
+      });
+    },
+    /**
+     * Get the Pivot IDs for the selected resources.
+     */
+    selectedPivotIds: function selectedPivotIds() {
+      return lodash_map__WEBPACK_IMPORTED_MODULE_4___default()(this.selectedResources, function (resource) {
+        var _resource$id$pivotVal;
+        return (_resource$id$pivotVal = resource.id.pivotValue) !== null && _resource$id$pivotVal !== void 0 ? _resource$id$pivotVal : null;
+      });
+    },
+    /**
+     * Get the current search value from the query string.
+     */
+    currentSearch: function currentSearch() {
+      return this.queryStringParams[this.searchParameter] || '';
+    },
+    /**
+     * Get the current order by value from the query string.
+     */
+    currentOrderBy: function currentOrderBy() {
+      return this.queryStringParams[this.orderByParameter] || '';
+    },
+    /**
+     * Get the current order by direction from the query string.
+     */
+    currentOrderByDirection: function currentOrderByDirection() {
+      return this.queryStringParams[this.orderByDirectionParameter] || null;
+    },
+    /**
+     * Get the current trashed constraint value from the query string.
+     */
+    currentTrashed: function currentTrashed() {
+      return this.queryStringParams[this.trashedParameter] || '';
+    },
+    /**
+     * Determine if the current resource listing is via a many-to-many relationship.
+     */
+    viaManyToMany: function viaManyToMany() {
+      return this.relationshipType == 'belongsToMany' || this.relationshipType == 'morphToMany';
+    },
+    /**
+     * Determine if the index is a relation field
+     */
+    isRelation: function isRelation() {
+      return Boolean(this.viaResourceId && this.viaRelationship);
+    },
+    /**
+     * Get the singular name for the resource
+     */
+    singularName: function singularName() {
+      if (this.isRelation && this.field) {
+        return (0,_util__WEBPACK_IMPORTED_MODULE_6__.capitalize)(this.field.singularLabel);
+      }
+      if (this.resourceInformation) {
+        return (0,_util__WEBPACK_IMPORTED_MODULE_6__.capitalize)(this.resourceInformation.singularLabel);
+      }
+    },
+    /**
+     * Determine if there are any resources for the view
+     */
+    hasResources: function hasResources() {
+      return Boolean(this.resources.length > 0);
+    },
+    /**
+     * Determine if there any lenses for this resource
+     */
+    hasLenses: function hasLenses() {
+      return Boolean(this.lenses.length > 0);
+    },
+    /**
+     * Determine if the resource should show any cards
+     */
+    shouldShowCards: function shouldShowCards() {
+      // Don't show cards if this resource is beings shown via a relations
+      return Boolean(this.cards.length > 0 && !this.isRelation);
+    },
+    /**
+     * Determine whether to show the selection checkboxes for resources
+     */
+    shouldShowCheckboxes: function shouldShowCheckboxes() {
+      return Boolean(this.hasResources) && Boolean(this.resourceHasId) && Boolean(this.resourceHasActions || this.authorizedToDeleteAnyResources || this.canShowDeleteMenu);
+    },
+    /**
+     * Determine whether the delete menu should be shown to the user
+     */
+    shouldShowDeleteMenu: function shouldShowDeleteMenu() {
+      return Boolean(this.selectedResources.length > 0) && this.canShowDeleteMenu;
+    },
+    /**
+     * Determine if any selected resources may be deleted.
+     */
+    authorizedToDeleteSelectedResources: function authorizedToDeleteSelectedResources() {
+      return Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.selectedResources, function (resource) {
+        return resource.authorizedToDelete;
+      }));
+    },
+    /**
+     * Determine if any selected resources may be force deleted.
+     */
+    authorizedToForceDeleteSelectedResources: function authorizedToForceDeleteSelectedResources() {
+      return Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.selectedResources, function (resource) {
+        return resource.authorizedToForceDelete;
+      }));
+    },
+    /**
+     * Determine if the user is authorized to view any listed resource.
+     */
+    authorizedToViewAnyResources: function authorizedToViewAnyResources() {
+      return this.resources.length > 0 && Boolean(this.resourceHasId) && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.resources, function (resource) {
+        return resource.authorizedToView;
+      }));
+    },
+    /**
+     * Determine if the user is authorized to view any listed resource.
+     */
+    authorizedToUpdateAnyResources: function authorizedToUpdateAnyResources() {
+      return this.resources.length > 0 && Boolean(this.resourceHasId) && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.resources, function (resource) {
+        return resource.authorizedToUpdate;
+      }));
+    },
+    /**
+     * Determine if the user is authorized to delete any listed resource.
+     */
+    authorizedToDeleteAnyResources: function authorizedToDeleteAnyResources() {
+      return this.resources.length > 0 && Boolean(this.resourceHasId) && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.resources, function (resource) {
+        return resource.authorizedToDelete;
+      }));
+    },
+    /**
+     * Determine if the user is authorized to force delete any listed resource.
+     */
+    authorizedToForceDeleteAnyResources: function authorizedToForceDeleteAnyResources() {
+      return this.resources.length > 0 && Boolean(this.resourceHasId) && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.resources, function (resource) {
+        return resource.authorizedToForceDelete;
+      }));
+    },
+    /**
+     * Determine if any selected resources may be restored.
+     */
+    authorizedToRestoreSelectedResources: function authorizedToRestoreSelectedResources() {
+      return Boolean(this.resourceHasId) && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.selectedResources, function (resource) {
+        return resource.authorizedToRestore;
+      }));
+    },
+    /**
+     * Determine if the user is authorized to restore any listed resource.
+     */
+    authorizedToRestoreAnyResources: function authorizedToRestoreAnyResources() {
+      return this.resources.length > 0 && Boolean(this.resourceHasId) && Boolean(lodash_find__WEBPACK_IMPORTED_MODULE_1___default()(this.resources, function (resource) {
+        return resource.authorizedToRestore;
+      }));
+    },
+    /**
+     * Return the currently encoded filter string from the store
+     */
+    encodedFilters: function encodedFilters() {
+      return this.$store.getters["".concat(this.resourceName, "/currentEncodedFilters")];
+    },
+    /**
+     * Return the initial encoded filters from the query string
+     */
+    initialEncodedFilters: function initialEncodedFilters() {
+      return this.queryStringParams[this.filterParameter] || '';
+    },
+    /**
+     * Return the pagination component for the resource.
+     */
+    paginationComponent: function paginationComponent() {
+      return "pagination-".concat(Nova.config('pagination') || 'links');
+    },
+    /**
+     * Determine if the resources has a next page.
+     */
+    hasNextPage: function hasNextPage() {
+      return Boolean(this.resourceResponse && this.resourceResponse.next_page_url);
+    },
+    /**
+     * Determine if the resources has a previous page.
+     */
+    hasPreviousPage: function hasPreviousPage() {
+      return Boolean(this.resourceResponse && this.resourceResponse.prev_page_url);
+    },
+    /**
+     * Return the total pages for the resource.
+     */
+    totalPages: function totalPages() {
+      return Math.ceil(this.allMatchingResourceCount / this.currentPerPage);
+    },
+    /**
+     * Return the resource count label
+     */
+    resourceCountLabel: function resourceCountLabel() {
+      var first = this.perPage * (this.currentPage - 1);
+      return this.resources.length && "".concat(Nova.formatNumber(first + 1), "-").concat(Nova.formatNumber(first + this.resources.length), " ").concat(this.__('of'), " ").concat(Nova.formatNumber(this.allMatchingResourceCount));
+    },
+    /**
+     * Get the current per page value from the query string.
+     */
+    currentPerPage: function currentPerPage() {
+      return this.perPage;
+    },
+    /**
+     * The per-page options configured for this resource.
+     */
+    perPageOptions: function perPageOptions() {
+      if (this.resourceResponse) {
+        return this.resourceResponse.per_page_options;
+      }
+    },
+    /**
+     * Get the default label for the create button
+     */
+    createButtonLabel: function createButtonLabel() {
+      if (this.resourceInformation) return this.resourceInformation.createButtonLabel;
+      return this.__('Create');
+    },
+    /**
+     * Build the resource request query string.
+     */
+    resourceRequestQueryString: function resourceRequestQueryString() {
+      var queryString = {
+        search: this.currentSearch,
+        filters: this.encodedFilters,
+        orderBy: this.currentOrderBy,
+        orderByDirection: this.currentOrderByDirection,
+        perPage: this.currentPerPage,
+        trashed: this.currentTrashed,
+        page: this.currentPage,
+        viaResource: this.viaResource,
+        viaResourceId: this.viaResourceId,
+        viaRelationship: this.viaRelationship,
+        viaResourceRelationship: this.viaResourceRelationship,
+        relationshipType: this.relationshipType
+      };
+      if (!this.lensName) {
+        queryString['viaRelationship'] = this.viaRelationship;
+      }
+      return queryString;
+    },
+    /**
+     * Determine if the action selector should be shown.
+     */
+    shouldShowActionSelector: function shouldShowActionSelector() {
+      return this.selectedResources.length > 0 || this.haveStandaloneActions;
+    },
+    /**
+     * Determine if the view is a resource index or a lens.
+     */
+    isLensView: function isLensView() {
+      return this.lens !== '' && this.lens != undefined && this.lens != null;
+    },
+    /**
+     * Determine whether the pagination component should be shown.
+     */
+    shouldShowPagination: function shouldShowPagination() {
+      return this.disablePagination !== true && this.resourceResponse && (this.hasResources || this.hasPreviousPage);
+    },
+    /**
+     * Return the current count of all resources
+     */
+    currentResourceCount: function currentResourceCount() {
+      return this.resources.length;
+    },
+    /**
+     * Get the name of the search query string variable.
+     */
+    searchParameter: function searchParameter() {
+      return this.viaRelationship ? this.viaRelationship + '_search' : this.resourceName + '_search';
+    },
+    /**
+     * Get the name of the order by query string variable.
+     */
+    orderByParameter: function orderByParameter() {
+      return this.viaRelationship ? this.viaRelationship + '_order' : this.resourceName + '_order';
+    },
+    /**
+     * Get the name of the order by direction query string variable.
+     */
+    orderByDirectionParameter: function orderByDirectionParameter() {
+      return this.viaRelationship ? this.viaRelationship + '_direction' : this.resourceName + '_direction';
+    },
+    /**
+     * Get the name of the trashed constraint query string variable.
+     */
+    trashedParameter: function trashedParameter() {
+      return this.viaRelationship ? this.viaRelationship + '_trashed' : this.resourceName + '_trashed';
+    },
+    /**
+     * Get the name of the per page query string variable.
+     */
+    perPageParameter: function perPageParameter() {
+      return this.viaRelationship ? this.viaRelationship + '_per_page' : this.resourceName + '_per_page';
+    },
+    /**
+     * Determine whether there are any standalone actions.
+     */
+    haveStandaloneActions: function haveStandaloneActions() {
+      return lodash_filter__WEBPACK_IMPORTED_MODULE_8___default()(this.allActions, function (a) {
+        return a.standalone === true;
+      }).length > 0;
+    },
+    /**
+     * Return the available actions.
+     */
+    availableActions: function availableActions() {
+      return this.actions;
+    },
+    /**
+     * Determine if the resource has any pivot actions available.
+     */
+    hasPivotActions: function hasPivotActions() {
+      return this.pivotActions && this.pivotActions.actions.length > 0;
+    },
+    /**
+     * Get the name of the pivot model for the resource.
+     */
+    pivotName: function pivotName() {
+      return this.pivotActions ? this.pivotActions.name : '';
+    },
+    /**
+     * Determine if the resource has any actions available.
+     */
+    actionsAreAvailable: function actionsAreAvailable() {
+      return this.allActions.length > 0;
+    },
+    /**
+     * Get all of the actions available to the resource.
+     */
+    allActions: function allActions() {
+      return this.hasPivotActions ? this.actions.concat(this.pivotActions.actions) : this.actions;
+    },
+    availableStandaloneActions: function availableStandaloneActions() {
+      return this.allActions.filter(function (a) {
+        return a.standalone === true;
+      });
+    },
+    /**
+     * Get the selected resources for the action selector.
+     */
+    selectedResourcesForActionSelector: function selectedResourcesForActionSelector() {
+      return this.selectAllMatchingChecked ? 'all' : this.selectedResources;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/InteractsWithDates.js":
+/*!***********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/InteractsWithDates.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/util */ "./vendor/laravel/nova/resources/js/util/index.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  computed: {
+    /**
+     * Get the user's local timezone.
+     */
+    userTimezone: function userTimezone() {
+      return Nova.config('userTimezone') || Nova.config('timezone');
+    },
+    /**
+     * Determine if the user is used to 12 hour time.
+     */
+    usesTwelveHourTime: function usesTwelveHourTime() {
+      var locale = new Intl.DateTimeFormat().resolvedOptions().locale;
+      return (0,_util__WEBPACK_IMPORTED_MODULE_0__.hourCycle)(locale) === 12;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/InteractsWithQueryString.js":
+/*!*****************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/InteractsWithQueryString.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
+function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    var _this = this;
+    return _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.n) {
+          case 0:
+            _this.syncQueryString();
+          case 1:
+            return _context.a(2);
+        }
+      }, _callee);
+    }))();
+  },
+  methods: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)(['syncQueryString', 'updateQueryString']),
+  computed: (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['queryStringParams'])
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/InteractsWithResourceInformation.js":
+/*!*************************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/InteractsWithResourceInformation.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/find */ "./node_modules/lodash/find.js");
+/* harmony import */ var lodash_find__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_find__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  computed: {
+    /**
+     * Get the resource information object for the current resource.
+     */
+    resourceInformation: function resourceInformation() {
+      var _this = this;
+      return lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(Nova.config('resources'), function (resource) {
+        return resource.uriKey === _this.resourceName;
+      });
+    },
+    /**
+     * Get the resource information object for the current resource.
+     */
+    viaResourceInformation: function viaResourceInformation() {
+      var _this2 = this;
+      if (!this.viaResource) {
+        return;
+      }
+      return lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(Nova.config('resources'), function (resource) {
+        return resource.uriKey === _this2.viaResource;
+      });
+    },
+    /**
+     * Determine if the user is authorized to create the current resource.
+     */
+    authorizedToCreate: function authorizedToCreate() {
+      var _this$resourceInforma;
+      if (['hasOneThrough', 'hasManyThrough'].indexOf(this.relationshipType) >= 0) {
+        return false;
+      }
+      return ((_this$resourceInforma = this.resourceInformation) === null || _this$resourceInforma === void 0 ? void 0 : _this$resourceInforma.authorizedToCreate) || false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/LoadsResources.js":
+/*!*******************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/LoadsResources.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: (0,_propTypes__WEBPACK_IMPORTED_MODULE_0__.mapProps)(['resourceName', 'viaRelationship']),
+  computed: {
+    localStorageKey: function localStorageKey() {
+      var name = this.resourceName;
+      if (this.viaRelationship) {
+        name = "".concat(name, ".").concat(this.viaRelationship);
+      }
+      return "nova.resources.".concat(name, ".collapsed");
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/Localization.js":
+/*!*****************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/Localization.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _util_localization__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/localization */ "./vendor/laravel/nova/resources/js/util/localization.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    /**
+     * Translate the given key.
+     */
+    __: function __(key, replace) {
+      return (0,_util_localization__WEBPACK_IMPORTED_MODULE_0__["default"])(key, replace);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/MetricBehavior.js":
+/*!*******************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/MetricBehavior.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    Nova.$on('metric-refresh', this.fetch);
+    Nova.$on('resources-deleted', this.fetch);
+    Nova.$on('resources-detached', this.fetch);
+    Nova.$on('resources-restored', this.fetch);
+    if (this.card.refreshWhenActionRuns) {
+      Nova.$on('action-executed', this.fetch);
+    }
+  },
+  beforeUnmount: function beforeUnmount() {
+    Nova.$off('metric-refresh', this.fetch);
+    Nova.$off('resources-deleted', this.fetch);
+    Nova.$off('resources-detached', this.fetch);
+    Nova.$off('resources-restored', this.fetch);
+    Nova.$off('action-executed', this.fetch);
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/Paginatable.js":
+/*!****************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/Paginatable.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    /**
+     * Select the previous page.
+     */
+    selectPreviousPage: function selectPreviousPage() {
+      this.updateQueryString(_defineProperty({}, this.pageParameter, this.currentPage - 1));
+    },
+    /**
+     * Select the next page.
+     */
+    selectNextPage: function selectNextPage() {
+      this.updateQueryString(_defineProperty({}, this.pageParameter, this.currentPage + 1));
+    }
+  },
+  computed: {
+    /**
+     * Get the current page from the query string.
+     */
+    currentPage: function currentPage() {
+      return parseInt(this.queryStringParams[this.pageParameter] || 1);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/PerPageable.js":
+/*!****************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/PerPageable.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      perPage: 25
+    };
+  },
+  methods: {
+    /**
+     * Sync the per page values from the query string.
+     */
+    initializePerPageFromQueryString: function initializePerPageFromQueryString() {
+      this.perPage = this.currentPerPage;
+    },
+    /**
+     * Update the desired amount of resources per page.
+     */
+    perPageChanged: function perPageChanged() {
+      this.updateQueryString(_defineProperty({}, this.perPageParameter, this.perPage));
+    }
+  },
+  computed: {
+    /**
+     * Get the current per page value from the query string.
+     */
+    currentPerPage: function currentPerPage() {
+      return this.queryStringParams[this.perPageParameter] || 25;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/PerformsSearches.js":
+/*!*********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/PerformsSearches.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/debounce */ "./node_modules/lodash/debounce.js");
+/* harmony import */ var lodash_debounce__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_debounce__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      search: '',
+      selectedResource: null,
+      selectedResourceId: null,
+      availableResources: []
+    };
+  },
+  methods: {
+    /**
+     * Set the currently selected resource
+     */
+    selectResource: function selectResource(resource) {
+      this.selectedResource = resource;
+      this.selectedResourceId = resource.value;
+      if (this.field) {
+        if (typeof this['emitFieldValueChange'] == 'function') {
+          this.emitFieldValueChange(this.fieldAttribute, this.selectedResourceId);
+        } else {
+          Nova.$emit(this.fieldAttribute + '-change', this.selectedResourceId);
+        }
+      }
+    },
+    /**
+     * Handle the search box being cleared.
+     */
+    handleSearchCleared: function handleSearchCleared() {
+      this.availableResources = [];
+    },
+    /**
+     * Clear the selected resource and availableResources
+     */
+    clearSelection: function clearSelection() {
+      this.selectedResource = null;
+      this.selectedResourceId = null;
+      this.availableResources = [];
+      if (this.field) {
+        if (typeof this['emitFieldValueChange'] == 'function') {
+          this.emitFieldValueChange(this.fieldAttribute, null);
+        } else {
+          Nova.$emit(this.fieldAttribute + '-change', null);
+        }
+      }
+    },
+    /**
+     * Perform a search to get the relatable resources.
+     */
+    performSearch: function performSearch(search) {
+      var _this = this;
+      this.search = search;
+      var trimmedSearch = search.trim();
+      // If the user performs an empty search, it will load all the results
+      // so let's just set the availableResources to an empty array to avoid
+      // loading a huge result set
+      if (trimmedSearch == '') {
+        return;
+      }
+      this.searchDebouncer(function () {
+        _this.getAvailableResources(trimmedSearch);
+      }, 500);
+    },
+    /**
+     * Debounce function for the search handler
+     */
+    searchDebouncer: lodash_debounce__WEBPACK_IMPORTED_MODULE_0___default()(function (callback) {
+      return callback();
+    }, 500)
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/PreventsFormAbandonment.js":
+/*!****************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/PreventsFormAbandonment.js ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _util_filled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../util/filled */ "./vendor/laravel/nova/resources/js/util/filled.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    var _this = this;
+    this.removeOnNavigationChangesEvent = _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.on('before', function (event) {
+      _this.removeOnNavigationChangesEvent();
+      _this.handlePreventFormAbandonmentOnInertia(event);
+    });
+    window.addEventListener('beforeunload', this.handlePreventFormAbandonmentOnInertia);
+    this.removeOnBeforeUnloadEvent = function () {
+      window.removeEventListener('beforeunload', _this.handlePreventFormAbandonmentOnInertia);
+      _this.removeOnBeforeUnloadEvent = function () {};
+    };
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+    window.onpopstate = function (event) {
+      _this2.handlePreventFormAbandonmentOnPopState(event);
+    };
+  },
+  beforeUnmount: function beforeUnmount() {
+    this.removeOnBeforeUnloadEvent();
+  },
+  unmounted: function unmounted() {
+    this.removeOnNavigationChangesEvent();
+    this.resetPushState();
+  },
+  data: function data() {
+    return {
+      removeOnNavigationChangesEvent: null,
+      removeOnBeforeUnloadEvent: null,
+      navigateBackUsingHistory: true
+    };
+  },
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)(['allowLeavingForm', 'preventLeavingForm', 'triggerPushState', 'resetPushState'])), {}, {
+    /**
+     * Prevent accidental abandonment only if form was changed.
+     */
+    updateFormStatus: function updateFormStatus() {
+      if (this.canLeaveForm === true) {
+        this.triggerPushState();
+      }
+      this.preventLeavingForm();
+    },
+    enableNavigateBackUsingHistory: function enableNavigateBackUsingHistory() {
+      this.navigateBackUsingHistory = false;
+    },
+    disableNavigateBackUsingHistory: function disableNavigateBackUsingHistory() {
+      this.navigateBackUsingHistory = false;
+    },
+    handlePreventFormAbandonment: function handlePreventFormAbandonment(proceed, revert) {
+      if (this.canLeaveForm) {
+        proceed();
+        return;
+      }
+      var answer = window.confirm(this.__('Do you really want to leave? You have unsaved changes.'));
+      if (answer) {
+        proceed();
+        return;
+      }
+      revert();
+    },
+    handlePreventFormAbandonmentOnInertia: function handlePreventFormAbandonmentOnInertia(event) {
+      var _this3 = this;
+      this.handlePreventFormAbandonment(function () {
+        _this3.handleProceedingToNextPage();
+        _this3.allowLeavingForm();
+      }, function () {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.ignoreHistoryState = true;
+        event.preventDefault();
+        event.returnValue = '';
+        _this3.removeOnNavigationChangesEvent = _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.on('before', function (event) {
+          _this3.removeOnNavigationChangesEvent();
+          _this3.handlePreventFormAbandonmentOnInertia(event);
+        });
+      });
+    },
+    handlePreventFormAbandonmentOnPopState: function handlePreventFormAbandonmentOnPopState(event) {
+      var _this4 = this;
+      event.stopImmediatePropagation();
+      event.stopPropagation();
+      this.handlePreventFormAbandonment(function () {
+        _this4.handleProceedingToPreviousPage();
+        _this4.allowLeavingForm();
+      }, function () {
+        _this4.triggerPushState();
+      });
+    },
+    handleProceedingToPreviousPage: function handleProceedingToPreviousPage() {
+      window.onpopstate = null;
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.ignoreHistoryState = false;
+      this.removeOnBeforeUnloadEvent();
+      if (!this.canLeaveFormToPreviousPage && this.navigateBackUsingHistory) {
+        window.history.back();
+      }
+    },
+    handleProceedingToNextPage: function handleProceedingToNextPage() {
+      window.onpopstate = null;
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.ignoreHistoryState = false;
+      this.removeOnBeforeUnloadEvent();
+    },
+    proceedToPreviousPage: function proceedToPreviousPage(url) {
+      if (this.navigateBackUsingHistory && window.history.length > 1) {
+        window.history.back();
+      } else if (!this.navigateBackUsingHistory && (0,_util_filled__WEBPACK_IMPORTED_MODULE_2__["default"])(url)) {
+        Nova.visit(url, {
+          replace: true
+        });
+      } else {
+        Nova.visit('/');
+      }
+    }
+  }),
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['canLeaveForm', 'canLeaveFormToPreviousPage']))
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/PreventsModalAbandonment.js":
+/*!*****************************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/PreventsModalAbandonment.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    show: {
+      type: Boolean,
+      "default": false
+    }
+  },
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)(['allowLeavingModal', 'preventLeavingModal'])), {}, {
+    /**
+     * Prevent accidental abandonment only if form was changed.
+     */
+    updateModalStatus: function updateModalStatus() {
+      this.preventLeavingModal();
+    },
+    handlePreventModalAbandonment: function handlePreventModalAbandonment(proceed, revert) {
+      if (this.canLeaveModal) {
+        proceed();
+        return;
+      }
+      if (window.confirm(this.__('Do you really want to leave? You have unsaved changes.'))) {
+        this.allowLeavingModal();
+        proceed();
+        return;
+      }
+      revert();
+    }
+  }),
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(['canLeaveModal']))
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/SupportsPolling.js":
+/*!********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/SupportsPolling.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      pollingListener: null,
+      currentlyPolling: false
+    };
+  },
+  /**
+   * Unbind the polling listener before the component is destroyed.
+   */
+  beforeUnmount: function beforeUnmount() {
+    this.stopPolling();
+  },
+  methods: {
+    initializePolling: function initializePolling() {
+      this.currentlyPolling = this.currentlyPolling || this.resourceResponse.polling;
+      if (this.currentlyPolling && this.pollingListener === null) {
+        return this.startPolling();
+      }
+    },
+    /**
+     * Toggle polling for new resources.
+     */
+    togglePolling: function togglePolling() {
+      if (this.currentlyPolling) {
+        this.stopPolling();
+      } else {
+        this.startPolling();
+      }
+    },
+    /**
+     * Pause polling for new resources.
+     */
+    stopPolling: function stopPolling() {
+      if (this.pollingListener) {
+        clearInterval(this.pollingListener);
+        this.pollingListener = null;
+      }
+      this.currentlyPolling = false;
+    },
+    /**
+     * Start polling for new resources.
+     */
+    startPolling: function startPolling() {
+      var _this = this;
+      this.pollingListener = setInterval(function () {
+        var _this$selectedResourc;
+        var selectedResources = (_this$selectedResourc = _this.selectedResources) !== null && _this$selectedResourc !== void 0 ? _this$selectedResourc : [];
+        if (document.hasFocus() && document.querySelectorAll('[data-modal-open]').length < 1 && selectedResources.length < 1) {
+          _this.getResources();
+        }
+      }, this.pollingInterval);
+      this.currentlyPolling = true;
+    },
+    /**
+     * Restart polling for the resource.
+     */
+    restartPolling: function restartPolling() {
+      if (this.currentlyPolling === true) {
+        this.stopPolling();
+        this.startPolling();
+      }
+    }
+  },
+  computed: {
+    initiallyPolling: function initiallyPolling() {
+      return this.resourceResponse.polling;
+    },
+    pollingInterval: function pollingInterval() {
+      return this.resourceResponse.pollingInterval;
+    },
+    /**
+     * Determine if the polling toggle button should be shown.
+     */
+    shouldShowPollingToggle: function shouldShowPollingToggle() {
+      if (!this.resourceResponse) return false;
+      return this.resourceResponse.showPollingToggle || false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/TogglesTrashed.js":
+/*!*******************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/TogglesTrashed.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      withTrashed: false
+    };
+  },
+  methods: {
+    /**
+     * Toggle the trashed state of the search
+     */
+    toggleWithTrashed: function toggleWithTrashed() {
+      this.withTrashed = !this.withTrashed;
+    },
+    /**
+     * Enable searching for trashed resources
+     */
+    enableWithTrashed: function enableWithTrashed() {
+      this.withTrashed = true;
+    },
+    /**
+     * Disable searching for trashed resources
+     */
+    disableWithTrashed: function disableWithTrashed() {
+      this.withTrashed = false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/index.js":
+/*!**********************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/index.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BehavesAsPanel: () => (/* reexport safe */ _BehavesAsPanel__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   Collapsable: () => (/* reexport safe */ _Collapsable__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   CopiesToClipboard: () => (/* reexport safe */ _CopiesToClipboard__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   Deletable: () => (/* reexport safe */ _Deletable__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   DependentFormField: () => (/* reexport safe */ _DependentFormField__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   Errors: () => (/* reexport safe */ form_backend_validation__WEBPACK_IMPORTED_MODULE_31__.Errors),
+/* harmony export */   FieldSuggestions: () => (/* reexport safe */ _FieldSuggestions__WEBPACK_IMPORTED_MODULE_23__["default"]),
+/* harmony export */   FieldValue: () => (/* reexport safe */ _FieldValue__WEBPACK_IMPORTED_MODULE_24__["default"]),
+/* harmony export */   Filterable: () => (/* reexport safe */ _Filterable__WEBPACK_IMPORTED_MODULE_25__["default"]),
+/* harmony export */   FormEvents: () => (/* reexport safe */ _FormEvents__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   FormField: () => (/* reexport safe */ _FormField__WEBPACK_IMPORTED_MODULE_16__["default"]),
+/* harmony export */   HandlesFieldAttachments: () => (/* reexport safe */ _HandlesFieldAttachments__WEBPACK_IMPORTED_MODULE_17__["default"]),
+/* harmony export */   HandlesFormRequest: () => (/* reexport safe */ _HandlesFormRequest__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   HandlesPanelVisibility: () => (/* reexport safe */ _HandlesPanelVisibility__WEBPACK_IMPORTED_MODULE_26__["default"]),
+/* harmony export */   HandlesUploads: () => (/* reexport safe */ _HandlesUploads__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   HandlesValidationErrors: () => (/* reexport safe */ _HandlesValidationErrors__WEBPACK_IMPORTED_MODULE_18__["default"]),
+/* harmony export */   HasCards: () => (/* reexport safe */ _HasCards__WEBPACK_IMPORTED_MODULE_22__["default"]),
+/* harmony export */   IndexConcerns: () => (/* reexport safe */ _IndexConcerns__WEBPACK_IMPORTED_MODULE_30__["default"]),
+/* harmony export */   InteractsWithDates: () => (/* reexport safe */ _InteractsWithDates__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   InteractsWithQueryString: () => (/* reexport safe */ _InteractsWithQueryString__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   InteractsWithResourceInformation: () => (/* reexport safe */ _InteractsWithResourceInformation__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   LoadsResources: () => (/* reexport safe */ _LoadsResources__WEBPACK_IMPORTED_MODULE_19__["default"]),
+/* harmony export */   Localization: () => (/* reexport safe */ _Localization__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   MetricBehavior: () => (/* reexport safe */ _MetricBehavior__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   Paginatable: () => (/* reexport safe */ _Paginatable__WEBPACK_IMPORTED_MODULE_27__["default"]),
+/* harmony export */   PerPageable: () => (/* reexport safe */ _PerPageable__WEBPACK_IMPORTED_MODULE_28__["default"]),
+/* harmony export */   PerformsSearches: () => (/* reexport safe */ _PerformsSearches__WEBPACK_IMPORTED_MODULE_21__["default"]),
+/* harmony export */   PreventsFormAbandonment: () => (/* reexport safe */ _PreventsFormAbandonment__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   PreventsModalAbandonment: () => (/* reexport safe */ _PreventsModalAbandonment__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   SupportsPolling: () => (/* reexport safe */ _SupportsPolling__WEBPACK_IMPORTED_MODULE_29__["default"]),
+/* harmony export */   TogglesTrashed: () => (/* reexport safe */ _TogglesTrashed__WEBPACK_IMPORTED_MODULE_20__["default"]),
+/* harmony export */   mapProps: () => (/* reexport safe */ _propTypes__WEBPACK_IMPORTED_MODULE_0__.mapProps)
+/* harmony export */ });
+/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
+/* harmony import */ var _BehavesAsPanel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BehavesAsPanel */ "./vendor/laravel/nova/resources/js/mixins/BehavesAsPanel.js");
+/* harmony import */ var _CopiesToClipboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CopiesToClipboard */ "./vendor/laravel/nova/resources/js/mixins/CopiesToClipboard.js");
+/* harmony import */ var _PreventsFormAbandonment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PreventsFormAbandonment */ "./vendor/laravel/nova/resources/js/mixins/PreventsFormAbandonment.js");
+/* harmony import */ var _PreventsModalAbandonment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PreventsModalAbandonment */ "./vendor/laravel/nova/resources/js/mixins/PreventsModalAbandonment.js");
+/* harmony import */ var _Deletable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Deletable */ "./vendor/laravel/nova/resources/js/mixins/Deletable.js");
+/* harmony import */ var _DependentFormField__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DependentFormField */ "./vendor/laravel/nova/resources/js/mixins/DependentFormField.js");
+/* harmony import */ var _HandlesFormRequest__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./HandlesFormRequest */ "./vendor/laravel/nova/resources/js/mixins/HandlesFormRequest.js");
+/* harmony import */ var _HandlesUploads__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./HandlesUploads */ "./vendor/laravel/nova/resources/js/mixins/HandlesUploads.js");
+/* harmony import */ var _InteractsWithDates__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./InteractsWithDates */ "./vendor/laravel/nova/resources/js/mixins/InteractsWithDates.js");
+/* harmony import */ var _InteractsWithQueryString__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./InteractsWithQueryString */ "./vendor/laravel/nova/resources/js/mixins/InteractsWithQueryString.js");
+/* harmony import */ var _InteractsWithResourceInformation__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./InteractsWithResourceInformation */ "./vendor/laravel/nova/resources/js/mixins/InteractsWithResourceInformation.js");
+/* harmony import */ var _Localization__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Localization */ "./vendor/laravel/nova/resources/js/mixins/Localization.js");
+/* harmony import */ var _Collapsable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Collapsable */ "./vendor/laravel/nova/resources/js/mixins/Collapsable.js");
+/* harmony import */ var _MetricBehavior__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./MetricBehavior */ "./vendor/laravel/nova/resources/js/mixins/MetricBehavior.js");
+/* harmony import */ var _FormEvents__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./FormEvents */ "./vendor/laravel/nova/resources/js/mixins/FormEvents.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./FormField */ "./vendor/laravel/nova/resources/js/mixins/FormField.js");
+/* harmony import */ var _HandlesFieldAttachments__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./HandlesFieldAttachments */ "./vendor/laravel/nova/resources/js/mixins/HandlesFieldAttachments.js");
+/* harmony import */ var _HandlesValidationErrors__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./HandlesValidationErrors */ "./vendor/laravel/nova/resources/js/mixins/HandlesValidationErrors.js");
+/* harmony import */ var _LoadsResources__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./LoadsResources */ "./vendor/laravel/nova/resources/js/mixins/LoadsResources.js");
+/* harmony import */ var _TogglesTrashed__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./TogglesTrashed */ "./vendor/laravel/nova/resources/js/mixins/TogglesTrashed.js");
+/* harmony import */ var _PerformsSearches__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./PerformsSearches */ "./vendor/laravel/nova/resources/js/mixins/PerformsSearches.js");
+/* harmony import */ var _HasCards__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./HasCards */ "./vendor/laravel/nova/resources/js/mixins/HasCards.js");
+/* harmony import */ var _FieldSuggestions__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./FieldSuggestions */ "./vendor/laravel/nova/resources/js/mixins/FieldSuggestions.js");
+/* harmony import */ var _FieldValue__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./FieldValue */ "./vendor/laravel/nova/resources/js/mixins/FieldValue.js");
+/* harmony import */ var _Filterable__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Filterable */ "./vendor/laravel/nova/resources/js/mixins/Filterable.js");
+/* harmony import */ var _HandlesPanelVisibility__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./HandlesPanelVisibility */ "./vendor/laravel/nova/resources/js/mixins/HandlesPanelVisibility.js");
+/* harmony import */ var _Paginatable__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Paginatable */ "./vendor/laravel/nova/resources/js/mixins/Paginatable.js");
+/* harmony import */ var _PerPageable__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./PerPageable */ "./vendor/laravel/nova/resources/js/mixins/PerPageable.js");
+/* harmony import */ var _SupportsPolling__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./SupportsPolling */ "./vendor/laravel/nova/resources/js/mixins/SupportsPolling.js");
+/* harmony import */ var _IndexConcerns__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./IndexConcerns */ "./vendor/laravel/nova/resources/js/mixins/IndexConcerns.js");
+/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/packages.js":
+/*!*************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/packages.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CopiesToClipboard: () => (/* reexport safe */ _CopiesToClipboard__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   DependentFormField: () => (/* reexport safe */ _DependentFormField__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   Errors: () => (/* reexport safe */ form_backend_validation__WEBPACK_IMPORTED_MODULE_16__.Errors),
+/* harmony export */   FieldValue: () => (/* reexport safe */ _FieldValue__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   FormEvents: () => (/* reexport safe */ _FormEvents__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   FormField: () => (/* reexport safe */ _FormField__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   HandlesFieldAttachments: () => (/* reexport safe */ _HandlesFieldAttachments__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   HandlesFormRequest: () => (/* reexport safe */ _HandlesFormRequest__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   HandlesPanelVisibility: () => (/* reexport safe */ _HandlesPanelVisibility__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   HandlesUploads: () => (/* reexport safe */ _HandlesUploads__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   HandlesValidationErrors: () => (/* reexport safe */ _HandlesValidationErrors__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   HasCards: () => (/* reexport safe */ _HasCards__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   Localization: () => (/* reexport safe */ _Localization__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   MetricBehavior: () => (/* reexport safe */ _MetricBehavior__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   PreventsFormAbandonment: () => (/* reexport safe */ _PreventsFormAbandonment__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   PreventsModalAbandonment: () => (/* reexport safe */ _PreventsModalAbandonment__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   mapProps: () => (/* reexport safe */ _propTypes__WEBPACK_IMPORTED_MODULE_0__.mapProps),
+/* harmony export */   useCopyValueToClipboard: () => (/* reexport safe */ _CopiesToClipboard__WEBPACK_IMPORTED_MODULE_1__.useCopyValueToClipboard),
+/* harmony export */   useLocalization: () => (/* reexport safe */ _composables_useLocalization__WEBPACK_IMPORTED_MODULE_17__.useLocalization)
+/* harmony export */ });
+/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./propTypes */ "./vendor/laravel/nova/resources/js/mixins/propTypes.js");
+/* harmony import */ var _CopiesToClipboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CopiesToClipboard */ "./vendor/laravel/nova/resources/js/mixins/CopiesToClipboard.js");
+/* harmony import */ var _PreventsFormAbandonment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PreventsFormAbandonment */ "./vendor/laravel/nova/resources/js/mixins/PreventsFormAbandonment.js");
+/* harmony import */ var _PreventsModalAbandonment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PreventsModalAbandonment */ "./vendor/laravel/nova/resources/js/mixins/PreventsModalAbandonment.js");
+/* harmony import */ var _DependentFormField__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DependentFormField */ "./vendor/laravel/nova/resources/js/mixins/DependentFormField.js");
+/* harmony import */ var _HandlesFormRequest__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./HandlesFormRequest */ "./vendor/laravel/nova/resources/js/mixins/HandlesFormRequest.js");
+/* harmony import */ var _HandlesUploads__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./HandlesUploads */ "./vendor/laravel/nova/resources/js/mixins/HandlesUploads.js");
+/* harmony import */ var _Localization__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Localization */ "./vendor/laravel/nova/resources/js/mixins/Localization.js");
+/* harmony import */ var _MetricBehavior__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./MetricBehavior */ "./vendor/laravel/nova/resources/js/mixins/MetricBehavior.js");
+/* harmony import */ var _FieldValue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./FieldValue */ "./vendor/laravel/nova/resources/js/mixins/FieldValue.js");
+/* harmony import */ var _FormEvents__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./FormEvents */ "./vendor/laravel/nova/resources/js/mixins/FormEvents.js");
+/* harmony import */ var _FormField__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./FormField */ "./vendor/laravel/nova/resources/js/mixins/FormField.js");
+/* harmony import */ var _HandlesFieldAttachments__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./HandlesFieldAttachments */ "./vendor/laravel/nova/resources/js/mixins/HandlesFieldAttachments.js");
+/* harmony import */ var _HandlesValidationErrors__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./HandlesValidationErrors */ "./vendor/laravel/nova/resources/js/mixins/HandlesValidationErrors.js");
+/* harmony import */ var _HasCards__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./HasCards */ "./vendor/laravel/nova/resources/js/mixins/HasCards.js");
+/* harmony import */ var _HandlesPanelVisibility__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./HandlesPanelVisibility */ "./vendor/laravel/nova/resources/js/mixins/HandlesPanelVisibility.js");
+/* harmony import */ var form_backend_validation__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! form-backend-validation */ "./node_modules/form-backend-validation/dist/index.js");
+/* harmony import */ var _composables_useLocalization__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../composables/useLocalization */ "./vendor/laravel/nova/resources/js/composables/useLocalization.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/mixins/propTypes.js":
+/*!**************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/mixins/propTypes.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   mapProps: () => (/* binding */ mapProps)
+/* harmony export */ });
+/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/pick */ "./node_modules/lodash/pick.js");
+/* harmony import */ var lodash_pick__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_pick__WEBPACK_IMPORTED_MODULE_0__);
+
+var propTypes = {
+  nested: {
+    type: Boolean,
+    "default": false
+  },
+  preventInitialLoading: {
+    type: Boolean,
+    "default": false
+  },
+  showHelpText: {
+    type: Boolean,
+    "default": false
+  },
+  shownViaNewRelationModal: {
+    type: Boolean,
+    "default": false
+  },
+  resourceId: {
+    type: [Number, String]
+  },
+  resourceName: {
+    type: String
+  },
+  relatedResourceId: {
+    type: [Number, String]
+  },
+  relatedResourceName: {
+    type: String
+  },
+  field: {
+    type: Object,
+    required: true
+  },
+  viaResource: {
+    type: String,
+    required: false
+  },
+  viaResourceId: {
+    type: [String, Number],
+    required: false
+  },
+  viaRelationship: {
+    type: String,
+    required: false
+  },
+  relationshipType: {
+    type: String,
+    "default": ''
+  },
+  shouldOverrideMeta: {
+    type: Boolean,
+    "default": false
+  },
+  disablePagination: {
+    type: Boolean,
+    "default": false
+  },
+  clickAction: {
+    type: String,
+    "default": 'view',
+    validator: function validator(val) {
+      return ['edit', 'select', 'ignore', 'detail'].includes(val);
+    }
+  },
+  mode: {
+    type: String,
+    "default": 'form',
+    validator: function validator(v) {
+      return ['form', 'modal', 'action-modal', 'action-fullscreen'].includes(v);
+    }
+  }
+};
+function mapProps(attributes) {
+  return lodash_pick__WEBPACK_IMPORTED_MODULE_0___default()(propTypes, attributes);
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/capitalize.js":
+/*!*************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/capitalize.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_upperFirst__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/upperFirst */ "./node_modules/lodash/upperFirst.js");
+/* harmony import */ var lodash_upperFirst__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_upperFirst__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(string) {
+  return lodash_upperFirst__WEBPACK_IMPORTED_MODULE_0___default()(string);
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/escapeUnicode.js":
+/*!****************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/escapeUnicode.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   escapeUnicode: () => (/* binding */ escapeUnicode)
+/* harmony export */ });
+function escapeUnicode(str) {
+  return str.replace(/[^\0-~]/g, function (c) {
+    return "\\u" + ('000' + c.charCodeAt().toString(16)).slice(-4);
+  });
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/filled.js":
+/*!*********************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/filled.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ filled)
+/* harmony export */ });
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/isNil */ "./node_modules/lodash/isNil.js");
+/* harmony import */ var lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_isNil__WEBPACK_IMPORTED_MODULE_0__);
+
+function filled(value) {
+  return Boolean(!lodash_isNil__WEBPACK_IMPORTED_MODULE_0___default()(value) && value !== '');
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/hourCycle.js":
+/*!************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/hourCycle.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(locale) {
+  var hourCycle = Intl.DateTimeFormat(locale, {
+    hour: 'numeric'
+  }).resolvedOptions().hourCycle;
+  if (hourCycle == 'h23' || hourCycle == 'h24') {
+    return 24;
+  }
+  return 12;
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/increaseOrDecrease.js":
+/*!*********************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/increaseOrDecrease.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ increaseOrDecrease)
+/* harmony export */ });
+function increaseOrDecrease(currentValue, startingValue) {
+  if (startingValue === 0) {
+    return null;
+  }
+  if (currentValue > startingValue) {
+    return (currentValue - startingValue) / Math.abs(startingValue) * 100;
+  } else {
+    return (startingValue - currentValue) / Math.abs(startingValue) * -100;
+  }
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/index.js":
+/*!********************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/index.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   capitalize: () => (/* reexport safe */ _capitalize__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   hourCycle: () => (/* reexport safe */ _hourCycle__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   increaseOrDecrease: () => (/* reexport safe */ _increaseOrDecrease__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   minimum: () => (/* reexport safe */ _minimum__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   singularOrPlural: () => (/* reexport safe */ _singularOrPlural__WEBPACK_IMPORTED_MODULE_3__["default"])
+/* harmony export */ });
+/* harmony import */ var _hourCycle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hourCycle */ "./vendor/laravel/nova/resources/js/util/hourCycle.js");
+/* harmony import */ var _increaseOrDecrease__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./increaseOrDecrease */ "./vendor/laravel/nova/resources/js/util/increaseOrDecrease.js");
+/* harmony import */ var _minimum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./minimum */ "./vendor/laravel/nova/resources/js/util/minimum.js");
+/* harmony import */ var _singularOrPlural__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./singularOrPlural */ "./vendor/laravel/nova/resources/js/util/singularOrPlural.js");
+/* harmony import */ var _capitalize__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./capitalize */ "./vendor/laravel/nova/resources/js/util/capitalize.js");
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/localization.js":
+/*!***************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/localization.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ __)
+/* harmony export */ });
+/* harmony import */ var lodash_forEach__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/forEach */ "./node_modules/lodash/forEach.js");
+/* harmony import */ var lodash_forEach__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_forEach__WEBPACK_IMPORTED_MODULE_0__);
+
+function __(key, replace) {
+  var translation = Nova.config('translations')[key] ? Nova.config('translations')[key] : key;
+  lodash_forEach__WEBPACK_IMPORTED_MODULE_0___default()(replace, function (value, key) {
+    key = new String(key);
+    if (value === null) {
+      console.error("Translation '".concat(translation, "' for key '").concat(key, "' contains a null replacement."));
+      return;
+    }
+    value = new String(value);
+    var searches = [':' + key, ':' + key.toUpperCase(), ':' + key.charAt(0).toUpperCase() + key.slice(1)];
+    var replacements = [value, value.toUpperCase(), value.charAt(0).toUpperCase() + value.slice(1)];
+    for (var i = searches.length - 1; i >= 0; i--) {
+      translation = translation.replace(searches[i], replacements[i]);
+    }
+  });
+  return translation;
+}
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/minimum.js":
+/*!**********************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/minimum.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(originalPromise) {
+  var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;
+  return Promise.all([originalPromise, new Promise(function (resolve) {
+    setTimeout(function () {
+      return resolve();
+    }, delay);
+  })]).then(function (result) {
+    return result[0];
+  });
+}
+
+// Usage
+// minimum(axios.get('/'))
+//     .then(response => console.log('done'))
+//     .catch(error => console.log(error))
+
+/***/ }),
+
+/***/ "./vendor/laravel/nova/resources/js/util/singularOrPlural.js":
+/*!*******************************************************************!*\
+  !*** ./vendor/laravel/nova/resources/js/util/singularOrPlural.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ singularOrPlural)
+/* harmony export */ });
+/* harmony import */ var inflector_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! inflector-js */ "./node_modules/inflector-js/index.js");
+/* harmony import */ var inflector_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(inflector_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lodash_isString__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/isString */ "./node_modules/lodash/isString.js");
+/* harmony import */ var lodash_isString__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_isString__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function singularOrPlural(value, suffix) {
+  if (lodash_isString__WEBPACK_IMPORTED_MODULE_1___default()(suffix) && suffix.match(/^(.*)[A-Za-zÀ-ÖØ-öø-ÿ]$/) == null) return suffix;
+  if (value > 1 || value == 0) return inflector_js__WEBPACK_IMPORTED_MODULE_0___default().pluralize(suffix);
+  return inflector_js__WEBPACK_IMPORTED_MODULE_0___default().singularize(suffix);
+}
+
+/***/ }),
+
+/***/ "?4f7e":
+/*!********************************!*\
+  !*** ./util.inspect (ignored) ***!
+  \********************************/
+/***/ (() => {
+
+/* (ignored) */
+
+/***/ }),
+
 /***/ "vue":
 /*!**********************!*\
   !*** external "Vue" ***!
@@ -18290,17 +19863,6 @@ var index = {
 
 "use strict";
 module.exports = Vue;
-
-/***/ }),
-
-/***/ "./node_modules/axios/package.json":
-/*!*****************************************!*\
-  !*** ./node_modules/axios/package.json ***!
-  \*****************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
 
 /***/ })
 

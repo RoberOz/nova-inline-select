@@ -44,8 +44,9 @@ export default {
                 });
         },
 
-        attemptUpdate(value) {
-            this.value = value;
+        attemptUpdate(eventOrValue) {
+            /* If the variable is an event, get the value from the target otherwise use the variable itself */
+            this.value = eventOrValue?.target?.value ?? eventOrValue;
 
             if (this.field.indexTwoStepDisabled ?? false) {
                 return this.submit();
