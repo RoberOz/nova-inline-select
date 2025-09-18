@@ -8,7 +8,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/RoberOz/nova-inline-select"
+            "url": "https://github.com/roberoz/nova-inline-select"
         }
     ],
     "homepage": "https://github.com/kirschbaum-development/nova-inline-select",
