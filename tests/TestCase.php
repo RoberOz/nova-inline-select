@@ -4,7 +4,7 @@ namespace Tests;
 
 use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use KirschbaumDevelopment\Nova\InlineSelectFieldServiceProvider;
+use RoberOz\Nova\InlineSelectFieldServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {

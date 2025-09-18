@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
-use KirschbaumDevelopment\Nova\InlineSelect;
+use RoberOz\Nova\InlineSelect;
 
 class InlineSelectDetailTest extends TestCase
 {
