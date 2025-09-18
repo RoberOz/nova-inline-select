@@ -7,8 +7,8 @@
     ],
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
+            "type": "vcs",
+            "url": "https://github.com/RoberOz/nova-inline-select"
         }
     ],
     "homepage": "https://github.com/kirschbaum-development/nova-inline-select",
