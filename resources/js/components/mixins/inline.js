@@ -27,7 +27,6 @@ export default {
         async submit() {
             let formData = new FormData();
 
-            console.log(this.value);
             formData.append(this.field.attribute, this.value);
             formData.append('_method', 'PUT');
 
