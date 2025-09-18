@@ -1,6 +1,6 @@
 {
-    "name": "kirschbaum-development/nova-inline-select",
-    "description": "An inline select field for Laravel Nova apps.",
+    "name": "roberoz/nova-inline-select",
+    "description": "An inline select field for Laravel Nova apps - Fixed inline update. (Forked from `kirschbaum-development/nova-inline-select`)",
     "keywords": [
         "laravel",
         "nova"
@@ -15,9 +15,14 @@
             "url": "https://github.com/roberoz/nova-inline-select"
         }
     ],
-    "homepage": "https://github.com/kirschbaum-development/nova-inline-select",
+    "homepage": "https://github.com/roberoz/nova-inline-select",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Rober Özdemir",
+            "email": "roberrudi006@gmail.com",
+            "role": "Developer"
+        },
         {
             "name": "Brandon Ferens",
             "email": "brandon@kirschbaumdevelopment.com",
@@ -34,7 +39,7 @@
     },
     "autoload": {
         "psr-4": {
-            "KirschbaumDevelopment\\Nova\\": "src/"
+            "RoberOz\\Nova\\": "src/"
         }
     },
     "autoload-dev": {
@@ -45,7 +50,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "KirschbaumDevelopment\\Nova\\InlineSelectFieldServiceProvider"
+                "RoberOz\\Nova\\InlineSelectFieldServiceProvider"
             ]
         }
     },
